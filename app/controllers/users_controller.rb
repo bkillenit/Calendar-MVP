@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
+  before_filter :authenticate_self,  :only => 'edit'
+
   def index
     @users = User.all
 
@@ -57,8 +59,6 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-
-    before_filter :authenticate_self,  :only => 'edit'
 
     def authenticate_self
       if session[:user_id].nil?
