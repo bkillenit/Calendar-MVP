@@ -1,7 +1,15 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  
-  
+
+  before_filter :authenticate,  :except => ['login', 'index', 'show']
+
+  def authenticate
+    if session[:user_id].nil?
+      flash[:alert] = 'You need to login, before proceed.'
+      redirect_to :controller => 'admin', :action => 'login'
+    end
+  end
+
   # got these tips from
   # http://lyconic.com/blog/2010/08/03/dry-up-your-ajax-code-with-the-jquery-rest-plugin
   before_filter :correct_safari_and_ie_accept_headers

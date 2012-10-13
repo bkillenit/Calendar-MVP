@@ -17,11 +17,15 @@
   </div>
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class=”field”>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
   </div>
   <div class="field">
     <%= f.label :role %><br />
-    <%= f.text_field :role %>
+    <%= f.select :role, ['Admin', 'User'], :prompt => 'Select Role…' %>
   </div>
   <div class="actions">
     <%= f.submit %>

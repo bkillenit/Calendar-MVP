@@ -58,6 +58,19 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
+    before_filter :authenticate_self,  :only => 'edit'
+
+    def authenticate_self
+      if session[:user_id].nil?
+        flash[:alert] = 'You need to login before proceed.'
+        redirect_to(:controller => 'admin', :action => 'login')
+      elsif session[:user_id].to_s != params[:id]
+        flash[:alert] = 'You need to be the user him/herself for the action.'
+        redirect_to(:controller => 'admin', :action => 'login')
+
+      end
+    end
+
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }

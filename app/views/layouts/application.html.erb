@@ -20,6 +20,19 @@
 </head>
 <body>
 
+<div id="notice" style="float: right;"><%= notice %>
+
+
+  <% if session[:user_id] != nil  %>
+      <% @users = User.find(session[:user_id])%>
+      <p><%= link_to 'Logout', :controller => 'admin', :action => 'logout' %> | <%=  @users.name  %></p>
+
+  <%  else %>
+      <%= link_to 'Login', :controller => 'admin', :action => 'login' %>
+
+  <% end %>
+</div>
+
 <%= yield %>
 
 </body>
