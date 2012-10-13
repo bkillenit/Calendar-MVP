@@ -6,11 +6,12 @@ class CreateRelationships < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :relationships, :follower_id
+    add_index :relationships, :followed_id
+    add_index :relationships, [:follower_id, :followed_id], unique: true
   end
 
-  add_index :relationships, :follower_id
-  add_index :relationships, :followed_id
-  add_index :relationships, [:follower_id, :followed_id], unique: true
+
 
   def self.down
     drop_table :relationships
