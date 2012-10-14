@@ -1,12 +1,14 @@
 class AdminController < ApplicationController
+
   def login
     if request.post?
-      user = User.find_by_name(params[:name])
-      if ! user.nil? && user.password == params[:password]
+      user = User.authenticate(params[:username], params[:password])
+      if user
         session[:user_id] = user.id
-        redirect_to(calendar_index_path)
+        session[:username] = user.username
+        redirect_to(:controller=> "events", :action => "index")
       else
-        redirect_to(:back, :alert => 'Invalid user name/password.')
+        flash.now[:notice] = "Invalid user/password combination"
       end
     end
   end

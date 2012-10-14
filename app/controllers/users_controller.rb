@@ -2,6 +2,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   before_filter :authenticate_self,  :only => 'edit'
+  before_filter :authenticate, :except => ['new', 'create']
+
+  def authenticate
+    unless User.find_by_id(session[:user_id])
+      flash[:notice] = "Please log in."
+      redirect_to :controller => 'admin', :action => 'login'
+    end
+  end
 
   def index
     @users = User.all

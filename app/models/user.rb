@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :followed_users, through: :relationships, source: :followed
 
   has_many :reverse_relationships, foreign_key: "followed_id",
-           class_name:  "Relationship",
+          class_name:  "Relationship",
            dependent:   :destroy
 
   has_many :followers, through: :reverse_relationships, source: :follower
@@ -14,6 +14,17 @@ class User < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
   validates :password, :presence => true, :confirmation => true
   validates :role, :presence => true
+
+  def self.authenticate(username, pass)
+    user = self.find_by_name(username)
+    if user
+      if user.pwd != encrypted_password(pass, user.seed)
+
+        user = nil
+      end
+    end
+    user
+  end
 
   def following?(other_user)
     relationships.find_by_followed_id(other_user.id)

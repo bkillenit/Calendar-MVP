@@ -1,12 +1,17 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :authenticate,  :except => ['login']
+  before_filter :authenticate,  :except => ['login','new', 'create']
 
   def authenticate
-    if session[:user_id].nil?
+    unless User.find_by_id(session[:user_id])
+      flash[:notice] = "Please log in."
       redirect_to :controller => 'admin', :action => 'login'
     end
+  end
+
+  def current_user
+    User.find(session[:user_id])
   end
 
   # got these tips from
