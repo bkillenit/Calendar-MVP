@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
   before_filter :authenticate_self,  :only => 'edit'
+  skip_before_filter :authenticate, :only => ['new', 'create']
 
   def index
     @users = User.all
