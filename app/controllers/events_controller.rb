@@ -7,7 +7,7 @@ class EventsController < ApplicationController
     # appropriate month/week/day.  It should be possible to change
     # this to be starts_at and ends_at to match rails conventions.
     # I'll eventually do that to make the demo a little cleaner.
-    @events = Event.scoped  
+    @events = current_user.events.scoped  
     @events = @events.after(params['start']) if (params['start'])
     @events = @events.before(params['end']) if (params['end'])
     
@@ -33,7 +33,7 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.xml
   def new
-    @event = Event.new
+    @event = current_user.events.build 
 
     respond_to do |format|
       format.html # new.html.erb
@@ -49,7 +49,7 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.xml
   def create
-    @event = Event.new(params[:event])
+    @event = current_user.events.build(params[:event])
 
     respond_to do |format|
       if @event.save

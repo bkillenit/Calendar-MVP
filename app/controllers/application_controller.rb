@@ -2,11 +2,18 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :authenticate,  :except => ['login']
+  helper_method :current_user
 
   def authenticate
     if session[:user_id].nil?
       redirect_to :controller => 'admin', :action => 'login'
     end
+  end
+
+  # helper method that allows us to get the current user object in other
+  # controllers
+  def current_user 
+    @current_user = User.find(session[:user_id])
   end
 
   # got these tips from
