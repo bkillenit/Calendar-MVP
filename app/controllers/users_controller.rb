@@ -5,13 +5,11 @@ class UsersController < ApplicationController
   skip_before_filter :authenticate, :only => ['new', 'create']
 
   def index
-    @users = User.all
+    @users = User.search(params[:search])
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @users }
-    end
+    redirect_to :controller => 'calendar', :action => 'index'
   end
+
 
   # GET /users/1
   # GET /users/1.xml
@@ -94,4 +92,5 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end
