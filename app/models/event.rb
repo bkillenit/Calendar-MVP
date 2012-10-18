@@ -1,10 +1,15 @@
 class Event < ActiveRecord::Base
 
+<<<<<<< HEAD
 
+
+
+
+=======
   belongs_to :user
   validates :user_id, presence: true
-
-
+    
+>>>>>>> cab6923b126862df2c81512b397b415eccb7d962
   scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
   scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Event.format_date(start_time)] }}
   
