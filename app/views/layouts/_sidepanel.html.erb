@@ -1,0 +1,22 @@
+<div id="search">
+  <%= render :partial => 'layouts/search' %>
+</div><!--search end-->
+
+<div class="friends">
+  <h4><a href="#" class="search-btn"> Search Results</a></h4>
+  <%= render :partial=>'users/userlist', :locals=>{:users => @users, :flag => true }%>
+</div>
+
+<div class="friends">
+  <h4><a href="#" class="friends-btn">Friends</a></h4>
+  <% if @follwer_id != nil %>
+    <%= render :partial=>'users/userlist', :locals=>{:users => @friends, :flag => false}%>
+  <% else %>
+  Search for friends!
+  <% end %>
+  <!--render friend only-->
+</div><!-- friends end -->
+
+<div class="groups">
+  <h4><span class="ui-icon"></span><a href="#" class="groups-btn">Groups</a></h4>
+</div>

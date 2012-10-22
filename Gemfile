@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '1.9.3'
 
-gem "heroku"
+gem 'validates_timeliness', '~> 3.0'
 
 gem 'rails', '3.2.8'
 
@@ -22,6 +22,9 @@ end
 group :test do
   gem 'capybara', '1.1.2'
 end
+
+
+gem 'validates_timeliness', '~> 3.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'

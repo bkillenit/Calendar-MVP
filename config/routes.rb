@@ -1,5 +1,7 @@
 Calendar::Application.routes.draw do
 
+  get "searches/search"
+
   get "admin/login"
 
   get "admin/logout"

@@ -2,7 +2,15 @@
     <% redirect_to :controller => 'admin', :action => 'login' %>
 <% end %>
 
-<%= link_to "new event", new_event_path %>
+<div id="new_event" style="padding-bottom: 10px;">
+    <%= link_to "new event", new_event_path %>
+</div>
 
-<div id='calendar'></div>
+<div id="sindepanel" style="float: left;">
+  <%= render :partial => 'layouts/sidepanel'%>
+</div>
+
+<div id='calendar' style="float: left;padding-left: 40px;"></div>
+
+
 
