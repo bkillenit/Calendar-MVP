@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
 
   belongs_to :user
   validates :user_id, presence: true
-    
+
   scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
   scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Event.format_date(start_time)] }}
   
