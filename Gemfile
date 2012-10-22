@@ -8,7 +8,7 @@ gem 'rails', '3.2.8'
 gem 'sqlite3'
 
 
-
+gem 'validates_timeliness', '~> 3.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'
