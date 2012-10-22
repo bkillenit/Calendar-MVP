@@ -7,7 +7,10 @@ class UsersController < ApplicationController
   def index
     @users = User.search(params[:search])
 
-    redirect_to :controller => 'calendar', :action => 'index'
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @user }
+    end
   end
 
 
