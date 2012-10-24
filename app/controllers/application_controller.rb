@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :authenticate,  :except => ['login']
+
+
   helper_method :current_user
 
   def authenticate

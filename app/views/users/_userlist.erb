@@ -1,34 +1,36 @@
 <%if !@users.nil?%>
     <%if flag%>
-        <ul style="display: block;" class="friends-list" id="searched">
+        <ul style="display: block;" class="friends-list" id="searched"></ul>
     <%else%>
-        <ul style="display: block;" class="friends-list">
+        <ul style="display: block;" class="friends-list"></ul>
     <%end%>
+
+<ul>
     <% @users.each do |user| %>
 
         <!--
         TODO limit numbers of users so it doesnt fill browser but requires scroll
             down within box
         -->
-
         <li class="userli" id="<%=user.id%>">
-          <div class="profile-pic">
-            <%=image_tag "profile-pic.jpg"%>
-          </div>
-          <div class="profile-name">
-            <h3><%=link_to user.name %></h3>
-            <p><%= %></p>
-          </div>
-          <div class="profile-follow"><%= followlink(user.id)%>
-            <!--
-                TODO how to bind follow method to this div?
-            -->
-          </div>
-          <div class="fix"></div><!-- prevent sliding -->
-        </li>
-    <% end %>
-    </ul>
-    <% else %>
+            <div class="profile-name">
+                <h3><%=link_to user.name %></h3>
+                <p><%= %></p>
 
+                <div class="follow-btn">
+                    <%= image_tag("follow.jpg") %>
+                </div>
+
+                </div>
+
+                <div class="fix"></div><!-- prevent sliding -->
+        </li>
+
+
+    <% end %>
+</ul>
+
+    <% else %>
+    <p>No search results match your criteria</p>
 
 <%end%>
