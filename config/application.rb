@@ -12,6 +12,9 @@ module Calendar
     # http://github.com/lleger/Rails-3-jQuery, written by Logan Leger
     config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
     config.action_view.javascript_expansions[:cdn] = %w(https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js rails)
+    
+    #configuration for heroku
+    
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

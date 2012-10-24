@@ -1,7 +1,12 @@
 class Event < ActiveRecord::Base
 
+  attr_accessible :ends_at, :starts_at
+
   belongs_to :user
   validates :user_id, presence: true
+  validates :title, presence: true
+  validates_datetime :ends_at, :after => :starts_at, :after_message => "Please select end time after start time" # Method symbol
+
 
   scope :before, lambda {|end_time| {:conditions => ["ends_at < ?", Event.format_date(end_time)] }}
   scope :after, lambda {|start_time| {:conditions => ["starts_at > ?", Event.format_date(start_time)] }}
