@@ -12,7 +12,7 @@ class EventsController < ApplicationController
     @events = @events.before(params['end']) if (params['end'])
     
     respond_to do |format|
-      format.html # index.html.erb
+      format.html # index.html.erb.erb
       format.xml  { render :xml => @events }
       format.js  { render :json => @events }
     end

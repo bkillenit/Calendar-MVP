@@ -21,6 +21,13 @@ Calendar::Application.routes.draw do
 
   post "calendar/index"
 
+  get "relationships/create"
+
+  post "relationships/create"
+
+  resources :sessions, :only => [:new, :create, :destroy]
+  resources :relationships, :only => [:create, :destroy]
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -70,7 +77,7 @@ Calendar::Application.routes.draw do
   #   end
 
   # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
+  # just remember to delete public/index.html.erb.
   # root :to => "welcome#index"
 
   root :to => "calendar#index"
