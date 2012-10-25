@@ -9,7 +9,11 @@ Calendar::Application.routes.draw do
   post "admin/login"
 
 
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
 
   resources :events
 

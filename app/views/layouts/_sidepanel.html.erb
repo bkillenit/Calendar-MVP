@@ -12,7 +12,9 @@
   <% if @follwer_id != nil %>
     <%= render :partial=>'users/userlist', :locals=>{:users => @friends, :flag => false}%>
   <% else %>
-  Search for friends!
+      <ul class="userli">
+        <li>Search for friends!</li>
+      </ul>
   <% end %>
   <!--render friend only-->
 </div><!-- friends end -->

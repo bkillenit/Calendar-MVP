@@ -1,10 +1,10 @@
 class Event < ActiveRecord::Base
 
-  attr_accessible :ends_at, :starts_at
+  attr_accessible :ends_at, :starts_at, :title
 
   belongs_to :user
-  validates :user_id, presence: true
-  validates :title, presence: true
+  validates :user_id, :presence => true
+  validates :title, :presence => true
   validates_datetime :ends_at, :after => :starts_at, :after_message => "Please select end time after start time" # Method symbol
 
 

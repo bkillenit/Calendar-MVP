@@ -5,9 +5,16 @@
         <ul style="display: block;" class="friends-list"></ul>
     <%end%>
 
+    <!-- filters out logged in user from search -->
+    <% @users.each do |user| %>
+        <% if user === User.find_by_id(session[:user_id])
+            @users = @users - [user]
+        end %>
+    <% end %>
+
+    <!-- generates the user list for search based on search criteria, friends, and groups -->
 <ul>
     <% @users.each do |user| %>
-
         <!--
         TODO limit numbers of users so it doesnt fill browser but requires scroll
             down within box
@@ -16,17 +23,20 @@
             <div class="profile-name">
                 <h3><%=link_to user.name %></h3>
                 <p><%= %></p>
+            </div>
 
-                <div class="follow-btn">
-                    <%= image_tag("follow.jpg") %>
-                </div>
+        <% if User.following?(user) != true %>
 
-                </div>
+          <div class="profile-follow">
+                <%= image_tag("follow.jpg") %>
+          </div>
+
+        <% else %>
+
+        <% end %>
 
                 <div class="fix"></div><!-- prevent sliding -->
         </li>
-
-
     <% end %>
 </ul>
 

@@ -1,5 +1,5 @@
 <%= form_tag('/calendar/index', :method => 'get') do %>
-    <%= text_field_tag :search, params[:search], :id => 'search_field' %></br>
+    <%= text_field_tag :search, params[:search], :class => 'search_input' %></br>
     <%= submit_tag "Search", :name => nil %></br>
     <%= link_to_function "Clear", "$('search_field').clear()" %>
 <% end %>
