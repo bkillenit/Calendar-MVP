@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate,  :except => 'login'
 
   helper_method :current_user
+  helper_method :users_to_merge
 
   def authenticate
     if session[:user_id].nil?
@@ -15,6 +16,14 @@ class ApplicationController < ActionController::Base
   # controllers
   def current_user 
     @current_user = User.find(session[:user_id])
+  end
+
+  # helper method that allows us to access the users' calendars whose events
+  # we're going to merge
+  def users_to_merge
+    if params[:users_to_merge]
+      @users_to_merge = params[:users_to_merge].map { |user_id| User.find(user_id) }
+    end
   end
 
   # got these tips from
