@@ -4,7 +4,7 @@
 class CalendarController < ApplicationController
 
   def index
-    if params[:search]
+    if params[:search] && params[:search] != ""
       @users = User.search(params[:search])
     end
   end

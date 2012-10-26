@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   skip_before_filter :authenticate, :only => ['new', 'create']
 
   def index
-    @users = User.search(params[:search])
+    @users = User.all
 
     respond_to do |format|
       format.html # index.html.erb.erb
@@ -13,6 +13,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def userlist
+    @user.find(params[:id])
+    @users = User.find_by_follower_id(current_user.id)
+  end
+
+  def followers
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(page: params[:page])
+    render ''
+  end
 
   # GET /users/1
   # GET /users/1.xml
