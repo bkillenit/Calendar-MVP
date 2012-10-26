@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a86dff71-cac1-4b88-ae29-3d88568b3b2c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/controllers/relationships_controller.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/relationships/index.html.erb" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/db/migrate/20121015224830_add_user_id_to_events.rb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/relationship.rb" afterPath="$PROJECT_DIR$/app/models/relationship.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_sidepanel.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_sidepanel.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/_userlist.erb" afterPath="$PROJECT_DIR$/app/views/users/_userlist.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20121013162859_create_relationships.rb" afterPath="$PROJECT_DIR$/db/migrate/20121013162859_create_relationships.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/modernizr.js" afterPath="$PROJECT_DIR$/public/javascripts/modernizr.js" />
     </list>
     <ignored path="Calendar-MVP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +26,7 @@
       <file leaf-file-name="_search.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_search.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="55" selection-start="111" selection-end="111" vertical-scroll-proportion="-0.625">
+            <state line="1" column="55" selection-start="111" selection-end="111" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -46,7 +35,7 @@
       <file leaf-file-name="side_panel.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/calendar/side_panel.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -97,10 +86,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_userlist.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_userlist.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/users/_userlist.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="55" selection-start="915" selection-end="915" vertical-scroll-proportion="0.3306773">
+            <state line="25" column="12" selection-start="853" selection-end="853" vertical-scroll-proportion="-7.7083335">
               <folding />
             </state>
           </provider>
@@ -115,10 +104,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_sidepanel.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_sidepanel.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidepanel.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="12" selection-start="516" selection-end="516" vertical-scroll-proportion="-9.375">
+            <state line="5" column="61" selection-start="171" selection-end="171" vertical-scroll-proportion="0.14563107">
               <folding />
             </state>
           </provider>
@@ -143,7 +132,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app/views/layouts/_search.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_sidepanel.html.erb" />
         <option value="$PROJECT_DIR$/public/stylesheets/custom.css" />
         <option value="$PROJECT_DIR$/app/models/event.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
@@ -155,9 +143,10 @@
         <option value="$PROJECT_DIR$/app/models/relationship.rb" />
         <option value="$PROJECT_DIR$/app/controllers/relationships_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
-        <option value="$PROJECT_DIR$/app/views/users/_userlist.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20121013162859_create_relationships.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
+        <option value="$PROJECT_DIR$/app/views/users/_userlist.erb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_sidepanel.html.erb" />
       </list>
     </option>
   </component>
@@ -193,6 +182,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -391,7 +381,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -658,10 +647,9 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3060065" sideWeight="0.6721311" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3116883" sideWeight="0.6721311" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -670,6 +658,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32786885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294702" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -771,16 +760,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidepanel.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="12" selection-start="516" selection-end="516" vertical-scroll-proportion="-9.375">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_search.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="55" selection-start="111" selection-end="111" vertical-scroll-proportion="-0.625">
+        <state line="1" column="55" selection-start="111" selection-end="111" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -836,7 +818,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/_userlist.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="55" selection-start="915" selection-end="915" vertical-scroll-proportion="0.3306773">
+        <state line="25" column="12" selection-start="853" selection-end="853" vertical-scroll-proportion="-7.7083335">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidepanel.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="61" selection-start="171" selection-end="171" vertical-scroll-proportion="0.14563107">
           <folding />
         </state>
       </provider>

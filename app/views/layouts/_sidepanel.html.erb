@@ -4,13 +4,13 @@
 
 <div class="friends">
   <h4><a href="#" class="search-btn"> Search Results</a></h4>
-  <%= render :partial=>'users/userlist', :locals=>{:users => @users, :flag => true }%>
+  <%= render :partial=>'users/userlist', :locals=>{:flag => true }%>
 </div>
 
 <div class="friends">
   <h4><a href="#" class="friends-btn">Friends</a></h4>
-  <% if @follwer_id != nil %>
-    <%= render :partial=>'users/userlist', :locals=>{:users => @friends, :flag => false}%>
+  <% if current_user.followers.count != nil %>
+    <%= render :partial=>'users/userlist', :locals => {:flag => false}%>
   <% else %>
       <ul class="userli">
         <li>Search for friends!</li>
