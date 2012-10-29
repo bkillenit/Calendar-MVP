@@ -3,6 +3,9 @@
           <h3><%=link_to user.name %></h3>
           <p><%= %></p>
     </div>
+    <div class="merge" style="float:right">
+          <%= check_box_tag user, :class => 'Events' %>
+    </div>
 
     <div class="fix"></div><!-- prevent sliding -->
 </li>
