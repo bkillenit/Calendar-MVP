@@ -17,8 +17,10 @@ Calendar::Application.routes.draw do
 
   resources :events
 
-  get "calendar/index"
 
+  get "calendar/index:users", {:controller => :calendar, :action => :index, :users => :users}
+
+  get "calendar/index"
   post "calendar/index"
 
   get "relationships/create"

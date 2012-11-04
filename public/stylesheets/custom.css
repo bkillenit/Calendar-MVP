@@ -758,3 +758,7 @@ span#nextWeek {
     width: 120px;
 }
 
+.highlight {
+    background-color: #fafad2;
+}
+

@@ -7,9 +7,34 @@ class EventsController < ApplicationController
     # appropriate month/week/day.  It should be possible to change
     # this to be starts_at and ends_at to match rails conventions.
     # I'll eventually do that to make the demo a little cleaner.
-    @events = current_user.events.scoped  
-    @events = @events.after(params['start']) if (params['start'])
-    @events = @events.before(params['end']) if (params['end'])
+
+    logger.info("===== request.uri: " + request.url )
+    logger.info("===== params: " + params.to_s)
+
+
+    @events =  current_user.events
+    logger.info("===== Current user has " + @events.size.to_s + " events.")
+
+    if params[:users]
+      user_ids = params[:users].split(",")
+      user_ids.each do |user_id|
+        user = User.find user_id.to_i
+        @events.push user.events
+        logger.info("===== " + user.name + " has " + user.events.size.to_s + " events.")
+      end
+    else
+      logger.info("==== Params[:users] is nil!!!!")
+
+    end
+
+  def mergeUser
+    params[:merged_user] = params[:u_id]
+  end
+
+
+    # @events = current_user.events.scoped
+    # @events = @events.after(params['start']) if (params['start'])
+    # @events = @events.before(params['end']) if (params['end'])
     
     respond_to do |format|
       format.html # index.html.erb.erb
@@ -33,7 +58,7 @@ class EventsController < ApplicationController
   # GET /events/new
   # GET /events/new.xml
   def new
-    @event = current_user.events.build 
+    @event = current_user.events.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -49,7 +74,9 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.xml
   def create
-    @event = current_user.events.build(params[:event])
+
+    @event = Event.create(params[:event])
+    current_user.events.push @event
 
     respond_to do |format|
       if @event.save
