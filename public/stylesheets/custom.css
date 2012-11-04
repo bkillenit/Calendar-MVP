@@ -345,6 +345,13 @@ header {
     border-bottom: 1px solid #ccc;
 }
 
+.userli-merged  {
+    background-color: #f0f0f0;
+}
+
+.userli {
+    background-color: #ffffff;
+}
 
 .profile-pic {
     width: 30px;
