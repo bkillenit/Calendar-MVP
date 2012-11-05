@@ -8,6 +8,7 @@ Calendar::Application.routes.draw do
 
   post "admin/login"
 
+  match "index" => "calendar/index"
 
   resources :users do
     member do

@@ -1,40 +1,45 @@
 <script>
+    function merge_user(user_id)
+    {
 
-function merge_user(user_id)
-{
         if (document.URL.indexOf("users") > 0 )
         {
             window.location.href=document.URL + "," + user_id;
+
         }
         else
         {
-            window.location.href=document.URL + "?users=" + user_id;
+            window.location.href="<%= calendar_index_path %>" + "?users=" + user_id;
+
         }
 
-}
-
-function unmerge_user(user_id, users)
-{
-    var merged_users = String(users).split(',');
-    var index = merged_users.indexOf(user_id.toString());
-    //alert(index);
-
-    if (merged_users.length > 1)
-    {
-        merged_users.splice(index, 1);
-        //alert(merged_users);
-
-        window.location.href="index?users=" + merged_users;
-    }
-    else
-    {
-        //alert('index of users at 1');
-        window.location.href="index";
     }
 
-}
+    function unmerge_user(user_id, users)
+    {
+        var merged_users = String(users).split(',');
+        var index = merged_users.indexOf(user_id.toString());
+        //alert(index);
 
+        if (merged_users.length > 1)
+        {
+            merged_users.splice(index, 1);
+            //alert(merged_users);
+
+            window.location.href="<%= calendar_index_path %>" + "?users=" + merged_users;
+
+        }
+        else
+        {
+            //alert('index of users at 1');
+           window.location.href="<%= calendar_index_path %>";
+
+
+        }
+
+    }
 </script>
+
 
 <% if params[:users] != nil %>
     <!-- splits param into array -->
