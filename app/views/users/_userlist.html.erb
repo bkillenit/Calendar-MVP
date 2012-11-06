@@ -40,7 +40,9 @@
     }
 </script>
 
-
+<p>
+  TESTING: <%= params[:users] %>
+</p>
 <% if params[:users] != nil %>
     <!-- splits param into array -->
     <% user_ids = params[:users].split(",") %>

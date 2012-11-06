@@ -19,18 +19,14 @@ class EventsController < ApplicationController
       user_ids = params[:users].split(",")
       user_ids.each do |user_id|
         user = User.find user_id.to_i
-        @events.push user.events
+        @events |= user.events
         logger.info("===== " + user.name + " has " + user.events.size.to_s + " events.")
       end
     else
-      logger.info("==== Params[:users] is nil!!!!")
+
+    logger.info("==== Params[:users] is nil!!!!")
 
     end
-
-  def mergeUser
-    params[:merged_user] = params[:u_id]
-  end
-
 
     # @events = current_user.events.scoped
     # @events = @events.after(params['start']) if (params['start'])
@@ -41,6 +37,11 @@ class EventsController < ApplicationController
       format.xml  { render :xml => @events }
       format.js  { render :json => @events }
     end
+  end
+
+  def mergeUser
+    params[:merged_user] = self.id
+
   end
 
   # GET /events/1

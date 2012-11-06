@@ -4,8 +4,17 @@ $(document).ready(function() {
 	var d = date.getDate();
 	var m = date.getMonth();
 	var y = date.getFullYear();
-	
-	$('#calendar').fullCalendar({
+
+    var sourceURL = '/events';
+
+    if (window.location.toString().indexOf('users=') > -1)
+    {
+        var params = window.location.toString().substr(window.location.toString().indexOf('users=') - 1);
+        sourceURL = '/events' + params;
+    }
+    // sourceURL = '/events?users=2,3,4';
+
+    $('#calendar').fullCalendar({
 		editable: true,        
 		header: {
             left: 'prev,next today',
@@ -25,7 +34,7 @@ $(document).ready(function() {
         
         // a future calendar might have many sources.        
         eventSources: [{
-            url: '/events',
+            url: sourceURL,
             color: 'yellow',
             textColor: 'black',
             ignoreTimezone: false
