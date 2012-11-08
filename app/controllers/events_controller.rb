@@ -31,6 +31,12 @@ class EventsController < ApplicationController
     # @events = current_user.events.scoped
     # @events = @events.after(params['start']) if (params['start'])
     # @events = @events.before(params['end']) if (params['end'])
+
+    @events = current_user.events.scoped  
+    @events = @events.after(params['start']) if (params['start'])
+    @events = @events.before(params['end']) if (params['end'])
+    #@shadows = users_to_merge.events.scoped
+
     
     respond_to do |format|
       format.html # index.html.erb.erb
