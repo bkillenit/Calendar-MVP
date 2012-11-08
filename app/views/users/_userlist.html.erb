@@ -1,89 +1,11 @@
-<script>
-    function merge_user(user_id)
-    {
-
-        if (document.URL.indexOf("users") > 0 )
-        {
-            window.location.href=document.URL + "," + user_id;
-
-        }
-        else
-        {
-            window.location.href="<%= calendar_index_path %>" + "?users=" + user_id;
-
-        }
-
-    }
-
-    function unmerge_user(user_id, users)
-    {
-        var merged_users = String(users).split(',');
-        var index = merged_users.indexOf(user_id.toString());
-        //alert(index);
-
-        if (merged_users.length > 1)
-        {
-            merged_users.splice(index, 1);
-            //alert(merged_users);
-
-            window.location.href="<%= calendar_index_path %>" + "?users=" + merged_users;
-
-        }
-        else
-        {
-            //alert('index of users at 1');
-           window.location.href="<%= calendar_index_path %>";
-
-
-        }
-
-    }
-</script>
-
-<p>
-  TESTING: <%= params[:users] %>
-</p>
-<% if params[:users] != nil %>
-    <!-- splits param into array -->
-    <% user_ids = params[:users].split(",") %>
-
-    <!-- checks if user is merged, and then displays checkbox with merge or unmerge function -->
-    <% if user_ids.include?(user.id.to_s) %>
-        <% @merged = 'userli-merged' %>
-    <% else %>
-        <% @merged = 'userli' %>
-    <% end %>
-
-<% else %>
-    <% @merged = 'userli' %>
-<% end %>
-
-<li class="<%= @merged.to_s %>" id="<%=user.id%>">
+<li class="userli" id="<%=user.id%>">
     <div class="profile-name">
           <h3><%=link_to user.name %></h3>
-          <p><%= %></p>
     </div>
 
     <div class="merge-box" style="float:right">
-
-
-      <% if params[:users] != nil %>
-        <!-- splits param into array -->
-        <% user_ids = params[:users].split(",") %>
-
-        <!-- checks if user is merged, and then displays checkbox with merge or unmerge function -->
-        <% if user_ids.include?(user.id.to_s)  %>
-           Unmerge
-           <%= check_box_tag 'mergebox' + user.id.to_s, 1, true, {:onclick => "unmerge_user(#{user.id},#{user_ids});"} %>
-        <% else %>
-           Merge
-           <%= check_box_tag 'mergebox' + user.id.to_s, 1, false, {:onclick => "merge_user(#{user.id});"} %>
-        <% end %>
-
-      <% else %>
-           Merge
-           <%= check_box_tag 'mergebox' + user.id.to_s, 1, false, {:onclick => "merge_user(#{user.id});"} %>
-      <% end %>
+           <p style="float:left;">Merge</p>
+           <%= check_box_tag 'mergebox' + user.id.to_s, 1, false, {:onClick => "merge_user(#{user.id});", :remote => true}%>
     </div>
 
     <div class="fix"></div><!-- prevent sliding -->

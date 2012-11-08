@@ -16,6 +16,10 @@ Calendar::Application.routes.draw do
     end
   end
 
+  resources :users do
+    resources :events
+  end
+
   resources :events
 
 

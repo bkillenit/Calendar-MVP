@@ -1007,8 +1007,8 @@ function EventManager(options, _sources) {
 	-----------------------------------------------------------------------------*/
 	
 
-	function addEventSource(source) {
-		source = _addEventSource(source);
+	function addEventSource(source, options) {
+		source = _addEventSource(source, options);
 		if (source) {
 			pendingSourceCnt++;
 			fetchEventSource(source, currentFetchID); // will eventually call reportEvents
@@ -1016,12 +1016,13 @@ function EventManager(options, _sources) {
 	}
 	
 	
-	function _addEventSource(source) {
+	function _addEventSource(source, options) {
 		if ($.isFunction(source) || $.isArray(source)) {
 			source = { events: source };
 		}
 		else if (typeof source == 'string') {
 			source = { url: source };
+            options = {options: options};
 		}
 		if (typeof source == 'object') {
 			normalizeSource(source);

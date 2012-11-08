@@ -3,8 +3,8 @@ class Event < ActiveRecord::Base
   attr_accessible :ends_at, :starts_at, :title, :description, :user_id, :all_day
 
   belongs_to :user
-  has_many :event_attendees
-  has_many :users, :through => :event_attendees
+  #has_many :event_attendees
+  #has_many :users, :through => :event_attendees
 
   validates :user_id, :presence => true
   validates :title, :presence => true
