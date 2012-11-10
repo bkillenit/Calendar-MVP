@@ -80,10 +80,14 @@ nav a:hover {
    
    border:1px solid ;
    border-radius:3px;
-   -moz-border-radius:5px; /* Firefox 3.6 and earlier */
-   box-shadow: 0px 0px 3px black;
    
 }
+
+#sidepanel #search .search_input:hover {
+	-moz-border-radius:5px; /* Firefox 3.6 and earlier */
+   box-shadow: 0px 0px 3px black;
+   
+}   
 
 #sidepanel .search_button {
 	position: relative;
