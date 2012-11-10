@@ -1,10 +1,10 @@
-<li class="userli" id="<%=user.id%>">
-    <div class="profile-name">
+<li class="showuser" id="<%=user.id%>">
+    <div class="username">
           <h3><%=link_to user.name %></h3>
     </div>
 
-    <div class="merge-box" style="float:right">
-           <p style="float:left;">Merge</p>
+    <div class="merge-box">
+           <p>Merge</p>
            <%= check_box_tag 'mergebox' + user.id.to_s, 1, false, {:onClick => "merge_user(#{user.id});", :remote => true}%>
     </div>
 

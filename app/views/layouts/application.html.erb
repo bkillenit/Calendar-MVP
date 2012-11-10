@@ -27,26 +27,35 @@
   <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
   
 </head>
+<!-- beginning of container and body -->
+
+
 <body>
 
-<nav id="navbar">
+    <nav id="navbar">
+        <div id="Home" style="float:left;">
+        	<%= link_to image_tag('logo3.jpg'), calendar_index_path %>
+        </div>
 
-    <div id="Home" style="float:left;">Welcome</div>
 
-    <div id="notice" style="float: right;"><%= notice %>
+
+
+        <div id="notice" style="float: right;"><%= notice %>
 
         <% if session[:user_id] != nil  %>
             <% @users = User.find(session[:user_id])%>
-        <p><%= link_to 'Logout', :controller => 'admin', :action => 'logout' %> | <%=  @users.name  %></p>
+            <p> Welcome <%=  @users.name %> | <%= link_to 'Logout', :controller => 'admin', :action => 'logout' %></p>
 
-    <%  else %>
-        <% link_to 'Back', :controller => 'admin', :action => 'login' %>
+        <%  else %>
+            <% link_to 'Back', :controller => 'admin', :action => 'login' %>
 
-    <% end %>
-    </div>
-</nav>
+        <% end %>
+        </div>
+    </nav>
+<div id="container">
 
-<%= yield %>
+    <%= yield %>
 
-</body>
-</html>
+</body> <!--end of body -->
+</div>  <!--end of container -->
+</html> <!-- end of html -->

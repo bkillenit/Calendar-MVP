@@ -16,12 +16,12 @@ $(document).ready(function() {
     $('#calendar').fullCalendar({
 		editable: true,        
 		header: {
-            left: 'prev,next today',
-            center: 'title',
-            right: 'month,agendaWeek,agendaDay'
+            left: 'new_event',
+            center: 'prev,title,next',
+            right: 'today,month,agendaWeek,agendaDay'
         },
         defaultView: 'agendaWeek',
-        height: 500,
+        height: 565,
         slotMinutes: 15,
         
         loading: function(bool){

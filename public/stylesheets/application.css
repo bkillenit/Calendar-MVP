@@ -27,17 +27,21 @@ time, mark, audio, video {
     background:transparent;
 }
 
-body {
-    margin: 0px; padding:0px;
-    text-align:center;
-}
-
 article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section {
+footer,header,hgroup,menu,nav,section, #container {
     display:block;
 }
 
-#calendar {
-	width: 900px;
-	margin: 0 auto;
-	}
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1024px;
+    text-align: left;
+}
+body {
+    margin: 0 0 0 0;
+    text-align: center;
+}
+
+
+

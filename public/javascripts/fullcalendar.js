@@ -24,9 +24,9 @@ var defaults = {
 	defaultView: 'basicWeek',
 	aspectRatio: 1.35,
 	header: {
-		left: 'title',
-		center: '',
-		right: 'today prev,next'
+		left: 'new_event,today',
+		center: 'prev,title,next',
+		right: 'month,agendaWeek,agendaDay'
 	},
 	weekends: true,
 	
@@ -66,6 +66,7 @@ var defaults = {
 	dayNames: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
 	dayNamesShort: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
 	buttonText: {
+        new_event: '+',
 		prev: '&nbsp;&#9668;&nbsp;',
 		next: '&nbsp;&#9658;&nbsp;',
 		prevYear: '&nbsp;&lt;&lt;&nbsp;',
@@ -93,12 +94,13 @@ var defaults = {
 // right-to-left defaults
 var rtlDefaults = {
 	header: {
-		left: 'next,prev today',
-		center: '',
-		right: 'title'
+		left: 'new_event,today',
+		center: 'prev,title,next ',
+		right: 'month,agendaWeek,agendaDay'
 	},
 	buttonText: {
-		prev: '&nbsp;&#9658;&nbsp;',
+		new_event: '+',
+        prev: '&nbsp;&#9658;&nbsp;',
 		next: '&nbsp;&#9668;&nbsp;',
 		prevYear: '&nbsp;&gt;&gt;&nbsp;',
 		nextYear: '&nbsp;&lt;&lt;&nbsp;'
@@ -193,6 +195,7 @@ function Calendar(element, options, eventSources) {
 	t.changeView = changeView;
 	t.select = select;
 	t.unselect = unselect;
+    t.new_event = new_event;
 	t.prev = prev;
 	t.next = next;
 	t.prevYear = prevYear;
@@ -556,7 +559,9 @@ function Calendar(element, options, eventSources) {
 	
 	/* Date
 	-----------------------------------------------------------------------------*/
-	
+	function new_event() {
+        window.location.href ="/events/new";
+    }
 	
 	function prev() {
 		renderView(-1);
@@ -3905,10 +3910,9 @@ function AgendaEventRenderer() {
 			" class='" + classes.join(' ') + "'" +
 			" style='position:absolute;z-index:8;top:" + seg.top + "px;left:" + seg.left + "px;" + skinCss + "'" +
 			">" +
-			"<div class='fc-event-inner fc-event-skin'" + skinCssAttr + ">" +
-			"<div class='fc-event-head fc-event-skin'" + skinCssAttr + ">" +
+			"<div class='fc-event-inner fc-event-skin'" + ">" +
+			"<div class='fc-event-head fc-event-skin'" + ">" +
 			"<div class='fc-event-time'>" +
-			htmlEscape(formatDates(event.start, event.end, opt('timeFormat'))) +
 			"</div>" +
 			"</div>" +
 			"<div class='fc-event-content'>" +

@@ -21,7 +21,7 @@ function merge_user(user_id)
 
         //changes the toggle boxes color to gray and adjust text to Unmerge
         var divbox = "#" + user_id;
-        $(divbox).css("backgroundColor", "#f2f2f2");
+        $(divbox).css("backgroundColor", '#ffffcc');
         $(divbox).find("p").text('Unmerge');
 
         //changes function of checkbox to unmerge

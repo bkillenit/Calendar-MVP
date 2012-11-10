@@ -13,6 +13,10 @@ class EventsController < ApplicationController
     user = User.find(params[:user_id])
     @events =  user.events
 
+    @events.each do |e|
+      e.title = ""
+    end
+
     respond_to do |format|
       format.html # index.html.erb.erb
       format.xml  { render :xml => @events }

@@ -2,27 +2,23 @@
   <%= render :partial => 'layouts/search' %>
 </div><!--search end-->
 
-<div class="friends">
-  <h4><a href="#" class="search-btn"> Search Results</a></h4>
+<div class="search">
+  <h4><a href="#" class="search-view"> Search Results</a></h4>
   <%= render :partial=>'users/searchlist', :locals=>{:users => @users}%>
 </div>
 
 <div class="friends">
-  <h4><a href="#" class="friends-btn">Friends</a></h4>
+  <h4><a href="#" class="friends-view">Friends</a></h4>
   <!--render friends only-->
     <% if current_user.followers.count != nil %>
-     <% following_users = current_user.following_users %>
+      <% following_users = current_user.following_users %>
         <ul class="userli">
-        <%= render :partial=>'users/userlist', :as => 'user', :collection => following_users %>
+            <%= render :partial=>'users/userlist', :as => 'user', :collection => following_users %>
         </ul>
     <% else %>
-      <ul class="userli">
-        <li>Search for friends!</li>
-      </ul>
-     <% end %>
+        <ul class="userli">
+             <li>Search for friends!</li>
+        </ul>
+    <% end %>
 
 </div><!-- friends end -->
-
-<div class="groups">
-  <h4><span class="ui-icon"></span><a href="#" class="groups-btn">Groups</a></h4>
-</div>
