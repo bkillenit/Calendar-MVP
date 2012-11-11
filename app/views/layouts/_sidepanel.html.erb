@@ -3,12 +3,12 @@
 </div><!--search end-->
 
 <div class="search">
-  <h4><a href="#" class="search-view"> Search Results</a></h4>
+  <h4><a href="#" id="search-btn"> Search Results</a></h4>
   <%= render :partial=>'users/searchlist', :locals=>{:users => @users}%>
 </div>
 
 <div class="friends">
-  <h4><a href="#" class="friends-view">Friends</a></h4>
+  <h4><a href="#" id="friends-btn">Friends</a></h4>
   <!--render friends only-->
     <% if current_user.followers.count != nil %>
       <% following_users = current_user.following_users %>

@@ -109,23 +109,18 @@ nav a:hover {
     
 }
 
-.search {
-	margin-left: 6px;
-	margin-top: 10px;
-	
-}
-
-.friends, .groups {
+.friends, .groups, .search {
 	margin-top: 10px;
 	width: 224;
 	
 }
 
-.friends .search-view, .friends .friends-view {
-	margin-left: 6px;
+.search #search-btn, .friends #friends-btn {
+	padding-left: 6px;
+	
 }
 
-.friends ul li, .groups ul li {
+.friends ul li, .groups ul li, .search ul li {
 height: 17px; 	
 padding-top: 10px;
 padding-bottom: 10px;
