@@ -8,13 +8,13 @@
 <% end %>
 
 <!-- generates the user list for search based on search criteria, friends, and groups -->
-<ul id="searchli">
+
     <% @users.each do |user| %>
         <!--
         TODO limit numbers of users so it doesnt fill browser but requires scroll
             down within box
         -->
-    <li class="userli" id="search<%=user.id%>">
+    <li id="search<%=user.id%>">
     <div class="profile-name">
         <h4><%=link_to user.name %></h4>
         <p><%= %></p>
@@ -33,7 +33,7 @@
 
     <% end %>
 
-</ul>
+
 
     <% else %>
     <p>Please search above!</p>

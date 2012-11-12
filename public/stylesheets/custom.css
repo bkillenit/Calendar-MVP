@@ -1,6 +1,8 @@
 body {
     width: 100%;
-    background-image: url('../images/body-background.jpg');
+    background-image: url('../images/creampaper.png');
+    margin: 0 0 0 0;
+    text-align: center;
     
 }
 
@@ -41,6 +43,15 @@ nav a:hover {
 	color: #fafafa;
 	text-decoration: underline;
 	
+}
+
+#container {
+    box-shadow: 0px 5px 15px black;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 1024px;
+    text-align: left;
 }
 
 #main {
@@ -97,6 +108,13 @@ nav a:hover {
 	
 }
 
+#sidepanel .search_button img {
+    width: 27px;
+    height: 27px;
+
+    
+}
+
 #sidepanel ul {
 	list-style-type: none;
 	
@@ -118,6 +136,11 @@ nav a:hover {
 .search #search-btn, .friends #friends-btn {
 	padding-left: 6px;
 	
+}
+
+.searchli p {
+    margin-left: 6px;
+
 }
 
 .friends ul li, .groups ul li, .search ul li {

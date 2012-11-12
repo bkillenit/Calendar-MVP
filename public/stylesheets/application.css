@@ -32,16 +32,7 @@ footer,header,hgroup,menu,nav,section, #container {
     display:block;
 }
 
-#container {
-    margin-left: auto;
-    margin-right: auto;
-    width: 1024px;
-    text-align: left;
-}
-body {
-    margin: 0 0 0 0;
-    text-align: center;
-}
+
 
 
 

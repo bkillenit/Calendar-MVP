@@ -4,7 +4,9 @@
 
 <div class="search">
   <h4><a href="#" id="search-btn"> Search Results</a></h4>
-  <%= render :partial=>'users/searchlist', :locals=>{:users => @users}%>
+  <ul class="searchli">
+    <%= render :partial=>'users/searchlist', :locals=>{:users => @users}%>
+  </ul>
 </div>
 
 <div class="friends">

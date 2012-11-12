@@ -1,10 +1,18 @@
 // checks if a box is already checked when going back to the home page
 // and runs merge function if necessary
-$(document).ready(function() {
+$(document).ready(function(){
 
+    //toggles the search list between visible and not
+    $("#search-btn").click(function(){
+        $(".searchli").slideToggle("medium");
+    });
+
+    //toggles the friends list between visible and not
+    $("#friends-btn").click(function(){
+        $(".userli").slideToggle("medium");
+    });
 
 });
-
 function merge_user(user_id)
     {
         var mergebox = "#mergebox" + user_id;
