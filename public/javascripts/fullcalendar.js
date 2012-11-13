@@ -1681,7 +1681,8 @@ function stackSegs(segs) {
 				}
 			}
 			if (collide) {
-				j++;
+				 // j++;
+				 break;
 			}else{
 				break;
 			}
