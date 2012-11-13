@@ -1,49 +1,71 @@
 class EventsController < ApplicationController
-  # GET /events
-  # GET /events.xml
-  def index   
+
+
+
+  def index
     # full_calendar will hit the index method with query parameters
     # 'start' and 'end' in order to filter the results for the
     # appropriate month/week/day.  It should be possible to change
     # this to be starts_at and ends_at to match rails conventions.
     # I'll eventually do that to make the demo a little cleaner.
 
-    logger.info("===== request.uri: " + request.url )
-    logger.info("===== params: " + params.to_s)
+    if params[:user_id]
+    user = User.find(params[:user_id])
+    @events =  user.events
 
-
-    @events =  current_user.events
-    logger.info("===== Current user has " + @events.size.to_s + " events.")
-
-    if params[:users]
-      user_ids = params[:users].split(",")
-      user_ids.each do |user_id|
-        user = User.find user_id.to_i
-        @events |= user.events
-        logger.info("===== " + user.name + " has " + user.events.size.to_s + " events.")
-      end
-    else
-
-    logger.info("==== Params[:users] is nil!!!!")
-
-    end
-
-    # @events = current_user.events.scoped
-    # @events = @events.after(params['start']) if (params['start'])
-    # @events = @events.before(params['end']) if (params['end'])
-
-    @events = current_user.events.scoped  
-    @events = @events.after(params['start']) if (params['start'])
-    @events = @events.before(params['end']) if (params['end'])
-    #@shadows = users_to_merge.events.scoped
-
-    
     respond_to do |format|
       format.html # index.html.erb.erb
       format.xml  { render :xml => @events }
       format.js  { render :json => @events }
     end
+    else
+      @events =  current_user.events
+
+      @events = current_user.events.scoped
+      @events = @events.after(params['start']) if (params['start'])
+      @events = @events.before(params['end']) if (params['end'])
+
+      respond_to do |format|
+        format.html # index.html.erb.erb
+        format.xml  { render :xml => @events }
+        format.js  { render :json => @events }
+      end
+    end
   end
+
+
+  # GET /events
+  # GET /events.xml
+  #def index0
+    # full_calendar will hit the index method with query parameters
+    # 'start' and 'end' in order to filter the results for the
+    # appropriate month/week/day.  It should be possible to change
+    # this to be starts_at and ends_at to match rails conventions.
+    # I'll eventually do that to make the demo a little cleaner.
+
+    #@events =  current_user.events
+
+    #if params[:users]
+      #user_ids = params[:users].split(",")
+      #user_ids.each do |user_id|
+        #user = User.find user_id.to_i
+        #@events |= user.events
+      #end
+    #end
+
+    #@user = User.find(params[:user_id])
+    #@events = Events.find_by_user_id(@user.id)
+
+    #@events = current_user.events.scoped
+    #@events = @events.after(params['start']) if (params['start'])
+    #@events = @events.before(params['end']) if (params['end'])
+
+    #respond_to do |format|
+      #format.html # index.html.erb.erb
+      #format.xml  { render :xml => @events }
+      #format.js  { render :json => @events }
+    #end
+  #end
 
   def mergeUser
     params[:merged_user] = self.id

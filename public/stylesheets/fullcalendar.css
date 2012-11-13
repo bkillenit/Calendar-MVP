@@ -277,13 +277,7 @@ a.fc-event {
 .fc-rtl .fc-event {
 	text-align: right;
 	}
-	
-.fc-event-skin {
-	border-color: #ffffff;     /* default BORDER color */
-	background-color: #d3d3d3; /* default BACKGROUND color */
-	color: #fff;            /* default TEXT color */
-	}
-	
+
 .fc-event-inner {
 	position: relative;
 	width: 100%;
@@ -470,7 +464,15 @@ table.fc-border-separate {
 	float: right;
 	}
 	
-	
+/* Shadow class for merged events
+------------------------------------------------------------------------*/
+.merged-event {
+    background-color: #d3d3d3 !important;
+    border-color: #d3d3d3;
+    opacity: .6;
+}
+
+
 
 /* Agenda Week View, Agenda Day View
 ------------------------------------------------------------------------*/
@@ -531,7 +533,7 @@ table.fc-border-separate {
 /* slot rows */
 	
 .fc-agenda-slots th {
-	border-width: 1px 1px 0;
+	border-width: 0px 0px 0;
 	}
 	
 .fc-agenda-slots td {
@@ -548,9 +550,14 @@ table.fc-border-separate {
 	border-top-width: 0;
 	}
 
-.fc-agenda-slots tr.fc-minor th,
-.fc-agenda-slots tr.fc-minor td {
-	border-top-style: dotted;
+.fc-agenda-slots tr.fc-minor,
+.fc-agenda-slots tr.fc-minor {
+    border-top-style: dashed;
+}
+
+.fc-agenda-slots tr.fc-minor th:nth-child(even),
+.fc-agenda-slots tr.fc-minor td:nth-child(even) {
+	border-top-style: dashed;
 	}
 	
 .fc-agenda-slots tr.fc-minor th.ui-widget-header {

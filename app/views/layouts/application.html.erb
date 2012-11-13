@@ -29,20 +29,22 @@
 </head>
 <body>
 
-<div id="notice" style="float: right;"><%= notice %>
+<nav id="navbar">
 
+    <div id="Home" style="float:left;">Welcome</div>
 
-  <% if session[:user_id] != nil  %>
-      <% @users = User.find(session[:user_id])%>
-      <p><%= link_to 'Logout', :controller => 'admin', :action => 'logout' %> | <%=  @users.name  %></p>
+    <div id="notice" style="float: right;"><%= notice %>
 
-  <%  else %>
-      <% link_to 'Back', :controller => 'admin', :action => 'login' %>
+        <% if session[:user_id] != nil  %>
+            <% @users = User.find(session[:user_id])%>
+        <p><%= link_to 'Logout', :controller => 'admin', :action => 'logout' %> | <%=  @users.name  %></p>
 
-  <% end %>
+    <%  else %>
+        <% link_to 'Back', :controller => 'admin', :action => 'login' %>
 
-</div>
-
+    <% end %>
+    </div>
+</nav>
 
 <%= yield %>
 
