@@ -1667,7 +1667,8 @@ function sliceSegs(events, visEventEnds, start, end) {
 }
 
 
-// event rendering calculation utilities
+// event rendering calculation utilities for calculating the width of the
+// event based on the amount
 function stackSegs(segs) {
 	var levels = [],
 		i, len = segs.length, seg,
@@ -1686,7 +1687,8 @@ function stackSegs(segs) {
 				}
 			}
 			if (collide) {
-				j++;
+				 // j++;
+				 break;
 			}else{
 				break;
 			}
