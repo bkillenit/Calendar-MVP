@@ -2385,8 +2385,7 @@ function BasicView(element, calendar, viewName) {
 			trigger('dayClick', this, date, true, ev);
 		}
 	}
-	
-	
+
 	
 	/* Semi-transparent Overlay Helpers
 	------------------------------------------------------*/
@@ -5077,7 +5076,7 @@ function OverlayManager() {
 		}
 		if (e[0].parentNode != parent[0]) {
 			e.appendTo(parent);
-		}
+    	}
 		usedOverlays.push(e.css(rect).show());
 		return e;
 	}

@@ -1,4 +1,5 @@
 body {
+    font-family: Calibri;
     width: 100%;
     background-image: url('../images/creampaper.png');
     margin: 0 0 0 0;
@@ -43,6 +44,16 @@ nav a:hover {
 	color: #fafafa;
 	text-decoration: underline;
 	
+}
+
+#Home {
+    float: left;
+
+}
+
+#notice {
+    float: right;
+
 }
 
 #container {

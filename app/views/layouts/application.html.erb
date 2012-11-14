@@ -33,14 +33,14 @@
 <body>
 
     <nav id="navbar">
-        <div id="Home" style="float:left;">
+        <div id="Home" >
         	<%= link_to image_tag('logo3.jpg'), calendar_index_path %>
         </div>
 
 
 
 
-        <div id="notice" style="float: right;"><%= notice %>
+        <div id="notice" ><%= notice %>
 
         <% if session[:user_id] != nil  %>
             <% @users = User.find(session[:user_id])%>

@@ -452,6 +452,7 @@ table.fc-border-separate {
     background-color: #d3d3d3 !important;
     border-color: #d3d3d3;
     opacity: .6;
+    
 }
 
 
@@ -564,7 +565,7 @@ table.fc-border-separate {
 	
 .fc-agenda-slots tr.fc-minor th.ui-widget-header {
 	border-top-style: ; /* doesn't work with background in IE6/7 */
-=
+
 	}
 	
 
@@ -632,7 +633,7 @@ table.fc-border-separate {
 	}
 	
 .fc-state-highlight { /* <td> today cell */ /* TODO: add .fc-today to <th> */
-	background: ;
+	background: #ffffff ;
 	}
 	
 .fc-cell-overlay { /* semi-transparent rectangle while dragging */

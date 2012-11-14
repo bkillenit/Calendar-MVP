@@ -5,6 +5,10 @@ $(document).ready(function(){
     //toggles the search list between visible and not
     $("#search-btn").click(function(){
         $(".searchli").slideToggle("medium");
+
+        //clears the search input field and parameters
+        $(".search_input").val("");
+
     });
 
     //toggles the friends list between visible and not
