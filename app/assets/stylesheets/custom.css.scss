@@ -1,0 +1,761 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+@import "bootstrap";
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+/*style sheet for checkit*/
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+}
+
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html {
+    background-image: url('texture.jpg');
+}
+
+body {
+    background-image: url('blue-bg.jpg');
+    background-repeat: repeat-x;
+    /*background-color: #ddd;*/
+}
+
+.fix {
+    clear: both;
+}
+#notice{
+    padding-top: 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: blue;
+}
+/*added by Bin for login page*/
+#loginfm{
+    font-family: 'Open Sans', sans-serif;
+    width: 250px;
+    border: dashed;
+    padding: 10px;
+    margin-left: 50px;
+}
+#loginfm input .userinput{
+    width: 200px;
+}
+#loginname{
+    float: right;
+}
+#loginpw{
+    float: right;
+}
+#loginfm .submit{
+    float: left;
+    margin-top: 10px;
+    width: 90px;
+}
+
+
+/*login page end*/
+#container {
+    width: 1120px;
+    margin: 0px auto;
+    position: relative;
+}
+
+
+header {
+    width: 1120px;
+    height: 45px;
+    /*background-color: pink;*/
+}
+
+#logo {
+    width: 115px;
+    height: 45px;
+    float: left;
+    /*background-color: yellow;*/
+}
+
+#user {
+    width: 400px;
+    height: 45px;
+    float: right;
+}
+
+#user-padding {
+    /*padding-top: 25px;*/
+}
+
+#userpic {
+    width: 48px;
+    height: 45px;
+    float: right;
+}
+
+#userpic img {
+    height: 45px;
+}
+
+#usrname {
+    width: 340px;
+    height: 45px;
+    float: left;
+    text-align: right;
+    color: white;
+}
+
+#usrname h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: white;
+    padding-top: 5px;
+    margin-bottom: 3px;
+    /*margin-bottom: 8px;*/
+}
+
+#usrname p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 11px;
+    color: #afb2b8;
+}
+
+#usrname p a {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #afb2b8;
+    text-decoration: none;
+}
+
+#usrname p a:hover {
+    text-decoration: underline;
+}
+
+#main-container {
+    width: 1140px;
+    background-color: pink;
+    position: relative;
+    background-color: white;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,.1);
+    margin-top: 20px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#sidebar-left {
+    width: 200px;
+    /*background-color: aqua;*/
+    float: left;
+    /*position: absolute;
+   top: 0px;
+   left: 0px;
+   z-index: 199;*/
+
+}
+
+
+#sidebar-spacer {
+    width: 200px;
+    height: 20px;
+    /*background-color: blue;*/
+}
+
+#sidebar {
+    width: 200px;
+    /*box-shadow: 0px 0px 5px 5px rgba(0,0,0,.1);*/
+}
+
+#sidebar-padding {
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+#sidebar h2 {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 10px;
+}
+
+.search_input {
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    height: 14px;
+    width: 130px;
+    display: block;
+    padding: 6px 27px 6px 12px;
+    font-size: 12px;
+    line-height: 1;
+    background-color: #dfdfdf;
+}
+#userbtn_submit{
+    display: none;
+}
+
+
+.friends, .groups {
+    margin-top: 20px;
+}
+
+.friends ul, .groups ul {
+
+}
+
+.friends h2, .groups h2 {
+    position: relative;
+}
+
+.friends h2 a, .groups h2 a {
+    color: black;
+}
+
+.friends h2 span.ui-icon, .groups h2 span.ui-icon {
+    background-image: url('ui-icons.png');
+    background-position: -32px -16px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+}
+
+.friends h2 a, .groups h2 a {
+    padding-left: 20px;
+}
+
+#friends-btn {
+}
+.friends-list{
+    display: none;
+}
+
+.friends ul li, .groups ul li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.profile-pic {
+    width: 30px;
+    height: 30px;
+    /*background-color: limegreen;*/
+    float: left;
+}
+
+.profile-name {
+    width: 135px;
+    float: left;
+    /*background-color: pink;*/
+    margin-left: 5px;
+    padding-top: 3px;
+}
+
+
+.profile-name h3 a {
+    color: black;
+    font-size: 14px;
+    line-height: 17px;
+    font-weight: bold;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+}
+
+.profile-name h3 a:hover {
+    text-decoration: underline;
+}
+
+.profile-name p {
+    font-size: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+
+.profile-follow {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+
+
+#main {
+    width: 940px;
+    float: right;
+    min-height: 420px;
+    /*background-color: blue;*/
+    /*position: absolute;
+   top: 100px;
+   left: 200px;
+   z-index: 200;*/
+    /*box-shadow: 0px 0px 5px 5px rgba(0,0,0,.1);*/
+}
+
+#main-padding {
+    /*padding: 5px;*/
+}
+
+#main-header {
+    width: 940px;
+    height: 50px;
+    /*background-color: green;*/
+    /*background-color: rgba(0,0,0,.1);*/
+    /*border-bottom: 1px dotted #ccc;*/
+}
+
+#main-header-left {
+    width: 200px;
+    height: 50px;
+    /*background-color: orange;*/
+    float: left;
+    line-height: 50px;
+    text-align: left;
+}
+
+#main-header-left p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    color: navy;
+}
+
+#main-header-center {
+    width: 510px;
+    height: 50px;
+    line-height: 50px;
+    /*background-color: green;*/
+    float: left;
+    /*line-height: 50px;*/
+    text-align: center;
+}
+
+#main-header-center p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    color: navy;
+    /*background-color: yellow;*/
+    position: relative;
+}
+
+#main-header-center p a#previousA {
+    color: black;
+    text-decoration: none;
+    position: relative;
+    padding-left: 20px;
+    /*background-color: limegreen;*/
+}
+
+#main-header-center p a#nextA {
+    color: black;
+    text-decoration: none;
+    position: relative;
+    padding-right: 20px;
+    /*background-color: limegreen;*/
+}
+
+span#previousWeek {
+    background-image: url('ui-icons.png');
+    background-position: -80px -190px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 2px;
+    left: 0px;
+    /*background-color: pink;*/
+    cursor: pointer;
+}
+
+span#nextWeek {
+    background-image: url('ui-icons.png');
+    background-position: -48px -190px;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 2px;
+    right: 0px;
+    /*background-color: pink;*/
+    cursor: pointer;
+}
+
+
+
+#main-header-right {
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    /*background-color: maroon;*/
+    float: right;
+    text-align: right;
+}
+
+#main-header-right p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    color: navy;
+}
+
+#calendar {
+    width: 910px;
+    margin: 0px auto;
+    /*background-color: red;*/
+}
+
+#calendar-scroll-right, #calendar-scroll-left {
+    width: 15px;
+    height: 500px;
+    float: left;
+    position: relative;
+}
+
+.scroll-padding {
+    margin-top: 50px;
+    width: 15px;
+    height: 450px;
+    position: relative;
+    background-color: #eee;
+}
+
+.slide-box {
+    width: 15px;
+    height: 150px;
+    background-color: #ccc;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    cursor: pointer;
+}
+
+#calendar2 {
+    width: 910px;
+    margin: 0px auto;
+    position: relative;
+    min-height: 500px;
+    float: left;
+}
+
+.box {
+    width: 110px;
+    height: 150px;
+    background-color: rgba(247, 148, 29, .6);
+    position: absolute;
+    top:0px;
+    left: 0px;
+    opacity: 0;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.box-padding {
+    padding: 5px;
+}
+
+.box-content p {
+    font-size: 11px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.box-content h3 {
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+.box:hover {
+    cursor: pointer;
+    background-color: rgba(247, 148, 29, .7);
+}
+
+#cal-times {
+    width: 80px;
+    min-height: 400px;
+    /*background-color: lightblue;*/
+    float: left;
+}
+
+
+.cal-times-crop {
+    width: 80px;
+    height: 450px;
+    overflow: hidden;
+    float: left;
+}
+
+#cal-times-spacer {
+    width: 80px;
+    height: 50px;
+}
+
+#cal-times table {
+    width: 80px;
+}
+
+#cal-times table thead tr th {
+    height: 50px;
+    width: 80px;
+}
+
+#cal-times table tr td {
+    height: 50px;
+    width: 80px;
+    background-image: url('td_bg.png');
+    background-position: top;
+    text-align: right;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    /*background-color: teal;*/
+}
+
+.time-padding {
+    padding-top: 5px;
+    padding-right: 10px;
+}
+
+#cal-times table tr td span {
+    /*margin-top: 5px;*/
+    /*background-color: orange;*/
+}
+
+
+
+#cal-days {
+    width: 830px;
+    min-height: 400px;
+    /*background-color: bisque;*/
+    float: right;
+    position: relative;
+}
+
+#cal-days table {
+    width: 830px;
+}
+
+#cal-days .days-header {
+    width: 110px;
+    height: 50px;
+    /*background-color: pink;*/
+}
+
+.days-crop {
+    width: 830px;
+    height: 450px;
+    overflow:hidden;
+}
+
+
+#cal-days .days {
+    width: 830px;
+    position: relative;
+}
+
+#cal-days table thead tr th {
+    width: 110px;
+    height: 50px;
+    /*background-image: url('/assets/td_bg.png');*/
+    line-height: 50px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#cal-days table#days {
+}
+
+#cal-days .days table tr td {
+    width: 110px;
+    height: 50px;
+    background-image: url('td_bg.png');
+    background-position: top;
+    /*background-color: limegreen;*/
+}
+
+#previousWeek {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#nextWeek {
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+
+#shadow {
+    background-color: rgba(0,0,0,.4);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 3000;
+    display: none;
+}
+
+#createEvent {
+    width: 640px;
+    height: 450px;
+    background-color: white;
+    margin: 0px auto;
+    position: relative;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,.2);
+}
+
+#createEventClose {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 45px;
+    height: 45px;
+    background-image: url('close.png');
+    cursor: pointer;
+}
+
+.createEvent-padding {
+    padding: 20px;
+}
+
+#createEvent h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    color: navy;
+    margin-bottom: 10px;
+}
+
+#newEvent table {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+}
+
+#newEvent table td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+#newEvent table td input, #newEvent table td textarea {
+    margin-left: 5px;
+    padding: 5px;
+}
+
+#newEvent table td .fullInput {
+    width: 400px;
+}
+
+#newEvent .label {
+    text-align: right;
+    width: 120px;
+}
+

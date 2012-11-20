@@ -27,7 +27,7 @@
   </div>
   <div class="field">
     <%= f.label :starts_at %><br />
-    <%= f.time_select :starts_at, { :default => Time.now.change(:hour => t.hour)  , :simple_time_select => true, 
+    <%= f.datetime_select :starts_at, { :default => Time.now.change(:hour => t.hour)  , :simple_time_select => true, 
       :minute_interval => 15, :time_separator => "", :start_hour => 10, :end_hour => 14 } %>
   </div>
   <div class="field">

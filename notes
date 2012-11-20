@@ -1,0 +1,2 @@
+jQuery hover() method; bind an enter and leave event function 
+example: $(selector).hover(handlerIn, handlerOut)

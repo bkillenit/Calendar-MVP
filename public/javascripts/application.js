@@ -6,4 +6,8 @@ $.ajaxSetup({
     xhr.setRequestHeader("Accept", "text/javascript");
   }
 });
-
+var options = {
+    content: "popover!",
+    title: "conflicts"
+};
+$('.fc-event-bg').popover(options);

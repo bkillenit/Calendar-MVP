@@ -1,3 +1,6 @@
+//= require bootstrap-min.js
+//= require bootstrap-tooltip.js
+//= require bootstrap-popover.js
 $(document).ready(function() {
 
 	var date = new Date();
@@ -69,6 +72,12 @@ $(document).ready(function() {
           // would like a lightbox here.
         },
 	});
+    // code added by bert; using the twitter bootstrap popover
+    var popoptions = {
+        content: "popover!",
+        title: "conflicts"
+    };
+    $('.fc-event-bg').popover(popoptions);
 });
 
 function updateEvent(the_event) {
@@ -83,3 +92,4 @@ function updateEvent(the_event) {
       function (reponse) { alert('successfully updated task.'); }
     );
 };
+
