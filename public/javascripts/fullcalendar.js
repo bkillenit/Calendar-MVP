@@ -560,7 +560,12 @@ function Calendar(element, options, eventSources) {
 	/* Date
 	-----------------------------------------------------------------------------*/
 	function new_event() {
-        window.location.href ="/events/new";
+        if (merged_ids.length > 0) {
+            window.location.href ="/events/new" + "?users=" +merged_ids;
+        }
+        else {
+            window.location.href ="/events/new"
+        }
     }
 	
 	function prev() {

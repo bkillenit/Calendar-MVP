@@ -18,6 +18,10 @@
   <!-- -->
 
   <div class="field">
+    <%= f.hidden_field :users, :value => params[:users] %>
+  </div>
+
+  <div class="field">
     <%= f.hidden_field :user_id, :value => session[:user_id] %>
   </div>  
 
