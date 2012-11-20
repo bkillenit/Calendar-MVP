@@ -40,7 +40,7 @@ $(document).ready(function() {
                 error: function() {
                     alert('there was an error while fetching events!');
                 },
-                color: '#ff9900',   // a non-ajax option
+                color: 'rgba(255,153,0,.7)',   // a non-ajax option
                 textColor: 'black' // a non-ajax option
             },
 

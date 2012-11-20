@@ -244,6 +244,7 @@ html .fc,
 	border-width: 0;
 	font-size: .85em;
 	cursor: default;
+
 	}
 	
 a.fc-event,
@@ -265,6 +266,7 @@ a.fc-event {
 	height: 100%;
 	border-width: 0;
 	overflow: hidden;
+
 	}
 	
 .fc-event-time,
@@ -574,6 +576,7 @@ table.fc-border-separate {
 
 .fc-event-vert {
 	border-width: 0 1px;
+
 	}
 
 .fc-event-vert .fc-event-head,
