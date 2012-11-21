@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a86dff71-cac1-4b88-ae29-3d88568b3b2c" name="Default" comment="˚">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/calendar.js" afterPath="$PROJECT_DIR$/public/javascripts/calendar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/custom.css" afterPath="$PROJECT_DIR$/public/stylesheets/custom.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/fullcalendar.css" afterPath="$PROJECT_DIR$/public/stylesheets/fullcalendar.css" />
     </list>
     <ignored path="Calendar-MVP.iws" />
@@ -31,10 +33,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="custom.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="custom.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="157" selection-end="157" vertical-scroll-proportion="0.0">
+            <state line="83" column="11" selection-start="1074" selection-end="1074" vertical-scroll-proportion="0.35992578">
               <folding />
             </state>
           </provider>
@@ -67,19 +69,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_sidepanel.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidepanel.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="23" selection-start="191" selection-end="191" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="fullcalendar.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/fullcalendar.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="1670" column="29" selection-start="38380" selection-end="38380" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1353392912000" expanded="false" signature="5723:5740" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="15823:15833" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="50115:50125" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="50698:50715" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="51428:51468" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="67085:67095" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="67770:67787" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="68589:68634" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="68743:68783" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="68845:68855" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="69059:69076" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="69752:69814" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="69885:69929" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="70012:70052" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="70137:70147" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="70640:70657" placeholder="..." />
+                <marker date="1353392912000" expanded="false" signature="122071:122098" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calendar.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/calendar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="41" selection-start="1205" selection-end="1205" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -88,7 +108,7 @@
       <file leaf-file-name="application.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="2" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.0">
+            <state line="55" column="2" selection-start="1745" selection-end="1745" vertical-scroll-proportion="-13.416667">
               <folding />
             </state>
           </provider>
@@ -98,19 +118,15 @@
         <entry file="file://$PROJECT_DIR$/public/javascripts/jquery-ui.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1351467053000" expanded="false" signature="11171:11188" placeholder="..." />
-                <marker date="1351467053000" expanded="false" signature="34961:34978" placeholder="..." />
-                <marker date="1351467053000" expanded="false" signature="43761:43777" placeholder="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fullcalendar.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="fullcalendar.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/fullcalendar.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="452" column="15" selection-start="7581" selection-end="7581" vertical-scroll-proportion="0.47609943">
+            <state line="268" column="4" selection-start="4048" selection-end="4048" vertical-scroll-proportion="-93.11539">
               <folding />
             </state>
           </provider>
@@ -138,7 +154,6 @@
         <option value="$PROJECT_DIR$/config/environment.rb" />
         <option value="$PROJECT_DIR$/public/javascripts/jsroutes.js" />
         <option value="$PROJECT_DIR$/app/views/calendar/index.html.erb" />
-        <option value="$PROJECT_DIR$/public/javascripts/calendar.js" />
         <option value="$PROJECT_DIR$/app/views/users/_userlist.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/events_controller.rb" />
@@ -146,10 +161,11 @@
         <option value="$PROJECT_DIR$/app/views/layouts/_sidepanel.html.erb" />
         <option value="$PROJECT_DIR$/app/views/users/_searchlist.html.erb" />
         <option value="$PROJECT_DIR$/public/stylesheets/application.css" />
-        <option value="$PROJECT_DIR$/public/stylesheets/custom.css" />
         <option value="$PROJECT_DIR$/public/javascripts/jquery-extras.js" />
         <option value="$PROJECT_DIR$/public/javascripts/fullcalendar.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/fullcalendar.css" />
+        <option value="$PROJECT_DIR$/public/javascripts/calendar.js" />
+        <option value="$PROJECT_DIR$/public/stylesheets/custom.css" />
       </list>
     </option>
   </component>
@@ -157,7 +173,7 @@
     <option name="x" value="1" />
     <option name="y" value="22" />
     <option name="width" value="1278" />
-    <option name="height" value="717" />
+    <option name="height" value="707" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -214,6 +230,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Calendar-MVP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Calendar-MVP" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -555,14 +589,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="22" width="1278" height="717" extended-state="6" />
+    <frame x="1" y="22" width="1278" height="707" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3961039" sideWeight="0.6743044" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4034091" sideWeight="0.6743044" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -631,11 +665,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/images/body-background.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/calendar_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -675,48 +704,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/jquery-extras.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="8" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/jquery-ui.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1351467053000" expanded="false" signature="11171:11188" placeholder="..." />
-            <marker date="1351467053000" expanded="false" signature="34961:34978" placeholder="..." />
-            <marker date="1351467053000" expanded="false" signature="43761:43777" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="2" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/fullcalendar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1670" column="29" selection-start="38380" selection-end="38380" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="157" selection-end="157" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/application.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="818" selection-end="818" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -728,9 +718,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/jquery-extras.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="8" selection-start="373" selection-end="373" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/fullcalendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1670" column="29" selection-start="38380" selection-end="38380" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1353392912000" expanded="false" signature="5723:5740" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="15823:15833" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="50115:50125" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="50698:50715" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="51428:51468" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="67085:67095" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="67770:67787" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="68589:68634" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="68743:68783" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="68845:68855" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="69059:69076" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="69752:69814" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="69885:69929" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="70012:70052" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="70137:70147" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="70640:70657" placeholder="..." />
+            <marker date="1353392912000" expanded="false" signature="122071:122098" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/application.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="0" selection-start="818" selection-end="818" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/calendar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="41" selection-start="1205" selection-end="1205" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="2" selection-start="1745" selection-end="1745" vertical-scroll-proportion="-13.416667">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/fullcalendar.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="452" column="15" selection-start="7581" selection-end="7581" vertical-scroll-proportion="0.47609943">
+        <state line="268" column="4" selection-start="4048" selection-end="4048" vertical-scroll-proportion="-93.11539">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="11" selection-start="1074" selection-end="1074" vertical-scroll-proportion="0.35992578">
           <folding />
         </state>
       </provider>
