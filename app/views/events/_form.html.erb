@@ -17,10 +17,11 @@
   <!-- -->
 
   <% @participants = params[:users] %>
+
   <div><%= @participants %></div>
 
   <div class="field">
-    <%= f.hidden_field :users, :value => @participants %>
+    <!-- <%= f.hidden_field :users, :value => @participants %> -->
   </div>
 
   <div class="field">

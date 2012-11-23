@@ -564,20 +564,23 @@ function Calendar(element, options, eventSources) {
 
             var i =0
             var parameters = ""
-
-            $.each(merged_ids), function() {
+            alert("new event was clicked!");
+            $.each(merged_ids, function () {
 
                 while (i < merged_ids.length) {
                     if (i == 0) {
+                        alert("first to be added to the users params!");
                         parameters = "?users[]=" +merged_ids[i];
                     }
                     else
                     {
+                        alert("next to be added to the users params!");
                         parameters = parameters + "&users[]=" + merged_ids[i];
                     }
                 i += 1
                 }
-            }
+            });
+            alert(parameters);
             window.location.href ="/events/new" + parameters;
         }
         else {
