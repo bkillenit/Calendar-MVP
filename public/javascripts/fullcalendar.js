@@ -561,11 +561,29 @@ function Calendar(element, options, eventSources) {
 	-----------------------------------------------------------------------------*/
 	function new_event() {
         if (merged_ids.length > 0) {
-            window.location.href ="/events/new" + "?users=" +merged_ids;
+
+            var i =0
+            var parameters = ""
+
+            $.each(merged_ids), function() {
+
+                while (i < merged_ids.length) {
+                    if (i == 0) {
+                        parameters = "?users[]=" +merged_ids[i];
+                    }
+                    else
+                    {
+                        parameters = parameters + "&users[]=" + merged_ids[i];
+                    }
+                i += 1
+                }
+            }
+            window.location.href ="/events/new" + parameters;
         }
         else {
-            window.location.href ="/events/new"
+            window.location.href ="/events/new";
         }
+
     }
 	
 	function prev() {
