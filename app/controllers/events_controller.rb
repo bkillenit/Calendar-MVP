@@ -109,20 +109,15 @@ class EventsController < ApplicationController
   def create
 
     logger.info("========= User id in session: " + session[:user_id].to_s + "============")
-    #logger.info("========= User params array: " + @p + "============")
+    logger.info("======= Params hash: " + params.to_s + " ==============")
     @event = Event.create(params[:event])
     current_user.events.push @event
-    @event.participants.create Participant.new( :event_id => @event.id,
-                                                 :user_id => @current_user.id, :isConfirmed => true, :isAdmin => true ).save
+    @event.participants.create(:user_id => current_user.id, :isConfirmed => true, :isAdmin => true ).save
 
-    if params[:users]
-      @p = params[:users]
-
-
-      @p.each do |p|
-          @event.participants.create Participant.new( :event_id => @event.id,
-            :user_id => p, :isConfirmed => false, :isAdmin => false ).save
-      end
+    @p = params[:users]
+    @p.each do |p|
+        @event.participants.create( :event_id => @event.id,
+          :user_id => p, :isConfirmed => false, :isAdmin => false ).save
     end
 
     respond_to do |format|
