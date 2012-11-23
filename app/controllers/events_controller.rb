@@ -108,8 +108,21 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
 
+    logger.info("========= User id in session: " + session[:user_id] + "============")
+
     @event = Event.create(params[:event])
     current_user.events.push @event
+    @event.participants.create Participant.new( :event_id => @event.id,
+                                                 :user_id => @current_user.id, :isConfirmed => true, :isAdmin => true ).save
+    #if params[:users]
+      #@participants = params[:users]
+      #logger.info("========= User params array: " + @participants.to_s + "============")
+
+      #@participants.each do |p|
+          #@event.participants.create Participant.new( :event_id => @event.id,
+            #:user_id => p, :isConfirmed => false, :isAdmin => false ).save
+      #end
+    #end
 
     respond_to do |format|
       if @event.save
