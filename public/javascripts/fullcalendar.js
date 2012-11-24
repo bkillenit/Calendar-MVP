@@ -3916,7 +3916,7 @@ function AgendaEventRenderer() {
 			"<div class='fc-event-time'>" +
 			"</div>" +
 			"</div>" +
-			"<div class='fc-event-content'>" +
+			"<div class='fc-event-content' data-content='RAILS PARTIAL' data-original-title='Schedule Conflicts'>" +
 			"<div class='fc-event-title'>" +
 			htmlEscape(event.title) +
 			"</div>" +
