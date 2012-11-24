@@ -15,14 +15,15 @@
   <% t = Time.new %>
 
   <!-- -->
+  <% if params[:users] %>
+    <% @participants = params[:users].join(",") %>
 
-  <% @participants = params[:users] %>
+    <!-- <div><%= @participants %></div> -->
 
-  <div><%= @participants %></div>
-
-  <div class="field">
-    <!-- <%= f.hidden_field :users, :value => @participants %> -->
-  </div>
+    <div class="field">
+        <%= f.hidden_field :participants, :value => @participants, :as => :users  %>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= f.hidden_field :user_id, :value => session[:user_id] %>
