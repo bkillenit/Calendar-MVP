@@ -12,8 +12,9 @@ gem "jsroutes", "~> 0.0.3"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
-gem 'bootstrap-sass-rails'
+group :assets do
+  gem 'bootstrap-sass-rails'
+end
 
 group :development, :test do
   gem 'sqlite3', '1.3.6'
