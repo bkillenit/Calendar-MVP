@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a86dff71-cac1-4b88-ae29-3d88568b3b2c" name="Default" comment="˚">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/events_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/events_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/event.rb" afterPath="$PROJECT_DIR$/app/models/event.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/events/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/events/_form.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/fullcalendar.js" afterPath="$PROJECT_DIR$/public/javascripts/fullcalendar.js" />
     </list>
     <ignored path="Calendar-MVP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,26 +51,8 @@
       <file leaf-file-name="fullcalendar.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/fullcalendar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="582" column="14" selection-start="13998" selection-end="13998" vertical-scroll-proportion="-17.538462">
-              <folding>
-                <marker date="1353724971000" expanded="true" signature="5723:5740" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="16665:16675" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="50957:50967" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="51540:51557" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="52270:52310" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="67927:67937" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="68612:68629" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="69431:69476" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="69585:69625" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="69687:69697" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="69901:69918" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="70594:70656" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="70727:70771" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="70854:70894" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="70979:70989" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="71482:71499" placeholder="..." />
-                <marker date="1353724971000" expanded="true" signature="122913:122940" placeholder="..." />
-              </folding>
+            <state line="582" column="14" selection-start="13998" selection-end="13998" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,7 +69,7 @@
       <file leaf-file-name="_form.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/events/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="44" selection-start="567" selection-end="567" vertical-scroll-proportion="0.5976096">
+            <state line="20" column="44" selection-start="567" selection-end="567" vertical-scroll-proportion="0.23904383">
               <folding />
             </state>
           </provider>
@@ -193,6 +171,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -295,8 +275,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -578,14 +556,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="22" width="1278" height="707" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32459018" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4034091" sideWeight="0.67540985" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4107143" sideWeight="0.67540985" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295082" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -594,6 +571,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32459018" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3294702" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -669,9 +647,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/custom.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="11" selection-start="1074" selection-end="1074" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="83" column="11" selection-start="1074" selection-end="1074" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/relationship.rb">
@@ -683,9 +659,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20121112091215_add_is_confirmed_and_is_admin_to_event_attendees.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/migrate/20121013162859_create_relationships.rb">
@@ -746,26 +720,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/fullcalendar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="582" column="14" selection-start="13998" selection-end="13998" vertical-scroll-proportion="-17.538462">
-          <folding>
-            <marker date="1353724971000" expanded="true" signature="5723:5740" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="16665:16675" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="50957:50967" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="51540:51557" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="52270:52310" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="67927:67937" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="68612:68629" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="69431:69476" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="69585:69625" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="69687:69697" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="69901:69918" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="70594:70656" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="70727:70771" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="70854:70894" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="70979:70989" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="71482:71499" placeholder="..." />
-            <marker date="1353724971000" expanded="true" signature="122913:122940" placeholder="..." />
-          </folding>
+        <state line="582" column="14" selection-start="13998" selection-end="13998" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -778,7 +734,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/events/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="44" selection-start="567" selection-end="567" vertical-scroll-proportion="0.5976096">
+        <state line="20" column="44" selection-start="567" selection-end="567" vertical-scroll-proportion="0.23904383">
           <folding />
         </state>
       </provider>
