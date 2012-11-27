@@ -24,35 +24,35 @@ class EventsController < ApplicationController
       end
     else
       @events =  current_user.events
-      @events.each do |e|
-        e.editable = true
-      end  
         
       @requested_user = Participant.find_all_by_user_id(current_user.id)
       #logger.info("========= requested_user: " + @requested_user.to_s + "  ============")
-      if @requested_user != nil 
+      if @requested_user 
         @requested_user.each do |e|
+          if e.isAdmin == false
+          @event = Event.find(e.event_id)  
           #logger.info("========= requested_user: " + e.isAdmin.to_s + "  ============")
-            if e.isAdmin != true
-              @event = Event.find(e.event_id)
-              @event.className = 'merged-event' 
+            if e.isConfirmed == false
+              @event.className = 'unconfirmed event' 
               @event.editable = false
-
-              logger.info("========= Event object: " + @event.to_json + "  ============")
-              @events = @events.push(@event)
               
+            elsif e.isConfirmed == true  
+              @event.className = 'confirmed-event'
+              #logger.info("========= Event object: " + @event.to_json + "  ============")  
             end
+            @events = @events.push(@event)
+          end
         end
         logger.info("========= Events object: " + @events.to_json + "  ============")
       end
-     
+           
       @events = @events.after(params['start']) if (params['start'])
       @events = @events.before(params['end']) if (params['end'])
 
       respond_to do |format|
         format.html # index.html.erb.erb
         format.xml  { render :xml => @events }
-        format.js  { render :json => @events }
+        format.js  { render :json => @events.to_json }
       end
     end
 
