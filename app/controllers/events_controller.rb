@@ -36,7 +36,19 @@ class EventsController < ApplicationController
       end
     end
 
-    @meeting_request = Participant.find_by_user_id(current_user.id)
+    @requested_user = Participant.find_all_by_user_id(current_user.id)
+
+    if @requested_user != nil 
+      @requested_user.each do |e|
+        logger.info("========= meeting_requests: " + e.event_id.to_s + "  ============")
+    
+          @event = Event.find(e.event_id)
+          logger.info("========= Event id: " + @event.to_s + "  ============")
+          @events = @events.push(@event)
+          logger.info("========= Event id: " + @events.name.to_s + "  ============")
+      end  
+    end  
+
     #@meeting_request.each do |m|
     
       #@events.push

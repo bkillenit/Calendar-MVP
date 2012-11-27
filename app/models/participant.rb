@@ -4,5 +4,8 @@ class Participant < ActiveRecord::Base
   belongs_to :event
   belongs_to :user
 
+  def requested_events
+  	self.find_by_user_id(current_user.id)
+  end	
 
 end
