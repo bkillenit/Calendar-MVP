@@ -33,6 +33,12 @@ class Event < ActiveRecord::Base
     EventAttendee.create!({:user_id => current_user.id, :event_id => self.id})
   end
   
+  def is_user_available?(user_id)
+    @start = self.starts_at
+    @end = self.ends_at
+    @conflicts = User.find(user_id).events.select {|e| e.starts_at.between?(@start,@end) or e.ends_at.between?(@start,@end)}
+  end
+
   def self.format_date(date_time)
     Time.at(date_time.to_i).to_formatted_s(:db)
   end
