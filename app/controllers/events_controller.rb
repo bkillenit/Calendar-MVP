@@ -10,22 +10,35 @@ class EventsController < ApplicationController
     # I'll eventually do that to make the demo a little cleaner.
 
     if params[:user_id]
-    user = User.find(params[:user_id])
-    @events =  user.events
+      user = User.find(params[:user_id])
+      @events =  user.events
 
-    @events.each do |e|
-      e.title = ""
-    end
+      @events.each do |e|
+        e.title = ""
+      end
 
-    respond_to do |format|
-      format.html # index.html.erb.erb
-      format.xml  { render :xml => @events }
-      format.js  { render :json => @events }
-    end
+      respond_to do |format|
+        format.html # index.html.erb.erb
+        format.xml  { render :xml => @events }
+        format.js  { render :json => @events }
+      end
     else
       @events =  current_user.events
 
-      @events = current_user.events.scoped
+      @requested_user = Participant.find_all_by_user_id(current_user.id)
+      #logger.info("========= requested_user: " + @requested_user.to_s + "  ============")
+      if @requested_user != nil 
+        @requested_user.each do |e|
+          logger.info("========= requested_user: " + e.isAdmin.to_s + "  ============")
+            if e.isAdmin != true
+              @event = Event.find(e.event_id)
+              #logger.info("========= Event id: " + @event.to_s + "  ============")
+              @events = @events.push(@event)
+              #logger.info("========= Event id: " + @events.to_s + "  ============")
+            end
+        end
+      end
+     
       @events = @events.after(params['start']) if (params['start'])
       @events = @events.before(params['end']) if (params['end'])
 
@@ -36,29 +49,6 @@ class EventsController < ApplicationController
       end
     end
 
-    @requested_user = Participant.find_all_by_user_id(current_user.id)
-
-    if @requested_user != nil 
-      @requested_user.each do |e|
-        logger.info("========= meeting_requests: " + e.event_id.to_s + "  ============")
-    
-          @event = Event.find(e.event_id)
-          logger.info("========= Event id: " + @event.to_s + "  ============")
-          @events = @events.push(@event)
-          logger.info("========= Event id: " + @events.name.to_s + "  ============")
-      end  
-    end  
-
-    #@meeting_request.each do |m|
-    
-      #@events.push
-
-      #respond_to do |format|
-        #format.html # index.html.erb.erb
-        #format.xml  { render :xml => @events }
-        #format.js  { render :json => @events }
-       #end  
-    #end  
   end
 
 
