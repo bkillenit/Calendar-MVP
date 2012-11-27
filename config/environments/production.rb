@@ -40,6 +40,17 @@ Calendar::Application.configure do
   # Enable threaded mode
   # config.threadsafe!
 
+  #config for godaddy with ActionMailer
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => 'smtpout.secureserver.net',
+    :domain  => 'www.checkit.co',
+    :port      => 80,
+    :user_name => 'assistant@checkit.co',
+    :password => 'CheckItisAwesome',
+    :authentication => :plain
+  }
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true

@@ -1,0 +1,10 @@
+Hello <%= @user.name %>,
+
+<% if @admin.fname && @admin.lname %>
+	<% @name = @admin.fname + " " + @admin.lname %>
+<% else %>
+	<% @name = @admin.name %> 
+<% end %>
+
+<%= @name %> has requested a meeting with you from <%= @event.starts_at.to_s + " until " + @event.ends_at.to_s %>
+

@@ -20,6 +20,9 @@ Calendar::Application.configure do
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
 
+  # Set up SMTP server for mailing the meeting request to user
+  config.action_mailer.smtp_settings = {:address => "smtp-host.syr.edu" }
+
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
 end

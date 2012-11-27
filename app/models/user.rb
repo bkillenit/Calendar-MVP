@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :password, :role, :followers
+  attr_accessible :name, :password, :role, :followers, :email, :fname, :lname
 
   has_many :events
 

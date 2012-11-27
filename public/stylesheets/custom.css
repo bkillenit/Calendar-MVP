@@ -1,5 +1,5 @@
 body {
-    font-family: Calibri;
+    font-family: 'century gothic';
     width: 100%;
     background-image: url('../images/creampaper.png');
     margin: 0 0 0 0;
@@ -21,11 +21,17 @@ nav img {
 	
 }
 
+nav #profile {
+    padding-top: 3px;
+
+}
+
 nav p {
-	font-family: Calibri;
+    font-size: 15px;
 	color: #fafafa;
-	padding-top: 20px;
+	padding-top: 0px;
 	padding-right: 10px;
+    float: right;
 	
 }
 
@@ -144,6 +150,17 @@ nav a:hover {
 	margin-top: 10px;
 	width: 224;
 	
+}
+
+#sidepanel .profile-follow {
+    float: right;
+    margin-right: 6px;
+
+}
+
+#sidepanel .profile-name {
+    float: left;
+
 }
 
 .search #search-btn, .friends #friends-btn {

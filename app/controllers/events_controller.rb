@@ -35,6 +35,18 @@ class EventsController < ApplicationController
         format.js  { render :json => @events }
       end
     end
+
+    @meeting_request = Participant.find_by_user_id(current_user.id)
+    #@meeting_request.each do |m|
+    
+      #@events.push
+
+      #respond_to do |format|
+        #format.html # index.html.erb.erb
+        #format.xml  { render :xml => @events }
+        #format.js  { render :json => @events }
+       #end  
+    #end  
   end
 
 
@@ -108,8 +120,8 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
 
-    logger.info("========= User id in session: " + session[:user_id].to_s + "============")
-    logger.info("======= Params hash: " + params[:event][:participants].to_s + " ==============")
+    #logger.info("========= User id in session: " + session[:user_id].to_s + "============")
+    #logger.info("======= Params hash: " + params[:event][:participants].to_s + " ==============")
     @event = Event.create(params[:event].except(:participants))
     current_user.events.push @event
     @event.participants.create(:user_id => current_user.id, :isConfirmed => true, :isAdmin => true ).save
@@ -117,10 +129,12 @@ class EventsController < ApplicationController
     if params[:event][:participants]
       @p = params[:event][:participants].split(",")
 
-      logger.info("======= Params hash in var: " + @p.to_s + " ==============")
+      #logger.info("======= Params hash in var: " + @p.to_s + " ==============")
         @p.each do |p|
           @event.participants.create( :event_id => @event.id,
             :user_id => p, :isConfirmed => false, :isAdmin => false ).save
+
+          Notifier.meeting_requested(@current_user,p,@event).deliver
       end
     end
 
