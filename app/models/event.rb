@@ -34,5 +34,29 @@ class Event < ActiveRecord::Base
   def self.format_date(date_time)
     Time.at(date_time.to_i).to_formatted_s(:db)
   end
- 
+
+  def self.Participating?(id)
+
+    @requested_user = Participant.find_all_by_user_id(id)
+
+    if @requested_user 
+        @requested_user.each do |e|
+          if e.isAdmin == false
+          @event = Event.find(e.event_id)  
+          #logger.info("========= requested_user: " + e.isAdmin.to_s + "  ============")
+            if e.isConfirmed == false
+              @event.className = 'unconfirmed event' 
+              @event.editable = false
+              
+            elsif e.isConfirmed == true  
+              @event.className = 'confirmed-event'
+              #logger.info("========= Event object: " + @event.to_json + "  ============")  
+            end
+          end
+        end
+        logger.info("========= Events object: " + @events.to_json + "  ============")
+      end
+
+      return @event 
+  end
 end

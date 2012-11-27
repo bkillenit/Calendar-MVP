@@ -24,27 +24,10 @@ class EventsController < ApplicationController
       end
     else
       @events =  current_user.events
-        
-      @requested_user = Participant.find_all_by_user_id(current_user.id)
-      #logger.info("========= requested_user: " + @requested_user.to_s + "  ============")
-      if @requested_user 
-        @requested_user.each do |e|
-          if e.isAdmin == false
-          @event = Event.find(e.event_id)  
-          #logger.info("========= requested_user: " + e.isAdmin.to_s + "  ============")
-            if e.isConfirmed == false
-              @event.className = 'unconfirmed event' 
-              @event.editable = false
-              
-            elsif e.isConfirmed == true  
-              @event.className = 'confirmed-event'
-              #logger.info("========= Event object: " + @event.to_json + "  ============")  
-            end
-            @events = @events.push(@event)
-          end
-        end
-        logger.info("========= Events object: " + @events.to_json + "  ============")
-      end
+       
+      #add events that the user is participating in to the calendar  
+      @events.push(Event.Participating?(current_user.id))
+      #logger.info("========= @events: " + @events.to_json + "  ============") 
            
       @events = @events.after(params['start']) if (params['start'])
       @events = @events.before(params['end']) if (params['end'])
