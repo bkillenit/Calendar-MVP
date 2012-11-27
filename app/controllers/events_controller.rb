@@ -23,14 +23,12 @@ class EventsController < ApplicationController
         format.js  { render :json => @events }
       end
     else
-      @events =  current_user.events
-       
       #add events that the user is participating in to the calendar  
-      @events.push(Event.Participating?(current_user.id))
-      #logger.info("========= @events: " + @events.to_json + "  ============") 
+      @events = Event.Participating?(current_user.id)
+      logger.info("========= @events: " + @events.to_json + "  ============") 
            
-      @events = @events.after(params['start']) if (params['start'])
-      @events = @events.before(params['end']) if (params['end'])
+      #@events = @events.after(params['start']) if (params['start'])
+      #@events = @events.before(params['end']) if (params['end'])
 
       respond_to do |format|
         format.html # index.html.erb.erb

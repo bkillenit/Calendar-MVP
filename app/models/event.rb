@@ -37,26 +37,29 @@ class Event < ActiveRecord::Base
 
   def self.Participating?(id)
 
-    @requested_user = Participant.find_all_by_user_id(id)
+    participants = Participant.find_all_by_user_id(id)
+    events = Array.new
 
-    if @requested_user 
-        @requested_user.each do |e|
-          if e.isAdmin == false
-          @event = Event.find(e.event_id)  
-          #logger.info("========= requested_user: " + e.isAdmin.to_s + "  ============")
-            if e.isConfirmed == false
-              @event.className = 'unconfirmed event' 
-              @event.editable = false
-              
+    if participants 
+        participants.each do |p|
+         event = Event.find(p.event_id)  
+          if p.isAdmin == false
+            event.editable = false
+            #logger.info("========= requested_user: " + e.isAdmin.to_s + "  ============")
+            if p.isConfirmed == false
+              event.className = 'unconfirmed event' 
             elsif e.isConfirmed == true  
-              @event.className = 'confirmed-event'
+              event.className = 'confirmed-event'
               #logger.info("========= Event object: " + @event.to_json + "  ============")  
             end
-          end
+          else
+            event.className = 'user-event'
+            event.editable = true
+          end 
+            events.push event
         end
-        logger.info("========= Events object: " + @events.to_json + "  ============")
       end
-
-      return @event 
+        #logger.info("========= Events object: " + @events.to_json + "  ============")  
+      return events 
   end
 end
