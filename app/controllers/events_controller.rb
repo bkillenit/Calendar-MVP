@@ -24,19 +24,26 @@ class EventsController < ApplicationController
       end
     else
       @events =  current_user.events
-
+      @events.each do |e|
+        e.editable = true
+      end  
+        
       @requested_user = Participant.find_all_by_user_id(current_user.id)
       #logger.info("========= requested_user: " + @requested_user.to_s + "  ============")
       if @requested_user != nil 
         @requested_user.each do |e|
-          logger.info("========= requested_user: " + e.isAdmin.to_s + "  ============")
+          #logger.info("========= requested_user: " + e.isAdmin.to_s + "  ============")
             if e.isAdmin != true
               @event = Event.find(e.event_id)
-              #logger.info("========= Event id: " + @event.to_s + "  ============")
+              @event.className = 'merged-event' 
+              @event.editable = false
+
+              logger.info("========= Event object: " + @event.to_json + "  ============")
               @events = @events.push(@event)
-              #logger.info("========= Event id: " + @events.to_s + "  ============")
+              
             end
         end
+        logger.info("========= Events object: " + @events.to_json + "  ============")
       end
      
       @events = @events.after(params['start']) if (params['start'])

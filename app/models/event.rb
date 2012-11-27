@@ -1,9 +1,7 @@
 class Event < ActiveRecord::Base
 
   attr_accessible :ends_at, :starts_at, :title, :description, :user_id, :all_day, :participants, :users
-
-  has_many :event_attendees
-  has_many :users, :through => :event_attendees
+  attr_accessor :className, :editable
 
   has_many :participants, :dependent => :destroy
   accepts_nested_attributes_for :participants
@@ -26,7 +24,9 @@ class Event < ActiveRecord::Base
       :end => ends_at.rfc822,
       :allDay => self.all_day,
       :recurring => false,
-      :url => Rails.application.routes.url_helpers.event_path(id)
+      :url => Rails.application.routes.url_helpers.event_path(id),
+      :className => self.className,
+      :editable => self.editable
     }
     
   end
