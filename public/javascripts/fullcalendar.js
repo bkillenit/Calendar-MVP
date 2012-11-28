@@ -3947,7 +3947,7 @@ function AgendaEventRenderer() {
 			htmlEscape(event.title) +
 			"</div>" +
 			"</div>" +
-			"<div class='fc-event-bg'></div>" +
+			"<div class='fc-event-bg' data-trigger='hover' data-content='RAILS PARTIAL' data-original-title='Schedule Conflicts'></div>" +
 			"</div>"; // close inner
 		if (seg.isEnd && isEventResizable(event)) {
 			html +=
