@@ -13,7 +13,8 @@ gem "jsroutes", "~> 0.0.3"
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :assets do
-  gem 'bootstrap-sass-rails'
+  gem 'sass-rails'
+  gem 'bootstrap-sass'
 end
 
 group :development, :test do
