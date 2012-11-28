@@ -25,7 +25,7 @@ class EventsController < ApplicationController
     else
       #add events that the user is participating in to the calendar  
       @events = Event.Participating?(current_user.id)
-      logger.info("========= @events: " + @events.to_json + "  ============") 
+      #logger.info("========= @events: " + @events.to_json + "  ============") 
            
       #@events = @events.after(params['start']) if (params['start'])
       #@events = @events.before(params['end']) if (params['end'])

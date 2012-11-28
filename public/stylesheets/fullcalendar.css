@@ -447,14 +447,25 @@ table.fc-border-separate {
 	float: right;
 	}
 	
-/* Shadow class for merged events
+/* Different Event Styles depending on how it needs to be displayed
 ------------------------------------------------------------------------*/
+.user-event {
+	/* Found in calendar.js on line 43 (need to find way to make it fully controllable by css) */
+}
+
 .merged-event {
     background-color: #d3d3d3 !important;
     border-color: #d3d3d3;
     opacity: .4;
     
 }
+
+.unconfirmed-event {
+	opacity: .6;
+
+}
+
+
 
 
 

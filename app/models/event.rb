@@ -47,7 +47,11 @@ class Event < ActiveRecord::Base
             event.editable = false
             #logger.info("========= requested_user: " + e.isAdmin.to_s + "  ============")
             if p.isConfirmed == false
-              event.className = 'unconfirmed event' 
+              @Admin = Participant.find_by_event_id_and_isAdmin(event.id, true)
+              @owner = User.find_by_id(@Admin.user_id)
+              event.className = 'unconfirmed-event'
+              event.title = "Request from " +  @owner.name + " for event " + event.title
+
             elsif e.isConfirmed == true  
               event.className = 'confirmed-event'
               #logger.info("========= Event object: " + @event.to_json + "  ============")  
