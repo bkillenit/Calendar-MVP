@@ -3914,7 +3914,7 @@ function AgendaEventRenderer() {
 		var url = event.url;
 		var skinCss = getSkinCss(event, opt);
 		var skinCssAttr = (skinCss ? " style='" + skinCss + "'" : '');
-		var classes = ['fc-event', 'fc-event-skin', 'fc-event-vert'];
+		var classes = ['fc-event', 'fc-event-vert'];
 		if (isEventDraggable(event)) {
 			classes.push('fc-event-draggable');
 		}
@@ -3927,6 +3927,14 @@ function AgendaEventRenderer() {
 		classes = classes.concat(event.className);
 		if (event.source) {
 			classes = classes.concat(event.source.className || []);
+			classesString = String(classes);
+			if (classesString.indexOf("user-event") >= 0){
+				var z_index = 25;
+			}
+			else
+			{
+				var z_index = 1;
+			}	
 		}
 		if (url) {
 			html += "a href='" + htmlEscape(event.url) + "'";
@@ -3935,10 +3943,10 @@ function AgendaEventRenderer() {
 		}
 		html +=
 			" class='" + classes.join(' ') + "'" +
-			" style='position:absolute;z-index:8;top:" + seg.top + "px;left:" + seg.left + "px;" + skinCss + "'" +
+			" style='position:absolute;z-index:" + z_index +";top:" + seg.top + "px;left:" + seg.left + "px;" + skinCss + "'" +
 			">" +
-			"<div class='fc-event-inner fc-event-skin'" + ">" +
-			"<div class='fc-event-head fc-event-skin'" + ">" +
+			"<div class='fc-event-inner'" + ">" +
+			"<div class='fc-event-head'" + ">" +
 			"<div class='fc-event-time'>" +
 			"</div>" +
 			"</div>" +
@@ -4639,7 +4647,7 @@ function DayEventRenderer() {
 		for (i=0; i<segCnt; i++) {
 			seg = segs[i];
 			event = seg.event;
-			classes = ['fc-event', 'fc-event-skin', 'fc-event-hori'];
+			classes = ['fc-event', 'fc-event-hori'];
 			if (isEventDraggable(event)) {
 				classes.push('fc-event-draggable');
 			}
@@ -4682,7 +4690,7 @@ function DayEventRenderer() {
 				" style='position:absolute;z-index:8;left:"+left+"px;" + skinCss + "'" +
 				">" +
 				"<div" +
-				" class='fc-event-inner fc-event-skin'" +
+				" class='fc-event-inner" +
 				(skinCss ? " style='" + skinCss + "'" : '') +
 				">";
 			if (!event.allDay && seg.isStart) {
