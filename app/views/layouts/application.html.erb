@@ -1,10 +1,21 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
 <head>
   <title>Calendar</title>
+
+  <!-- stylesheets for bootstrap -->
+  <!-- <%= stylesheet_link_tag "/bootstrap/css/bootstrap-responsive.css" %>
+  <%= stylesheet_link_tag "/bootstrap/css/bootstrap-responsive.min.css" %>
+  <%= stylesheet_link_tag "/bootstrap/css/bootstrap.css" %>
+  <%= stylesheet_link_tag "/bootstrap/css/bootstrap.min.css" %> -->
+
   <!-- stylesheets -->
   <%= stylesheet_link_tag "fullcalendar.css" %>
   <%= stylesheet_link_tag "application.css" %>
   <%= stylesheet_link_tag "custom.css" %>
+
+  <!-- javascripts for bootstrap -->
+  <%= javascript_include_tag "/bootstrap/js/bootstrap.js" %>
+  <%= javascript_include_tag "/bootstrap/js/bootstrap.min.js" %>
 
   <!-- external javascript -->
   <%= javascript_include_tag "jquery.js" %>
@@ -15,8 +26,7 @@
   <%= javascript_include_tag "jquery-ui.js" %>
   <%= javascript_include_tag "modernizr.js" %>
   <%= javascript_include_tag "jquery-extras.js" %>
-  <!-- <%= javascript_include_tag "mergetoggle.js.erb" %> -->
-  
+
   <!-- these are needed for the calendar. -->
   <%= javascript_include_tag "jquery-ui-1.8.11.custom.min.js" %>
   <%= javascript_include_tag "fullcalendar.js" %>

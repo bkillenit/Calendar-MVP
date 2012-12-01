@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
   has_many :participants, :dependent => :destroy
   accepts_nested_attributes_for :participants
 
+  has_many :responses, :dependent => :destroy
+
   validates :user_id, :presence => true
   validates :title, :presence => true
   validates_datetime :ends_at, :after => :starts_at, :after_message => "Please select end time after start time" # Method symbol

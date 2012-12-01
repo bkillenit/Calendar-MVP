@@ -3928,13 +3928,29 @@ function AgendaEventRenderer() {
 		if (event.source) {
 			classes = classes.concat(event.source.className || []);
 			classesString = String(classes);
+			
+			var z_index;
+			var onmouseover; 
+			var onmouseclick;
+			var tooltip;
+
+			//sets internal html elements for z_index based on class
 			if (classesString.indexOf("user-event") >= 0){
-				var z_index = 25;
+				z_index = 25;
 			}
-			else
-			{
-				var z_index = 1;
+			else if (classesString.indexOf("unconfirmed-event") >= 0){
+				z_index = 1;
+				onmouseover = "unconfirmed_event(" + event.id + ")";
+				tooltip = "rel='tooltip' data-placement='left' data-original-title='Click to expand'";
+
 			}	
+			else if (classesString.indexOf("confirmed-event") >= 0 ){
+				z_index = 1;
+			}
+			else {
+				z_index = 1;
+			}
+
 		}
 		if (url) {
 			html += "a href='" + htmlEscape(event.url) + "'";
@@ -3942,6 +3958,9 @@ function AgendaEventRenderer() {
 			html += "div";
 		}
 		html +=
+			" onmouseover='" + onmouseover + "'" +
+			" "+ tooltip + " " +
+			" id='event-" + event.id + "'" +
 			" class='" + classes.join(' ') + "'" +
 			" style='position:absolute;z-index:" + z_index +";top:" + seg.top + "px;left:" + seg.left + "px;" + skinCss + "'" +
 			">" +

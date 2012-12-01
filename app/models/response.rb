@@ -1,4 +1,4 @@
-class Response < ActiveRecord::Base
+class Responses < ActiveRecord::Base
   attr_accessible :event_id, :response, :user_id
 
   belongs_to :event 

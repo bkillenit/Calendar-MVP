@@ -1,8 +1,10 @@
-//initialize global variables
+//initialize global variables find way to do this with imports and exports
 var merged_ids = [];
 
 // checks if a box is already checked when going back to the home page
 // and runs merge function if necessary
+//wants to move all functions to here that aren't selective upon id and  
+//use the this function correctly to preload all functions
 $(document).ready(function(){
 
     //toggles the search list between visible and not
@@ -22,6 +24,12 @@ $(document).ready(function(){
     $(".mege-box").attr('checked', false);
 
 });     // ready method end
+
+function unconfirmed_event(id) {
+    event_id = "#event-" + id;
+    $(event_id).tooltip('show');
+
+}
 
 function merge_user(user_id)
 {
