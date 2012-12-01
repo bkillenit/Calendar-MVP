@@ -1,11 +1,12 @@
-/* Tooltip css from bootstrap */
+/* Tooltip css from bootstrap.css */
 
 .tooltip {
   position: absolute;
+  width: 100px;
   z-index: 1030;
   display: block;
-  padding: 5px;
-  font-size: 11px;
+  padding: 4px;
+  font-size: 13px;
   opacity: 0;
   filter: alpha(opacity=0);
   visibility: visible;
@@ -33,7 +34,7 @@
 }
 
 .tooltip-inner {
-  max-width: 200px;
+  max-width: 500px;
   padding: 3px 8px;
   color: #ffffff;
   text-align: center;
@@ -73,7 +74,7 @@
   right: 0;
   margin-top: -5px;
   border-left-color: #000000;
-  border-width: 5px 0 5px 5px;
+  border-width: 5px 0 5px 5px; 
 }
 
 .tooltip.bottom .tooltip-arrow {
@@ -83,7 +84,9 @@
   border-bottom-color: #000000;
   border-width: 0 5px 5px;
 }
+/* ----------------------------------------- */
 
+/* Popover CSS from bootstrap.css */
 .popover {
   position: absolute;
   top: 0;
@@ -221,3 +224,4 @@
   border-left-color: rgba(0, 0, 0, 0.25);
   border-width: 11px 0 11px 11px;
 }
+/* ----------------------------------------- */

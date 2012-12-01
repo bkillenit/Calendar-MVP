@@ -3932,6 +3932,7 @@ function AgendaEventRenderer() {
 			var z_index;
 			var onmouseover; 
 			var onmouseclick;
+			var onmouseout;
 			var tooltip;
 
 			//sets internal html elements for z_index based on class
@@ -3939,13 +3940,14 @@ function AgendaEventRenderer() {
 				z_index = 25;
 			}
 			else if (classesString.indexOf("unconfirmed-event") >= 0){
-				z_index = 1;
-				onmouseover = "unconfirmed_event(" + event.id + ")";
-				tooltip = "rel='tooltip' data-placement='left' data-original-title='Click to expand'";
-
+				z_index = 13;
+				onmouseover = "unconfirmed_event_tooltip(this)";
+				onmouseclick = "unconfirmed_event_popover(this)";
+				onmouseout = "unconfirmed_event_mouseout(this)";
+				tooltip = "rel='tooltip' data-placement='left' data-original-title='Click event to expand'";
 			}	
 			else if (classesString.indexOf("confirmed-event") >= 0 ){
-				z_index = 1;
+				z_index = 25;
 			}
 			else {
 				z_index = 1;
@@ -3953,13 +3955,15 @@ function AgendaEventRenderer() {
 
 		}
 		if (url) {
-			html += "a href='" + htmlEscape(event.url) + "'";
+			html += "a ";
 		}else{
 			html += "div";
 		}
 		html +=
 			" onmouseover='" + onmouseover + "'" +
-			" "+ tooltip + " " +
+			" onclick='" + onmouseclick + "'" +
+			" onmouseout='" + onmouseout + "'" +
+			" " + tooltip + " " +
 			" id='event-" + event.id + "'" +
 			" class='" + classes.join(' ') + "'" +
 			" style='position:absolute;z-index:" + z_index +";top:" + seg.top + "px;left:" + seg.left + "px;" + skinCss + "'" +

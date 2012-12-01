@@ -1,5 +1,6 @@
 //initialize global variables find way to do this with imports and exports
 var merged_ids = [];
+var mousestatus;
 
 // checks if a box is already checked when going back to the home page
 // and runs merge function if necessary
@@ -25,10 +26,43 @@ $(document).ready(function(){
 
 });     // ready method end
 
-function unconfirmed_event(id) {
-    event_id = "#event-" + id;
-    $(event_id).tooltip('show');
+function unconfirmed_event_tooltip(event_div) {
+    //var event_id = "#event-" + id;
+    //lert(mousestatus);
+    $(event_div).tooltip('hide');
 
+    if (mousestatus=='clicked') { 
+      //  $(event_id).popover('show');
+      //alert('mouse has been clicked')  
+    }
+    else
+    {
+        $(event_div).tooltip('show');
+    }
+    
+}
+
+function unconfirmed_event_popover(event_div) {
+    //var event_id = "#event-" + id;
+    
+    if (mousestatus=='clicked'){
+        $(event_div).tooltip('hide');
+        $(event_div).popover('hide'); 
+    }
+    else {
+        mousestatus='clicked'; 
+        
+        $(event_div).tooltip('hide'); 
+        $(event_div).popover('toggle'); //toggle bug makes the toggle to be executed last so the rest of the code can go through      
+    }
+}
+
+function unconfirmed_event_mouseout(id) {
+    //var event_id = "#event-" + id;
+    //alert(mousestatus);
+    //$(event_id).tooltip('hide');
+    //$(event_id).popover('hide');
+    
 }
 
 function merge_user(user_id)
@@ -50,7 +84,7 @@ function merge_user(user_id)
         var source = "/users/" + user_id + "/events";
         $('#calendar').fullCalendar('addEventSource', {
             url: source,
-            className: 'merged-event',
+            className: 'merged-event fade-in' + user_id,
             editable: false
         });
 
@@ -66,6 +100,11 @@ function merge_user(user_id)
 
         //rerenders calendar with AJAX
         $('#calendar').fullCalendar('rerenderEvents');
+
+        //fades in shadows
+        fadeClass=".fade-in" + user_id ; 
+        //alert(fadeClass);
+        $('.fade-in7').fadeIn("slow");
     }
 
 }

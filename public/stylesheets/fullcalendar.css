@@ -241,7 +241,7 @@ html .fc,
 	 
 .fc-event {
 	border-style: solid;
-	border-width: 0;
+	border-width: 5px;
 	font-size: .85em;
 	cursor: default;
 
@@ -251,6 +251,12 @@ a.fc-event,
 .fc-event-draggable {
 	cursor: pointer;
 	}
+
+a.user-event:hover, a.unconfirmed-event:hover, a.confirmed-event:hover {
+	-moz-border-radius:5px; /* Firefox 3.6 and earlier */
+    box-shadow: 0px 0px 4px black;
+
+	}	
 	
 a.fc-event {
 	text-decoration: none;

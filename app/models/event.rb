@@ -52,7 +52,7 @@ class Event < ActiveRecord::Base
               @Admin = Participant.find_by_event_id_and_isAdmin(event.id, true)
               @owner = User.find_by_id(@Admin.user_id)
               event.className = 'unconfirmed-event'
-              event.title = "Request from " +  @owner.name + " for event " + event.title
+              event.title = "Request for " +  event.title + " from " + @owner.name
 
             elsif e.isConfirmed == true  
               event.className = 'confirmed-event'
