@@ -12,9 +12,10 @@ class EventsController < ApplicationController
     if params[:user_id]
       user = User.find(params[:user_id])
       @events =  user.events
-
+      #@same_event = Paricipant.find_all_by_user_id(user.id)
       @events.each do |e|
         e.title = ""
+        
       end
 
       respond_to do |format|

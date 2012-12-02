@@ -3944,7 +3944,7 @@ function AgendaEventRenderer() {
 				onmouseover = "unconfirmed_event_tooltip(this)";
 				onmouseclick = "unconfirmed_event_popover(this)";
 				onmouseout = "unconfirmed_event_mouseout(this)";
-				tooltip = "rel='tooltip' data-placement='left' data-original-title='Click event to expand'";
+				tooltip = "rel='tooltip'";
 			}	
 			else if (classesString.indexOf("confirmed-event") >= 0 ){
 				z_index = 25;
@@ -4137,6 +4137,7 @@ function AgendaEventRenderer() {
 			opacity: opt('dragOpacity'),
 			revertDuration: opt('dragRevertDuration'),
 			start: function(ev, ui) {
+				var ev = ev.originalEvent;
 				trigger('eventDragStart', eventElement, event, ev, ui);
 				hideEvents(event, eventElement);
 				origPosition = eventElement.position();
@@ -4166,6 +4167,7 @@ function AgendaEventRenderer() {
 				}, ev, 'drag');
 			},
 			drag: function(ev, ui) {
+				var ev = ev.originalEvent;
 				minuteDelta = Math.round((ui.position.top - origPosition.top) / slotHeight) * opt('slotMinutes');
 				if (minuteDelta != prevMinuteDelta) {
 					if (!allDay) {
@@ -4175,6 +4177,7 @@ function AgendaEventRenderer() {
 				}
 			},
 			stop: function(ev, ui) {
+				var ev = ev.originalEvent;
 				var cell = hoverListener.stop();
 				clearOverlays();
 				trigger('eventDragStop', eventElement, event, ev, ui);
@@ -5218,6 +5221,7 @@ function HoverListener(coordinateGrid) {
 	
 	
 	function mouse(ev) {
+		var ev = ev.originalEvent;
 		var newCell = coordinateGrid.cell(ev.pageX, ev.pageY);
 		if (!newCell != !cell || newCell && (newCell.row != cell.row || newCell.col != cell.col)) {
 			if (newCell) {

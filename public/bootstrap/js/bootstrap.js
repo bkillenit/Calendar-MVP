@@ -527,8 +527,9 @@
         complete()
     }
 
-  , toggle: function () {
-      this[this.$element.hasClass('in') ? 'hide' : 'show']()
+  , toggle: function (e) {
+       var self = (e) ? $(e.currentTarget)[this.type](this._options).data(this.type) : this
+       self.tip().hasClass('in') ? self.hide() : self.show()
     }
 
   }

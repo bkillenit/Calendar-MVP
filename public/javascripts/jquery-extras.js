@@ -29,17 +29,25 @@ $(document).ready(function(){
 function unconfirmed_event_tooltip(event_div) {
     //var event_id = "#event-" + id;
     //lert(mousestatus);
-    $(event_div).tooltip('hide');
 
     if (mousestatus=='clicked') { 
       //  $(event_id).popover('show');
-      //alert('mouse has been clicked')  
+      //alert('mouse has been clicked')
+      //$(event_div).tooltip('hide');
+      $(event_div).popover({
+            title: 'A title!',
+            content: 'Some content!',
+            placement: 'left', 
+            delay: { show: 500, hide: 100 } });   
     }
     else
     {
-        $(event_div).tooltip('show');
-    }
-    
+      $(event_div).tooltip({
+            title: 'A title!',
+            content: 'Some content!',
+            placement: 'left', 
+            delay: { show: 50, hide: 100 } });
+    }  
 }
 
 function unconfirmed_event_popover(event_div) {
@@ -48,21 +56,33 @@ function unconfirmed_event_popover(event_div) {
     if (mousestatus=='clicked'){
         $(event_div).tooltip('hide');
         $(event_div).popover('hide'); 
+
+        mousestatus='';
     }
     else {
         mousestatus='clicked'; 
         
         $(event_div).tooltip('hide'); 
-        $(event_div).popover('toggle'); //toggle bug makes the toggle to be executed last so the rest of the code can go through      
+        //toggle bug makes the toggle to be executed last so the rest of the code 
+        //can go through, but makes the logic fail for future rollovers      
+        $(event_div).popover({
+            title: 'A title!',
+            content: 'Some content!',
+            placement: 'left', 
+            delay: { show: 500, hide: 100 } }); 
     }
 }
 
-function unconfirmed_event_mouseout(id) {
+function unconfirmed_event_mouseout(event_div) {
     //var event_id = "#event-" + id;
     //alert(mousestatus);
-    //$(event_id).tooltip('hide');
-    //$(event_id).popover('hide');
-    
+    if (mousestatus=='clicked') {
+        
+    }
+    else {
+        $(event_div).tooltip('hide');
+        $(event_div).popover('hide');
+    }
 }
 
 function merge_user(user_id)
