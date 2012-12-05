@@ -1,5 +1,15 @@
 <h1>Login</h1>
 
+<div id="k_modal" class="modal hide">
+  <div class="modal-body">
+    Test modal.
+  </div>
+</div>
+
+<a data-toggle="modal" data-target="#k_modal">click here.</a>
+
+
+
 <% if ! flash[:alert].nil? %>
     <div style = "color: red"><%= flash[:alert] %></div>
 <% end %>
@@ -15,4 +25,5 @@
       <%= submit_tag "Login" %>
     </p>
 <% end %>
+
 <%= button_to "Register", new_user_path, :method => :get %>

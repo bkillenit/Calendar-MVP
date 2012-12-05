@@ -3934,35 +3934,45 @@ function AgendaEventRenderer() {
 			var onmouseclick;
 			var onmouseout;
 			var tooltip;
+			var modal_type;
 
 			//sets internal html elements for z_index based on class
 			if (classesString.indexOf("user-event") >= 0){
 				z_index = 25;
+				modal_type = " ";
+
 			}
 			else if (classesString.indexOf("unconfirmed-event") >= 0){
 				z_index = 13;
 				onmouseover = "unconfirmed_event_tooltip(this)";
-				onmouseclick = "unconfirmed_event_popover(this)";
+				onmouseclick = "unconfirmed_event_popover(this, " + event.id + ")";
 				onmouseout = "unconfirmed_event_mouseout(this)";
 				tooltip = "rel='tooltip'";
+				modal_type = " data-target='#accept_modal' ";
+				
 			}	
 			else if (classesString.indexOf("confirmed-event") >= 0 ){
 				z_index = 25;
+				modal_type = " ";
+
 			}
 			else {
 				z_index = 1;
+
 			}
 
 		}
 		if (url) {
-			html += "a ";
+//			html += "a ";
+			html += "a "
 		}else{
 			html += "div";
 		}
 		html +=
+ 		    " data-toggle='modal'" + modal_type  +
 			" onmouseover='" + onmouseover + "'" +
-			" onclick='" + onmouseclick + "'" +
-			" onmouseout='" + onmouseout + "'" +
+			//" onclick='"  + "'" +
+			//" onmouseout='" + onmouseout + "'" +
 			" " + tooltip + " " +
 			" id='event-" + event.id + "'" +
 			" class='" + classes.join(' ') + "'" +

@@ -24,33 +24,31 @@ $(document).ready(function(){
 
     $(".mege-box").attr('checked', false);
 
+
 });     // ready method end
 
 function unconfirmed_event_tooltip(event_div) {
     //var event_id = "#event-" + id;
-    //lert(mousestatus);
+    //alert(mousestatus);
 
     if (mousestatus=='clicked') { 
-      //  $(event_id).popover('show');
-      //alert('mouse has been clicked')
-      //$(event_div).tooltip('hide');
-      $(event_div).popover({
-            title: 'A title!',
-            content: 'Some content!',
-            placement: 'left', 
-            delay: { show: 500, hide: 100 } });   
+        //$(event_div).popover('show');
+        //alert('mouse has been clicked')
+      $(event_div).tooltip('hide');
+      $(event_div).modal({
+            backdrop: true,
+            remote: '422.html' });   
     }
-    else
-    {
+    else {
       $(event_div).tooltip({
-            title: 'A title!',
-            content: 'Some content!',
+            title: 'Click event to expand',
             placement: 'left', 
             delay: { show: 50, hide: 100 } });
     }  
+
 }
 
-function unconfirmed_event_popover(event_div) {
+function unconfirmed_event_popover(event_div, id) {
     //var event_id = "#event-" + id;
     
     if (mousestatus=='clicked'){
@@ -60,29 +58,38 @@ function unconfirmed_event_popover(event_div) {
         mousestatus='';
     }
     else {
-        mousestatus='clicked'; 
+        mousestatus='clicked';
         
-        $(event_div).tooltip('hide'); 
+        //alert(source_id);
+        
+        //$(event_div).tooltip('hide'); 
         //toggle bug makes the toggle to be executed last so the rest of the code 
-        //can go through, but makes the logic fail for future rollovers      
-        $(event_div).popover({
-            title: 'A title!',
-            content: 'Some content!',
-            placement: 'left', 
-            delay: { show: 500, hide: 100 } }); 
+        //can go through, but makes the logic fail for future rollovers        
+        var modal_div = "#event-" + id;
+        //alert(modal_div);
+
+        //$(event_div).popover({
+             //title: 'A title!',
+             //html: true,
+             //content: " ",
+             //placement: 'left',
+             //delay: { show: 500, hide: 100 } });
+    
     }
+
+    //$(event_div).popover('toggle');
 }
 
 function unconfirmed_event_mouseout(event_div) {
     //var event_id = "#event-" + id;
     //alert(mousestatus);
-    if (mousestatus=='clicked') {
+    //if (mousestatus=='clicked') {
         
-    }
-    else {
-        $(event_div).tooltip('hide');
-        $(event_div).popover('hide');
-    }
+    //}
+    //else {
+        //$(event_div).tooltip('hide');
+        //$(event_div).popover('hide');
+    //}
 }
 
 function merge_user(user_id)
