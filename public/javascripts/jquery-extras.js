@@ -102,13 +102,12 @@ function merge_user(user_id)
 {
 
 
-    //alert(merged_ids);
+    //alert(user_id);
 
     //$(".fc-agenda-slots").css("background-color","yellow");
     var mergebox = "#mergebox" + user_id;
 
     //failsafe to check if the box is checked when the function is being called
-    if ($(mergebox).is(":checked")) {
 
         //adds the person merging to the merged_ids array variable in javascript
         merged_ids.push(user_id);
@@ -129,7 +128,7 @@ function merge_user(user_id)
         //changes function of checkbox to unmerge
         var checkbox = "#mergebox" + user_id;
         var function_id = "unmerge_user(" + user_id + ")";
-        $(checkbox).attr("onClick", function_id);
+        $(checkbox).attr("onclick", function_id);
 
         //rerenders calendar with AJAX
         $('#calendar').fullCalendar('rerenderEvents');
@@ -138,7 +137,7 @@ function merge_user(user_id)
         fadeClass=".fade-in" + user_id ; 
         //alert(fadeClass);
         $('.fade-in7').fadeIn("slow");
-    }
+
 
 }
 
@@ -176,7 +175,7 @@ function unmerge_user(user_id)
     //changes function of checkbox back to merge
     var checkbox = "#mergebox" + user_id;
     var function_id = "merge_user(" + user_id + ")";
-    $(checkbox).attr("onClick", function_id);
+    $(checkbox).attr("onclick", function_id);
 
     //rerenders calendar with AJAX
     $('#calendar').fullCalendar('rerenderEvents');

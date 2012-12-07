@@ -24,7 +24,7 @@
 
         <% else %>
               <div class="profile-follow">
-        <%=         link_to image_tag("follow.jpg"), url_for(:controller => "relationships", :action => "create", :f_id => user.id) %>
+         <%= link_to image_tag("follow.jpg"), url_for(:controller => "relationships", :action => "create", :f_id => user.id) %>
               </div>
     <% end %>
 

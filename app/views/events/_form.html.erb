@@ -13,6 +13,8 @@
 
   <!-- Rounds the time to nearest fifteen minutes and makes local -->
   <% t = Time.new %>
+  <% rounded_s = Time.local(t.year, t.month, t.day, t.hour, t.min/15*15) %>
+  <% rounded_f = Time.local(t.year, t.month, t.day, t.hour + 1, t.min/15*15) %>
 
   <!-- -->
   <% if params[:users] %>
@@ -35,11 +37,11 @@
   </div>
   <div class="field">
     <%= f.label :starts_at %><br />
-    <%= f.datetime_select :starts_at %>
+    <%= f.datetime_select :starts_at, :default => rounded_s %>
   </div>
   <div class="field">
     <%= f.label :ends_at %><br />
-    <%= f.datetime_select :ends_at, :default => 1.hours.from_now %>
+    <%= f.datetime_select :ends_at, :default => rounded_f %>
   </div>
   <div class="field">
     <%= f.label :all_day %><br />

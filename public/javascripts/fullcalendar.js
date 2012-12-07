@@ -3289,11 +3289,12 @@ function AgendaView(element, calendar, viewName) {
 				trigger('dayClick', dayBodyCells[col], date, false, ev);
 
 				//sends date to j-query extras
-				drag_and_drop(date);
+				
 			}
 			else{
 				trigger('dayClick', dayBodyCells[col], date, true, ev);
 			}
+			drag_and_drop(date);
 		}
 	}
 	

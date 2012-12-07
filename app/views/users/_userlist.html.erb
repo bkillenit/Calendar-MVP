@@ -5,7 +5,10 @@
 
     <div class="merge-box">
            <p>Merge</p>
-           <%= check_box_tag 'mergebox' + user.id.to_s, 1, false, {:onClick => "merge_user(#{user.id});", :remote => true}%>
+           <div class="merge-icon" id="mergebox<%= user.id %>"   onclick="merge_user(<%= user.id %>)">
+           		<%= image_tag("merge-icon-left.png", options = {:class => 'merge-icon-left'}) %>
+           		<%= image_tag('merge-icon-right.png', options = {:class => 'merge-icon-right'}) %>
+           </div>	
     </div>
 
     <div class="fix"></div><!-- prevent sliding -->
