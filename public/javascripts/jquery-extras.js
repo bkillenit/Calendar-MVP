@@ -43,7 +43,7 @@ function unconfirmed_event_tooltip(event_div) {
       $(event_div).tooltip({
             title: 'Click event to expand',
             placement: 'left', 
-            delay: { show: 50, hide: 100 } });
+            delay: { show: 400, hide: 50 } });
     }  
 
 }

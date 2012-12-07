@@ -142,7 +142,17 @@ nav a:hover {
 
 #sidepanel ul li a{
     text-decoration: none;
-    margin-left: 6px;
+    padding-left: 6px;
+    
+}
+
+#sidepanel ul li a:visited, #friends-btn:visited, #search-btn:visited{
+    color: #000066;
+    
+}
+
+#sidepanel ul li a:hover{
+    text-decoration: underline;
     
 }
 

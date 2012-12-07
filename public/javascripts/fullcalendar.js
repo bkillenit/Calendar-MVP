@@ -17,6 +17,10 @@
  
 (function($, undefined) {
 
+//initialize date variables for defualt firstHour
+var d = new Date();
+var h = d.getHours() - 2;
+
 
 var defaults = {
 
@@ -2800,7 +2804,6 @@ fcViews.agendaDay = AgendaDayView;
 function AgendaDayView(element, calendar) {
 	var t = this;
 	
-	
 	// exports
 	t.render = render;
 	
@@ -2832,9 +2835,10 @@ function AgendaDayView(element, calendar) {
 }
 
 setDefaults({
+
 	allDaySlot: true,
 	allDayText: 'all-day',
-	firstHour: 8,
+	firstHour: h,
 	slotMinutes: 30,
 	defaultEventMinutes: 120,
 	axisFormat: 'h(:mm)tt',
@@ -3930,30 +3934,31 @@ function AgendaEventRenderer() {
 			classesString = String(classes);
 			
 			var z_index;
-			var onmouseover; 
 			var onmouseclick;
 			var onmouseout;
 			var tooltip;
 			var modal_type;
+			var modal_and_tooltip;
 
 			//sets internal html elements for z_index based on class
 			if (classesString.indexOf("user-event") >= 0){
 				z_index = 25;
 				modal_type = " ";
+				modal_and_tooltip = " data-toggle='modal'" + modal_type  +
+					" onmouseover='unconfirmed_event_tooltip(this)'";
 
 			}
 			else if (classesString.indexOf("unconfirmed-event") >= 0){
 				z_index = 13;
-				onmouseover = "unconfirmed_event_tooltip(this)";
-				onmouseclick = "unconfirmed_event_popover(this, " + event.id + ")";
-				onmouseout = "unconfirmed_event_mouseout(this)";
-				tooltip = "rel='tooltip'";
 				modal_type = " data-target='#accept_modal' ";
+				modal_and_tooltip = " data-toggle='modal' data-backdrop='false' " + modal_type  +
+					" onmouseover='unconfirmed_event_tooltip(this)'";
 				
 			}	
 			else if (classesString.indexOf("confirmed-event") >= 0 ){
 				z_index = 25;
-				modal_type = " ";
+				modal_and_tooltip = " data-toggle='modal'" + modal_type  +
+					" onmouseover='unconfirmed_event_tooltip(this)'";
 
 			}
 			else {
@@ -3961,7 +3966,8 @@ function AgendaEventRenderer() {
 
 			}
 
-		}
+		};
+
 		if (url) {
 //			html += "a ";
 			html += "a "
@@ -3969,11 +3975,9 @@ function AgendaEventRenderer() {
 			html += "div";
 		}
 		html +=
- 		    " data-toggle='modal'" + modal_type  +
-			" onmouseover='" + onmouseover + "'" +
+ 		    " " + modal_and_tooltip +
 			//" onclick='"  + "'" +
 			//" onmouseout='" + onmouseout + "'" +
-			" " + tooltip + " " +
 			" id='event-" + event.id + "'" +
 			" class='" + classes.join(' ') + "'" +
 			" style='position:absolute;z-index:" + z_index +";top:" + seg.top + "px;left:" + seg.left + "px;" + skinCss + "'" +

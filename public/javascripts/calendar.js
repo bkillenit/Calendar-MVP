@@ -4,13 +4,7 @@ $(document).ready(function() {
 	var d = date.getDate();
 	var m = date.getMonth();
 	var y = date.getFullYear();
-
-    //if (window.location.toString().indexOf('users=') > -1)
-    //{
-        //var params = window.location.toString().substr(window.location.toString().indexOf('users=') - 1);
-        //var sourceURL = '/events' + params;
-    //}
-    // sourceURL = '/events?users=2,3,4';
+    var h = date.getHours();
 
 
     $('#calendar').fullCalendar({
