@@ -27,6 +27,12 @@ $(document).ready(function(){
 
 });     // ready method end
 
+function drag_and_drop(time_div) {
+    var d = time_div;
+    alert(d);
+
+}
+
 function unconfirmed_event_tooltip(event_div) {
     //var event_id = "#event-" + id;
     //alert(mousestatus);

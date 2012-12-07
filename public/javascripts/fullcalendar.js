@@ -17,9 +17,7 @@
  
 (function($, undefined) {
 
-//initialize date variables for defualt firstHour
-var d = new Date();
-var h = d.getHours() - 2;
+
 
 
 var defaults = {
@@ -2834,6 +2832,14 @@ function AgendaDayView(element, calendar) {
 
 }
 
+//initialize date variables for defualt firstHour and set to eight if it is less than 8
+var date = new Date();
+var h = date.getHours() - 2;
+
+if (h<8 ) {
+	h=8;
+}
+
 setDefaults({
 
 	allDaySlot: true,
@@ -3113,6 +3119,7 @@ function AgendaView(element, calendar, viewName) {
 		maxd = addMinutes(cloneDate(d), maxMinute);
 		addMinutes(d, minMinute);
 		slotCnt = 0;
+
 		for (i=0; d < maxd; i++) {
 			minutes = d.getMinutes();
 			s +=
@@ -3280,7 +3287,11 @@ function AgendaView(element, calendar, viewName) {
 				date.setHours(hours);
 				date.setMinutes(mins%60 + minMinute);
 				trigger('dayClick', dayBodyCells[col], date, false, ev);
-			}else{
+
+				//sends date to j-query extras
+				drag_and_drop(date);
+			}
+			else{
 				trigger('dayClick', dayBodyCells[col], date, true, ev);
 			}
 		}
@@ -3569,6 +3580,8 @@ function AgendaView(element, calendar, viewName) {
 	
 	
 	function slotSelectionMousedown(ev) {
+		//alert(String(ev));
+
 		if (ev.which == 1 && opt('selectable')) { // ev.which==1 means left mouse button
 			unselect(ev);
 			var dates;
@@ -3577,6 +3590,7 @@ function AgendaView(element, calendar, viewName) {
 				if (cell && cell.col == origCell.col && !cellIsAllDay(cell)) {
 					var d1 = cellDate(origCell);
 					var d2 = cellDate(cell);
+
 					dates = [
 						d1,
 						addMinutes(cloneDate(d1), opt('slotMinutes')),
@@ -3598,6 +3612,7 @@ function AgendaView(element, calendar, viewName) {
 				}
 			});
 		}
+
 	}
 	
 	
