@@ -53,6 +53,7 @@ function drag_and_drop(time_div) {
         description: ""
     };
 
+
     $.ajax({
         type: "POST",
         url: '/events',
