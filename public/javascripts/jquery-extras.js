@@ -29,7 +29,23 @@ $(document).ready(function(){
 
 function drag_and_drop(time_div) {
     var d = time_div;
-    alert(d);
+    //alert(d);
+    var events = {
+        starts_at: d,
+        title: "New Event",
+        all_day: 0,
+        description: ""
+    };
+
+    $.ajax({
+        type: "POST",
+        url: '/events',
+        data: {event: events },
+         success: function(data) {
+            $('.result').html(data);
+            alert('Event was created!');
+        } 
+    });
 
 }
 
@@ -102,13 +118,12 @@ function merge_user(user_id)
 {
 
 
-    //alert(merged_ids);
+    //alert(user_id);
 
     //$(".fc-agenda-slots").css("background-color","yellow");
     var mergebox = "#mergebox" + user_id;
 
     //failsafe to check if the box is checked when the function is being called
-    if ($(mergebox).is(":checked")) {
 
         //adds the person merging to the merged_ids array variable in javascript
         merged_ids.push(user_id);
@@ -117,7 +132,7 @@ function merge_user(user_id)
         var source = "/users/" + user_id + "/events";
         $('#calendar').fullCalendar('addEventSource', {
             url: source,
-            className: 'merged-event fade-in' + user_id,
+            className: 'merged-event ' + user_id,
             editable: false
         });
 
@@ -127,9 +142,9 @@ function merge_user(user_id)
         $(divbox).find("p").text('Unmerge');
 
         //changes function of checkbox to unmerge
-        var checkbox = "#mergebox" + user_id;
+        var divbox = "#mergebox" + user_id;
         var function_id = "unmerge_user(" + user_id + ")";
-        $(checkbox).attr("onClick", function_id);
+        $(divbox).attr("onclick", function_id);
 
         //rerenders calendar with AJAX
         $('#calendar').fullCalendar('rerenderEvents');
@@ -138,7 +153,7 @@ function merge_user(user_id)
         fadeClass=".fade-in" + user_id ; 
         //alert(fadeClass);
         $('.fade-in7').fadeIn("slow");
-    }
+
 
 }
 
@@ -176,7 +191,7 @@ function unmerge_user(user_id)
     //changes function of checkbox back to merge
     var checkbox = "#mergebox" + user_id;
     var function_id = "merge_user(" + user_id + ")";
-    $(checkbox).attr("onClick", function_id);
+    $(checkbox).attr("onclick", function_id);
 
     //rerenders calendar with AJAX
     $('#calendar').fullCalendar('rerenderEvents');

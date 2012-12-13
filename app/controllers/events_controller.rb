@@ -113,9 +113,13 @@ class EventsController < ApplicationController
 
     #logger.info("========= User id in session: " + session[:user_id].to_s + "============")
     #logger.info("======= Params hash: " + params[:event][:participants].to_s + " ==============")
-    @event = Event.create(params[:event].except(:participants))
+    if params[:event][:user_id] == nil
+      params[:event][:user_id] = current_user.id
+      logger.info("======= Event object: " + params[:event].to_s + " ==============")
+    end  
+    @event = Event.create(params[:event].except(:participants), :user_id => current_user.id)
     current_user.events.push @event
-    @event.participants.create(:user_id => current_user.id, :isConfirmed => true, :isAdmin => true ).save
+    #@event.participants.create(:user_id => current_user.id, :isConfirmed => true, :isAdmin => true ).save
 
     if params[:event][:participants]
       @p = params[:event][:participants].split(",")
@@ -128,6 +132,7 @@ class EventsController < ApplicationController
           Notifier.meeting_requested(@current_user,p,@event).deliver
       end
     end
+    
 
     respond_to do |format|
       if @event.save
@@ -138,6 +143,7 @@ class EventsController < ApplicationController
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
       end
     end
+
 
 
   end
