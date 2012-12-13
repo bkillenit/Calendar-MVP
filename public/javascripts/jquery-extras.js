@@ -29,7 +29,17 @@ $(document).ready(function(){
 
 function drag_and_drop(time_div) {
     var d = time_div;
-    alert(d);
+    //alert(d);
+
+    $.ajax({
+        type: "POST",
+        url: '/events',
+        data: {starts_at: d, title: "New Event" },
+         success: function(data) {
+            $('.result').html(data);
+            alert('Event was created!');
+        } 
+    });
 
 }
 
@@ -116,7 +126,7 @@ function merge_user(user_id)
         var source = "/users/" + user_id + "/events";
         $('#calendar').fullCalendar('addEventSource', {
             url: source,
-            className: 'merged-event fade-in' + user_id,
+            className: 'merged-event ' + user_id,
             editable: false
         });
 
@@ -126,9 +136,9 @@ function merge_user(user_id)
         $(divbox).find("p").text('Unmerge');
 
         //changes function of checkbox to unmerge
-        var checkbox = "#mergebox" + user_id;
+        var divbox = "#mergebox" + user_id;
         var function_id = "unmerge_user(" + user_id + ")";
-        $(checkbox).attr("onclick", function_id);
+        $(divbox).attr("onclick", function_id);
 
         //rerenders calendar with AJAX
         $('#calendar').fullCalendar('rerenderEvents');

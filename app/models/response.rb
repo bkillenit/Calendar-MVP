@@ -1,8 +1,6 @@
 class Responses < ActiveRecord::Base
   attr_accessible :event_id, :response, :user_id
 
-  belongs_to :event 
-
   def accept(event_id, user_id) 
   	participant = Participant.find_by_user_id_and_event_id(user_id, event_id)
 	participant.isConfirmed = true
