@@ -30,9 +30,25 @@ $(document).ready(function(){
 function drag_and_drop(time_div) {
     var d = time_div;
     //alert(d);
+    year = d.getFullYear();
+    month = d.getMonth()+1;
+    day = d.getDate();
+    hour = d.getHours()
+    start_minutes = d.getMinutes();
+    end_minutes = d.getMinutes() + 15;
+
+    //fills event data being pushed to controller using POST
     var events = {
-        starts_at: d,
         title: "New Event",
+        //splits JScript date object into individual parts so it can be parsed by Rails
+        year: year,
+        month: month,
+        day: day,
+        hour: hour,
+        start_minutes: start_minutes,
+        end_minutes: end_minutes,
+        //----------------------------------
+        
         all_day: 0,
         description: ""
     };
@@ -40,13 +56,14 @@ function drag_and_drop(time_div) {
     $.ajax({
         type: "POST",
         url: '/events',
-        data: {event: events },
+        data: {event: events} ,
          success: function(data) {
             $('.result').html(data);
-            alert('Event was created!');
+            //alert('Event was created!');
+            
         } 
-    });
-
+    });   
+    $('#calendar').fullCalendar('rerenderEvents');
 }
 
 function unconfirmed_event_tooltip(event_div) {
