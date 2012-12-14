@@ -33,31 +33,19 @@ function drag_and_drop(time_div) {
     //adjusting POST data for time zone offset, converting into UTC 
     var UTCdate = new Date();
     var n = UTCdate.getTimezoneOffset()/60;
-    //alert(n);
 
-    //setting values for POST because it cant be set inside the events var
-    year = d.getFullYear();
-    month = d.getMonth()+1;
-    day = d.getDate();
-    //alert(d.getHours() + n);
-    hour = d.getHours() + n;
-    start_minutes = d.getMinutes();
-    end_minutes = d.getMinutes() + 15;
+    //converts Date into UTC for correct use by controller
+    var startsAt_utc = new Date(d.getUTCFullYear(), d.getUTCMonth(), 
+        d.getUTCDate(),  d.getUTCHours() - n, d.getUTCMinutes(), d.getUTCSeconds());
 
-
+    var endsAt_utc = new Date(d.getUTCFullYear(), d.getUTCMonth(), 
+        d.getUTCDate(),  d.getUTCHours() - n, d.getUTCMinutes() + 15, d.getUTCSeconds());
 
     //fills event data being pushed to controller using POST
     var events = {
         title: "New Event",
-        //splits JScript date object into individual parts so it can be parsed by Rails
-        year: year,
-        month: month,
-        day: day,
-        hour: hour,
-        start_minutes: start_minutes,
-        end_minutes: end_minutes,
-        //----------------------------------
-        
+        starts_at: startsAt_utc,
+        ends_at: endsAt_utc,
         all_day: 0,
         description: ""
     };

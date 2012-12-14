@@ -111,42 +111,16 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
 
-    #logger.info("========= User id in session: " + session[:user_id].to_s + "============")
-    #logger.info("======= Params hash: " + params[:event][:participants].to_s + " ==============")
     if params[:event][:user_id].nil?
       params[:event][:user_id] = current_user.id.to_s
-      logger.info("======= Event object: " + params[:event].to_s + " ==============")
     end  
-
-    #pull the params from the POST and converts it to Ruby DateTime and clears out params of unneccesary data
-    if params[:event][:year] != nil
-      @starts_at = DateTime.new(params[:event][:year].to_i,params[:event][:month].to_i,
-        params[:event][:day].to_i,params[:event][:hour].to_i,params[:event][:start_minutes].to_i)
-      
-      @ends_at = DateTime.new(params[:event][:year].to_i,params[:event][:month].to_i,
-        params[:event][:day].to_i,params[:event][:hour].to_i,params[:event][:end_minutes].to_i)
-
-      params[:event][:starts_at] = @starts_at
-      params[:event][:ends_at] = @ends_at
-
-      params[:event].delete :year
-      params[:event].delete :month
-      params[:event].delete :day
-      params[:event].delete :hour
-      params[:event].delete :start_minutes
-      params[:event].delete :end_minutes
-
-      #logger.info("================ Params hash after: " + params.to_s + "==============")
-    end  
-
+ 
     @event = Event.create(params[:event].except(:participants))
     current_user.events.push @event
     @event.participants.create(:user_id => current_user.id, :isConfirmed => true, :isAdmin => true ).save
 
     if params[:event][:participants]
       @p = params[:event][:participants].split(",")
-
-      #logger.info("======= Params hash in var: " + @p.to_s + " ==============")
         @p.each do |p|
           @event.participants.create( :event_id => @event.id,
             :user_id => p, :isConfirmed => false, :isAdmin => false ).save
