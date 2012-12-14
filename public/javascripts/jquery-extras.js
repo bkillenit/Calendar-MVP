@@ -29,13 +29,22 @@ $(document).ready(function(){
 
 function drag_and_drop(time_div) {
     var d = time_div;
-    //alert(d);
+    
+    //adjusting POST data for time zone offset, converting into UTC 
+    var UTCdate = new Date();
+    var n = UTCdate.getTimezoneOffset()/60;
+    //alert(n);
+
+    //setting values for POST because it cant be set inside the events var
     year = d.getFullYear();
     month = d.getMonth()+1;
     day = d.getDate();
-    hour = d.getHours()
+    //alert(d.getHours() + n);
+    hour = d.getHours() + n;
     start_minutes = d.getMinutes();
     end_minutes = d.getMinutes() + 15;
+
+
 
     //fills event data being pushed to controller using POST
     var events = {
@@ -60,11 +69,9 @@ function drag_and_drop(time_div) {
         data: {event: events} ,
          success: function(data) {
             $('.result').html(data);
-            //alert('Event was created!');
-            
+                $('#calendar').fullCalendar('refetchEvents'); 
         } 
     });   
-    $('#calendar').fullCalendar('refetchEvents');
 }
 
 function unconfirmed_event_tooltip(event_div) {
