@@ -158,7 +158,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html {  }
+        format.html { redirect_to(:controller => "calendar", :action => "index", :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
       else
         format.html { render :action => "new" }

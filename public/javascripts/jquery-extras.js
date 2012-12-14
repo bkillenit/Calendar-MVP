@@ -64,7 +64,7 @@ function drag_and_drop(time_div) {
             
         } 
     });   
-    $('#calendar').fullCalendar('rerenderEvents');
+    $('#calendar').fullCalendar('refetchEvents');
 }
 
 function unconfirmed_event_tooltip(event_div) {
