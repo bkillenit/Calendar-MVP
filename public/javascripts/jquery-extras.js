@@ -80,7 +80,7 @@ function unconfirmed_event_tooltip(event_div) {
             placement: 'left', 
             delay: { show: 400, hide: 50 } });
     }  
-
+    
 }
 
 function unconfirmed_event_popover(event_div, id) {
