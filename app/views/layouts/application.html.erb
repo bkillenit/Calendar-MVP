@@ -39,20 +39,7 @@
 <body>
 
 <% if session[:user_id] != nil %>
-
-<!-- Beginnig of Modals -->
-
-<!-- Accept ot reject modal -->
-  <div id="accept_modal" class="modal hide">
-    <div id="modal-body">Hello World!</div> 
-  </div>
-
-<!-- New Event Modal -->
-  <div id="new_event_modal" class="modal fade hide">
-
-  </div>  
-<!-- end of modals -->  
-
+  <%= render :partial => "layouts/modal_containers"%>
 <% end %>
 
     <nav id="navbar" >
