@@ -25,11 +25,7 @@ var defaults = {
 	// display
 	defaultView: 'basicWeek',
 	aspectRatio: 1.35,
-	header: {
-		left: 'new_event,today',
-		center: 'prev,title,next',
-		right: 'month,agendaWeek,agendaDay'
-	},
+	
 	weekends: true,
 	
 	// editing
@@ -68,22 +64,12 @@ var defaults = {
 	dayNames: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
 	dayNamesShort: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
 	buttonText: {
-        new_event: '+',
-		prev: '&nbsp;&#9668;&nbsp;',
-		next: '&nbsp;&#9658;&nbsp;',
-		prevYear: '&nbsp;&lt;&lt;&nbsp;',
-		nextYear: '&nbsp;&gt;&gt;&nbsp;',
-		today: 'today',
-		month: 'month',
-		week: 'week',
-		day: 'day'
+       
 	},
 	
 	// jquery-ui theming
 	theme: false,
 	buttonIcons: {
-		prev: 'circle-triangle-w',
-		next: 'circle-triangle-e'
 	},
 	
 	//selectable: false,
@@ -96,20 +82,13 @@ var defaults = {
 // right-to-left defaults
 var rtlDefaults = {
 	header: {
-		left: 'new_event,today',
-		center: 'prev,title,next ',
-		right: 'month,agendaWeek,agendaDay'
+		
 	},
 	buttonText: {
-		new_event: '+',
-        prev: '&nbsp;&#9658;&nbsp;',
-		next: '&nbsp;&#9668;&nbsp;',
-		prevYear: '&nbsp;&gt;&gt;&nbsp;',
-		nextYear: '&nbsp;&lt;&lt;&nbsp;'
+		
 	},
 	buttonIcons: {
-		prev: 'circle-triangle-e',
-		next: 'circle-triangle-w'
+		
 	}
 };
 
@@ -197,12 +176,6 @@ function Calendar(element, options, eventSources) {
 	t.changeView = changeView;
 	t.select = select;
 	t.unselect = unselect;
-    t.new_event = new_event;
-	t.prev = prev;
-	t.next = next;
-	t.prevYear = prevYear;
-	t.nextYear = nextYear;
-	t.today = today;
 	t.gotoDate = gotoDate;
 	t.incrementDate = incrementDate;
 	t.formatDate = function(format, date) { return formatDate(format, date, options) };

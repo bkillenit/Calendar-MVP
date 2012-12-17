@@ -48,7 +48,7 @@ $(document).ready(function(){
     $.("#today").click(function(){    
         date = new Date();
         renderView();
-    });t
+    });
 
 });     // ready method end
 
