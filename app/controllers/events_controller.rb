@@ -99,8 +99,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @event }
-      # return the HTML block for use by the AJAX new.js.erb
-      format.js
+      format.js # return the HTML block for use by the AJAX new.js.erb
     end
   end
 
@@ -136,9 +135,11 @@ class EventsController < ApplicationController
       if @event.save
         format.html { redirect_to(:controller => "calendar", :action => "index", :notice => 'Event was successfully created.') }
         format.xml  { render :xml => @event, :status => :created, :location => @event }
+        format.js
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @event.errors, :status => :unprocessable_entity }
+        format.js
       end
     end
 
