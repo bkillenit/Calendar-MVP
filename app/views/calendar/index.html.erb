@@ -11,9 +11,18 @@
     </div>
 
     <div id="buttons">  
-    	<!-- <div id="month-button"><%= image_tag 'button_month.png' %></div>
-    	<div id="week-button"><%= image_tag 'button_week.png' %></div>
-    	<div id="day-button"><%= image_tag 'button_day.png' %></div> -->
+    	<div id='new_event'><%= link_to '', new_event_path,  :method => :get, :remote => true, :id => 'new-button' %></div>
+
+        <div id="nav_arrows">
+            <div id="left-arrow"><%= image_tag 'left-arrow.png' %></div>
+            <div id="right-arrow"><%= image_tag 'right-arrow.png' %></div>
+        </div>    
+
+        <div id="view-selectors">
+            <div id="month-button"><%= image_tag 'button_month.png' %></div>
+    	    <div id="week-button"><%= image_tag 'button_week.png' %></div>
+    	    <div id="day-button"><%= image_tag 'button_day.png' %></div>
+        </div>
     </div>
 
     <div id='calendar'></div>

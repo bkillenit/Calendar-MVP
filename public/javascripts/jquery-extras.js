@@ -22,33 +22,48 @@ $(document).ready(function(){
         $(".userli").slideToggle("medium");
     });
 
-    $(".mege-box").attr('checked', false);
+    $(".merge-box").attr('checked', false);
 
+    $("#new-button").click(function() {
+        //modal render goes in here
+    });
+        
+    $("#prevYear").click(function() {    
+        addYears(date, -1);
+        renderView();
+    });
+
+    $("#nextYear").click(function() {    
+        addYears(date, 1);
+        renderView();
+    });    
+
+    $("#today").click(function() {    
+        date = new Date();
+        renderView();
+    });
 
 });     // ready method end
 
 function drag_and_drop(time_div) {
     var d = time_div;
-    //alert(d);
-    year = d.getFullYear();
-    month = d.getMonth()+1;
-    day = d.getDate();
-    hour = d.getHours()
-    start_minutes = d.getMinutes();
-    end_minutes = d.getMinutes() + 15;
+    
+    //adjusting POST data for time zone offset, converting into UTC 
+    var UTCdate = new Date();
+    var n = UTCdate.getTimezoneOffset()/60;
+
+    //converts Date into UTC for correct use by controller
+    var startsAt_utc = new Date(d.getUTCFullYear(), d.getUTCMonth(), 
+        d.getUTCDate(),  d.getUTCHours() - n, d.getUTCMinutes(), d.getUTCSeconds());
+
+    var endsAt_utc = new Date(d.getUTCFullYear(), d.getUTCMonth(), 
+        d.getUTCDate(),  d.getUTCHours() - n, d.getUTCMinutes() + 15, d.getUTCSeconds());
 
     //fills event data being pushed to controller using POST
     var events = {
         title: "New Event",
-        //splits JScript date object into individual parts so it can be parsed by Rails
-        year: year,
-        month: month,
-        day: day,
-        hour: hour,
-        start_minutes: start_minutes,
-        end_minutes: end_minutes,
-        //----------------------------------
-        
+        starts_at: startsAt_utc,
+        ends_at: endsAt_utc,
         all_day: 0,
         description: ""
     };
@@ -60,11 +75,9 @@ function drag_and_drop(time_div) {
         data: {event: events} ,
          success: function(data) {
             $('.result').html(data);
-            //alert('Event was created!');
-            
+                $('#calendar').fullCalendar('refetchEvents'); 
         } 
     });   
-    $('#calendar').fullCalendar('refetchEvents');
 }
 
 function unconfirmed_event_tooltip(event_div) {
@@ -85,7 +98,6 @@ function unconfirmed_event_tooltip(event_div) {
             placement: 'left', 
             delay: { show: 400, hide: 50 } });
     }  
-
 }
 
 function unconfirmed_event_popover(event_div, id) {

@@ -230,10 +230,72 @@ border-bottom: 1px solid #ccc;
 	
 }
 
+#buttons {
+    display: inline-block;
+    width: 800px;
+ 
+}
+
+#month-button, #week-button, #day-button, #new-button, #left-arrow, #right-arrow {
+    cursor: pointer;
+
+}
+
+#new-button {
+    float: left;
+    position: relative;
+
+    top: 15px;
+    left: 10px;
+    padding-top: 15px;
+    padding-left: 10px;
+    height: 11px;
+    width: 20px;
+
+    background-image: url('/images/button_add.png');
+
+}
+
+#nav_arrows { 
+    float: left;
+    position: relative;
+    height: 16px;
+    left: 246px;
+    margin-top: 22px;
+    width: 251px;
+
+}
+
+#left-arrow {
+    float: left;
+
+}
+
+#right-arrow {
+    float: right;
+
+}
+
+#view-selectors {
+    float: right;
+    position: relative;
+    top: 10px;
+    margin-right: 10px;
+
+}
+
+#month-button, #week-button, #day-button {
+    float: right;
+    padding-right: 15px;
+
+}
+
 #calendar {
     display: block;
     width: 800px;
     float: right;
+
+    margin-top: -40px;
     
 }
 
