@@ -236,6 +236,11 @@ border-bottom: 1px solid #ccc;
  
 }
 
+#month-button, #week-button, #day-button, #new-button, #left-arrow, #right-arrow {
+    cursor: pointer;
+
+}
+
 #new-button {
     float: left;
     padding-top: 15px;
@@ -247,9 +252,9 @@ border-bottom: 1px solid #ccc;
     float: left;
     position: relative;
     height: 16px;
-    left: 261px;
+    left: 236px;
     margin-top: 25px;
-    width: 200px;
+    width: 251px;
 
 }
 

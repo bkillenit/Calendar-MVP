@@ -24,28 +24,21 @@ $(document).ready(function(){
 
     $(".merge-box").attr('checked', false);
 
-    $.("#new-event").click(function(){
-        renderView(-1);
+    $("#new-button").click(function() {
+        //modal render goes in here
     });
-
-    $.("#previous").click(function(){
-        renderView(-1);
-    });
-
-    $.("#next").click(function(){
-        renderView(1);
-
-    $.("#prevYear").click(function(){    
+        
+    $("#prevYear").click(function() {    
         addYears(date, -1);
         renderView();
     });
 
-    $.("#nextYear").click(function(){    
+    $("#nextYear").click(function() {    
         addYears(date, 1);
         renderView();
     });    
 
-    $.("#today").click(function(){    
+    $("#today").click(function() {    
         date = new Date();
         renderView();
     });

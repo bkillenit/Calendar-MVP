@@ -562,16 +562,31 @@ function Calendar(element, options, eventSources) {
             window.location.href ="/events/new";
         }
 
-    }
+    };
 	
-	function prev() {
-		renderView(-1);
-	}
-	
-	
-	function next() {
-		renderView(1);
-	}
+	$("#new-button").click(function() {
+        //modal render goes in here
+    });
+
+	$("#left-arrow").click(function() {
+        renderView(-1); 
+    });
+
+    $("#right-arrow").click(function() {
+        renderView(1);
+    });
+
+    $("#day-button").click(function() {
+       changeView('agendaDay');
+    });
+
+    $("#week-button").click(function() {
+       changeView('agendaWeek');
+    });
+
+    $("#month-button").click(function() {
+       changeView('month');
+    });
 	
 	
 	function prevYear() {
