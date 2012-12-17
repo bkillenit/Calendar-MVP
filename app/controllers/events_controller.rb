@@ -99,6 +99,8 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @event }
+      # return the HTML block for use by the AJAX new.js.erb
+      format.js
     end
   end
 
