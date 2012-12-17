@@ -565,7 +565,7 @@ function Calendar(element, options, eventSources) {
     };
 	
 	$("#new-button").click(function() {
-        //modal render goes in here
+        
     });
 
 	$("#left-arrow").click(function() {

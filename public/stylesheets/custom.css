@@ -243,8 +243,16 @@ border-bottom: 1px solid #ccc;
 
 #new-button {
     float: left;
+    position: relative;
+
+    top: 15px;
+    left: 10px;
     padding-top: 15px;
     padding-left: 10px;
+    height: 11px;
+    width: 20px;
+
+    background-image: url('/images/button_add.png');
 
 }
 
@@ -252,8 +260,8 @@ border-bottom: 1px solid #ccc;
     float: left;
     position: relative;
     height: 16px;
-    left: 236px;
-    margin-top: 25px;
+    left: 246px;
+    margin-top: 22px;
     width: 251px;
 
 }

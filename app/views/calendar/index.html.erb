@@ -11,7 +11,7 @@
     </div>
 
     <div id="buttons">  
-    	<div id="new-button"><%= image_tag 'button_add.png' %></div>
+    	<div id='new_event'><%= link_to '', new_event_path,  :method => :get, :remote => true, :id => 'new-button' %></div>
 
         <div id="nav_arrows">
             <div id="left-arrow"><%= image_tag 'left-arrow.png' %></div>
