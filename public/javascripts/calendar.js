@@ -10,6 +10,7 @@ $(document).ready(function() {
     $('#calendar').fullCalendar({
 		editable: true,        
 		header: {
+            center: 'title'
         },
         defaultView: 'agendaWeek',
         height: 565,

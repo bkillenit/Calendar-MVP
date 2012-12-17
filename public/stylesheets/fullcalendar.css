@@ -60,11 +60,12 @@ html .fc,
 	}
 	
 .fc-header-title h2 {
-	margin-top: 15px;
+	margin-top: 14px;
 	margin-right: 20px;
 	margin-left: 20px;
-	white-space: nowrap;
-	
+	margin-bottom: 15px;
+
+	white-space: nowrap;	
 	}
 	
 .fc .fc-header-space {

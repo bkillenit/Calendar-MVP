@@ -230,10 +230,59 @@ border-bottom: 1px solid #ccc;
 	
 }
 
+#buttons {
+    display: inline-block;
+    width: 800px;
+ 
+}
+
+#new-button {
+    float: left;
+    padding-top: 15px;
+    padding-left: 10px;
+
+}
+
+#nav_arrows { 
+    float: left;
+    position: relative;
+    height: 16px;
+    left: 261px;
+    margin-top: 25px;
+    width: 200px;
+
+}
+
+#left-arrow {
+    float: left;
+
+}
+
+#right-arrow {
+    float: right;
+
+}
+
+#view-selectors {
+    float: right;
+    position: relative;
+    top: 10px;
+    margin-right: 10px;
+
+}
+
+#month-button, #week-button, #day-button {
+    float: right;
+    padding-right: 15px;
+
+}
+
 #calendar {
     display: block;
     width: 800px;
     float: right;
+
+    margin-top: -40px;
     
 }
 
