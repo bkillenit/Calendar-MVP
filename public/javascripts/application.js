@@ -7,7 +7,7 @@ $.ajaxSetup({
   }
 });
 
-jQuery.ajaxSetup({ 
+$.ajaxSetup({ 
   'beforeSend': function(xhr) {
 	 xhr.setRequestHeader("Accept", "text/javascript,application/javascript,text/html")
 	} 

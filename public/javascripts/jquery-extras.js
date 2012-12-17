@@ -22,8 +22,33 @@ $(document).ready(function(){
         $(".userli").slideToggle("medium");
     });
 
-    $(".mege-box").attr('checked', false);
+    $(".merge-box").attr('checked', false);
 
+    $.("#new-event").click(function(){
+        renderView(-1);
+    });
+
+    $.("#previous").click(function(){
+        renderView(-1);
+    });
+
+    $.("#next").click(function(){
+        renderView(1);
+
+    $.("#prevYear").click(function(){    
+        addYears(date, -1);
+        renderView();
+    });
+
+    $.("#nextYear").click(function(){    
+        addYears(date, 1);
+        renderView();
+    });    
+
+    $.("#today").click(function(){    
+        date = new Date();
+        renderView();
+    });t
 
 });     // ready method end
 
@@ -80,7 +105,6 @@ function unconfirmed_event_tooltip(event_div) {
             placement: 'left', 
             delay: { show: 400, hide: 50 } });
     }  
-    
 }
 
 function unconfirmed_event_popover(event_div, id) {
