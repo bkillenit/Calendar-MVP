@@ -1,0 +1,28 @@
+$(document).ready(function(){
+
+});	
+
+function unconfirmed_event_popover(event_div, id) {
+    //var event_id = "#event-" + id;
+   jQuery.ajax({
+                url: "/events/" + String(id),
+                type: "GET",
+                success: function(result){                      
+                    popover_content = result;
+                },
+                error: function(){
+                    alert('Error occured');
+                }
+    });
+
+   $(event_div).popover({
+   		placement: 'left',
+   		html: true,
+   		title: '',
+   		content: popover_content
+
+   });
+   
+   
+
+}     

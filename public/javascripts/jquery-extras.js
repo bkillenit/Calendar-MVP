@@ -84,52 +84,10 @@ function unconfirmed_event_tooltip(event_div) {
     //var event_id = "#event-" + id;
     //alert(mousestatus);
 
-    if (mousestatus=='clicked') { 
-        //$(event_div).popover('show');
-        //alert('mouse has been clicked')
-      $(event_div).tooltip('hide');
-      $(event_div).modal({
-            backdrop: true,
-            remote: '422.html' });   
-    }
-    else {
       $(event_div).tooltip({
             title: 'Click event to expand',
             placement: 'left', 
             delay: { show: 400, hide: 50 } });
-    }  
-}
-
-function unconfirmed_event_popover(event_div, id) {
-    //var event_id = "#event-" + id;
-    
-    if (mousestatus=='clicked'){
-        $(event_div).tooltip('hide');
-        $(event_div).popover('hide'); 
-
-        mousestatus='';
-    }
-    else {
-        mousestatus='clicked';
-        
-        //alert(source_id);
-        
-        //$(event_div).tooltip('hide'); 
-        //toggle bug makes the toggle to be executed last so the rest of the code 
-        //can go through, but makes the logic fail for future rollovers        
-        var modal_div = "#event-" + id;
-        //alert(modal_div);
-
-        //$(event_div).popover({
-             //title: 'A title!',
-             //html: true,
-             //content: " ",
-             //placement: 'left',
-             //delay: { show: 500, hide: 100 } });
-    
-    }
-
-    //$(event_div).popover('toggle');
 }
 
 function unconfirmed_event_mouseout(event_div) {

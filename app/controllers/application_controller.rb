@@ -6,6 +6,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :users_to_merge
 
+  #Remove layouts for all ajax calls
+  layout proc{ |c| c.request.xhr? ? false : "application" }
+
   def authenticate
     if session[:user_id].nil?
       redirect_to :controller => 'admin', :action => 'login'

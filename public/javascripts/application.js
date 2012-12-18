@@ -12,3 +12,10 @@ $.ajaxSetup({
 	 xhr.setRequestHeader("Accept", "text/javascript,application/javascript,text/html")
 	} 
 });
+
+//General helper for forms submitted via ajax
+$("form.remote_for").submit(function (){
+    $('input[type=submit]').attr('disabled', 'disabled');
+    $.post($(this).attr('action'), $(this).serialize(), null, "script");  
+    return false;
+});

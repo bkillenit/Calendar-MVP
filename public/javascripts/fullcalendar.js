@@ -3954,9 +3954,7 @@ function AgendaEventRenderer() {
 			}
 			else if (classesString.indexOf("unconfirmed-event") >= 0){
 				z_index = 13;
-				modal_type = " data-target='#accept_modal' ";
-				modal_and_tooltip = " data-toggle='modal' data-backdrop='false' " + modal_type  +
-					" onmouseover='unconfirmed_event_tooltip(this)'";
+				modal_and_tooltip = "onmouseover='unconfirmed_event_tooltip(this)' onclick='unconfirmed_event_popover(this," + event.id + ")'";
 				
 			}	
 			else if (classesString.indexOf("confirmed-event") >= 0 ){

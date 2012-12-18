@@ -84,11 +84,13 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @event }
-      format.js { render :json => @event.to_json }
-    end
+    render 'events/show', :locals=>{:event => @event}
+
+    #respond_to do |format|
+      #format.html # show.html.erb
+      #format.xml  { render :xml => @event }
+      #format.js { render :json => @event.to_json }
+    #end
   end
 
   # GET /events/new
@@ -107,6 +109,11 @@ class EventsController < ApplicationController
   # GET /events/1/edit
   def edit
     @event = Event.find(params[:id])
+
+    respond_to do |format|
+       format.html { event_url(@event) }
+       format.js
+    end
   end
 
   # POST /events
@@ -127,8 +134,12 @@ class EventsController < ApplicationController
           @event.participants.create( :event_id => @event.id,
             :user_id => p, :isConfirmed => false, :isAdmin => false ).save
 
-          Notifier.meeting_requested(@current_user,p,@event).deliver
-      end
+          @user = User.find_by_id(p)
+
+          if @user.email != nil
+            Notifier.meeting_requested(@current_user,p,@event).deliver
+          end
+        end
     end
     
 
