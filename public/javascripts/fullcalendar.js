@@ -3954,7 +3954,7 @@ function AgendaEventRenderer() {
 			}
 			else if (classesString.indexOf("unconfirmed-event") >= 0){
 				z_index = 13;
-				modal_and_tooltip = "onmouseover='unconfirmed_event_tooltip(this)' onclick='unconfirmed_event_popover(this," + event.id + ")'";
+				modal_and_tooltip = "onmouseover='unconfirmed_event_tooltip(this)' ";
 				
 			}	
 			else if (classesString.indexOf("confirmed-event") >= 0 ){
@@ -3978,6 +3978,7 @@ function AgendaEventRenderer() {
 		}
 		html +=
  		    " " + modal_and_tooltip +
+ 		    "onclick='event_popover(this," + event.id + ")'" +
 			//" onclick='"  + "'" +
 			//" onmouseout='" + onmouseout + "'" +
 			" id='event-" + event.id + "'" +
