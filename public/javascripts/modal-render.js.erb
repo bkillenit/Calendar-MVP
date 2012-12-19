@@ -2,12 +2,27 @@ $(document).ready(function(){
 
 });	
 
-function event_popover(event_div, id) {
+function event_popover(event_div,id) {
     //var event_id = "#event-" + id;
+   	var controller_data;
 
-   jQuery.ajax({
+    if ( $(event_div).hasClass("user-event") == true ) {
+    	controller_data="user";
+ 	}
+ 	else if ( $(event_div).hasClass("unconfirmed-event" ) == true) {
+    	controller_data="unconfirmed";
+ 	}
+ 	else if ( $(event_div).hasClass("confirmed-event" ) == true) {
+    	controller_data="confirmed";
+ 	}
+ 	else {
+ 		alert("event invalid");
+ 	}
+
+   	jQuery.ajax({
                 url: "/events/" + String(id),
                 type: "GET",
+                data: {type: controller_data},
                 success: function(result){                      
                     $(event_div).popover({
    						placement: 'left',
@@ -22,5 +37,4 @@ function event_popover(event_div, id) {
                     alert('Error occured');
                 }
     });
-
 }     

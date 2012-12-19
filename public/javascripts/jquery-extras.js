@@ -80,7 +80,7 @@ function drag_and_drop(time_div) {
     });   
 }
 
-function unconfirmed_event_tooltip(event_div) {
+function event_tooltip(event_div) {
     //var event_id = "#event-" + id;
     //alert(mousestatus);
 

@@ -84,8 +84,17 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
 
-    render 'events/show', :locals=>{:event => @event}
+    if params[:type] == 'user'
+      render 'events/show', :locals=>{:event => @event}
+    end
 
+    if params[:type] == 'unconfirmed'
+      render 'events/accept_reject', :locals=>{:event => @event}
+    end
+
+    if params[:type] == 'confirmed'
+      render 'events/response_details', :locals=>{:event => @event}
+    end
     #respond_to do |format|
       #format.html # show.html.erb
       #format.xml  { render :xml => @event }

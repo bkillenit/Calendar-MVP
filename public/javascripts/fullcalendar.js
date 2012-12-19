@@ -3938,29 +3938,18 @@ function AgendaEventRenderer() {
 			classesString = String(classes);
 			
 			var z_index;
-			var onmouseclick;
-			var onmouseout;
-			var tooltip;
-			var modal_type;
-			var modal_and_tooltip;
 
 			//sets internal html elements for z_index based on class
 			if (classesString.indexOf("user-event") >= 0){
 				z_index = 25;
-				modal_type = " ";
-				modal_and_tooltip = " data-toggle='modal'" + modal_type  +
-					" onmouseover='unconfirmed_event_tooltip(this)'";
 
 			}
 			else if (classesString.indexOf("unconfirmed-event") >= 0){
 				z_index = 13;
-				modal_and_tooltip = "onmouseover='unconfirmed_event_tooltip(this)' ";
 				
 			}	
 			else if (classesString.indexOf("confirmed-event") >= 0 ){
 				z_index = 25;
-				modal_and_tooltip = " data-toggle='modal'" + modal_type  +
-					" onmouseover='unconfirmed_event_tooltip(this)'";
 
 			}
 			else {
@@ -3977,10 +3966,8 @@ function AgendaEventRenderer() {
 			html += "div";
 		}
 		html +=
- 		    " " + modal_and_tooltip +
+ 		    " onmouseover='event_tooltip(this)'" +
  		    "onclick='event_popover(this," + event.id + ")'" +
-			//" onclick='"  + "'" +
-			//" onmouseout='" + onmouseout + "'" +
 			" id='event-" + event.id + "'" +
 			" class='" + classes.join(' ') + "'" +
 			" style='position:absolute;z-index:" + z_index +";top:" + seg.top + "px;left:" + seg.left + "px;" + skinCss + "'" +
