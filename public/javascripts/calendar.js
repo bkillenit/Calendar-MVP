@@ -32,7 +32,7 @@ $(document).ready(function() {
                 error: function() {
                     alert('there was an error while fetching events!');
                 },
-                color: 'rgb(255,153,0)',
+                color: '#FFD34F',
                 textColor: 'black' // a non-ajax option
             },
 
