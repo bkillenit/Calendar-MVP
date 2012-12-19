@@ -578,14 +578,23 @@ function Calendar(element, options, eventSources) {
 
     $("#day-button").click(function() {
        changeView('agendaDay');
+       $("#day-button").addClass("selected");
+       $("#week-button").removeClass("selected");
+       $("#month-button").removeClass("selected");
     });
 
     $("#week-button").click(function() {
        changeView('agendaWeek');
+       $("#week-button").addClass("selected");
+       $("#day-button").removeClass("selected");
+       $("#month-button").removeClass("selected");
     });
 
     $("#month-button").click(function() {
        changeView('month');
+       $("#month-button").addClass("selected");
+       $("#week-button").removeClass("selected");
+       $("#day-button").removeClass("selected");
     });
 	
 	

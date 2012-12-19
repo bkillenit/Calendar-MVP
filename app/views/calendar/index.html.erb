@@ -19,9 +19,9 @@
         </div>    
 
         <div id="view-selectors">
-            <div id="month-button"><%= image_tag 'button_month.png' %></div>
-    	    <div id="week-button"><%= image_tag 'button_week.png' %></div>
-    	    <div id="day-button"><%= image_tag 'button_day.png' %></div>
+            <%= image_tag 'button_month.png', :id => 'month-button' %>
+    	    <%= image_tag 'button_week.png', :id => 'week-button', :class => 'selected' %>
+    	    <%= image_tag 'button_day.png', :id => 'day-button' %>
         </div>
     </div>
 
