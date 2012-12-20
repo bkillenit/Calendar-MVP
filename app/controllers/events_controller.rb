@@ -86,20 +86,17 @@ class EventsController < ApplicationController
 
     if params[:type] == 'user'
       render 'events/show', :locals=>{:event => @event}
-    end
 
-    if params[:type] == 'unconfirmed'
+    elsif params[:type] == 'unconfirmed'
       render 'events/accept_reject', :locals=>{:event => @event}
-    end
 
-    if params[:type] == 'confirmed'
-      render 'events/response_details', :locals=>{:event => @event}
+    elsif params[:type] == 'confirmed'
+      render 'events/response_details', :locals=>{:event => @event}  
+
+    elsif params[:type] == 'conflict'
+       #put render for conflicts partial here   
+       
     end
-    #respond_to do |format|
-      #format.html # show.html.erb
-      #format.xml  { render :xml => @event }
-      #format.js { render :json => @event.to_json }
-    #end
   end
 
   # GET /events/new

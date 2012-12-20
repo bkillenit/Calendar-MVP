@@ -249,7 +249,7 @@ border-bottom: 1px solid #ccc;
     left: 10px;
     padding-top: 15px;
     padding-left: 10px;
-    height: 13px;
+    height: 12px;
     width: 20px;
 
     background-image: url('/images/button_add.png');
@@ -286,12 +286,19 @@ border-bottom: 1px solid #ccc;
 
 #view-selectors .selected {
    box-shadow: 0px 0px 3px black;
+   -moz-border-radius:5px; /* Firefox 3.6 and earlier */
 
 }
 
 #month-button, #week-button, #day-button {
     float: right;
     margin-right: 15px;
+
+}
+
+#month-button:hover, #week-button:hover, #day-button:hover {
+    box-shadow: 0px 0px 3px black;
+   -moz-border-radius:5px; /* Firefox 3.6 and earlier */
 
 }
 

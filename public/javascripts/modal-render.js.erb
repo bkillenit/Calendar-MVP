@@ -6,18 +6,22 @@ function event_popover(event_div,id) {
     //var event_id = "#event-" + id;
    	var controller_data;
 
-    if ( $(event_div).hasClass("user-event") == true ) {
+  if ( $(event_div).hasClass("user-event") == true ) {
     	controller_data="user";
  	}
- 	else if ( $(event_div).hasClass("unconfirmed-event" ) == true) {
+ 	else if ( $(event_div).hasClass("unconfirmed-event" ) == true)  {
     	controller_data="unconfirmed";
  	}
- 	else if ( $(event_div).hasClass("confirmed-event" ) == true) {
+ 	else if ( $(event_div).hasClass("confirmed-event" ) == true ) {
     	controller_data="confirmed";
  	}
- 	else {
- 		alert("event invalid");
+ 	else if ( $(event_div).hasClass("merged-event") == true ) {
+      controller_data="conflict";
  	}
+  else {
+      alert("event invalid");
+
+  }
 
    	jQuery.ajax({
                 url: "/events/" + String(id),
