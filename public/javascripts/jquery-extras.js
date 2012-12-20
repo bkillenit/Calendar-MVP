@@ -84,6 +84,7 @@ function event_tooltip(event_div) {
 
     if ( $(event_div).hasClass("merged-event") == true ) {
         //insert the code for popping over who is busy at that time here
+        
     }
     else {
       $(event_div).tooltip({

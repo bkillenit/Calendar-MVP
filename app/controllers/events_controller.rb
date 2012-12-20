@@ -84,18 +84,21 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
 
-    if params[:type] == 'user'
-      render 'events/show', :locals=>{:event => @event}
+    if params[:type] 
+      
+      if params[:type] == 'user'
+        render 'events/show', :locals=>{:event => @event}
 
-    elsif params[:type] == 'unconfirmed'
-      render 'events/accept_reject', :locals=>{:event => @event}
+      elsif params[:type] == 'unconfirmed'
+        render 'events/accept_reject', :locals=>{:event => @event}
 
-    elsif params[:type] == 'confirmed'
-      render 'events/response_details', :locals=>{:event => @event}  
+      elsif params[:type] == 'confirmed'
+        render 'events/response_details', :locals=>{:event => @event}  
 
-    elsif params[:type] == 'conflict'
+      elsif params[:type] == 'conflict'
        #put render for conflicts partial here   
        
+      end
     end
   end
 

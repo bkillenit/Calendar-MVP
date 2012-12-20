@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 function event_popover(event_div,id) {
     //var event_id = "#event-" + id;
-   	var controller_data;
+  var controller_data = nil;
 
   if ( $(event_div).hasClass("user-event") == true ) {
     	controller_data="user";
@@ -23,16 +23,18 @@ function event_popover(event_div,id) {
 
   }
 
-   	jQuery.ajax({
+  if (controller_data != nil) {
+
+   	$.ajax({
                 url: "/events/" + String(id),
                 type: "GET",
                 data: {type: controller_data},
                 success: function(result){                      
                     $(event_div).popover({
-   						placement: 'left',
-   						html: true,
-   						title: '',
-   						content: result
+   						           placement: 'left',
+   						           html: true,
+   						           title: '',
+   						           content: result
    					});
    					
    					$(event_div).popover('show');
@@ -41,4 +43,6 @@ function event_popover(event_div,id) {
                     alert('Error occured');
                 }
     });
+
+   }
 }     
