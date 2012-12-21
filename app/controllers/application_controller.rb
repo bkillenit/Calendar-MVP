@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_filter :authenticate,  :except => 'login'
+  before_filter :correct_safari_and_ie_accept_headers
+  after_filter :set_xhr_flash
 
   helper_method :current_user
   helper_method :users_to_merge
@@ -31,8 +33,7 @@ class ApplicationController < ActionController::Base
 
   # got these tips from
   # http://lyconic.com/blog/2010/08/03/dry-up-your-ajax-code-with-the-jquery-rest-plugin
-  before_filter :correct_safari_and_ie_accept_headers
-  after_filter :set_xhr_flash
+ 
 
   def set_xhr_flash
     flash.discard if request.xhr?

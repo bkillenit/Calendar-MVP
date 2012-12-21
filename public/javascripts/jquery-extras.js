@@ -109,10 +109,6 @@ function unconfirmed_event_mouseout(event_div) {
 function merge_user(user_id)
 {
 
-
-    //alert(user_id);
-
-    //$(".fc-agenda-slots").css("background-color","yellow");
     var mergebox = "#mergebox" + user_id;
 
     //failsafe to check if the box is checked when the function is being called
@@ -124,7 +120,7 @@ function merge_user(user_id)
         var source = "/users/" + user_id + "/events";
         $('#calendar').fullCalendar('addEventSource', {
             url: source,
-            className: 'merged-event ' + user_id,
+            className: 'merged-event ',
             editable: false
         });
 
