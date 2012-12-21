@@ -74,8 +74,11 @@ class EventsController < ApplicationController
     #end
   #end
 
+  # may want to move this to the users controller at some point
   def merge(user)
-    
+    respond_to do |format|
+      format.js
+    end
   end
 
   # GET /events/1
