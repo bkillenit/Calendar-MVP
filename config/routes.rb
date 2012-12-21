@@ -10,6 +10,9 @@ Calendar::Application.routes.draw do
 
   match "index" => "calendar/index"
 
+  # for this request, params[:user_to_be_merged] will be the correct user
+  match "events/merge/:user_to_be_merged" => 'events#merge'
+
   resources :users do
     member do
       get :following, :followers
