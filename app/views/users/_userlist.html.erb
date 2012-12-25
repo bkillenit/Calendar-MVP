@@ -4,12 +4,11 @@
     </div>
 
     <div class="merge-box">
-           <p>Merge</p>
-           <div class="merge-icon" id="mergebox<%= user.id %>"   onclick="merge_user(<%= user.id %>)">
-           		<%= image_tag("merge-icon-left.png", options = {:class => 'merge-icon-left'}) %>
-           		<%= image_tag('merge-icon-right.png', options = {:class => 'merge-icon-right'}) %>
-           </div>	
+      <p><%= link_to "Merge", "users/#{user.id}/merge_events", :method => 'get', remote: true %></p>
+      <div class="merge-icon" id="mergebox<%= user.id %>"   onclick="merge_user(<%= user.id %>)">
+        <%= image_tag("merge-icon-left.png", options = {:class => 'merge-icon-left'}) %>
+        <%= image_tag('merge-icon-right.png', options = {:class => 'merge-icon-right'}) %>
+      </div>	
     </div>
-
     <div class="fix"></div><!-- prevent sliding -->
 </li>

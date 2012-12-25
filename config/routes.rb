@@ -10,9 +10,15 @@ Calendar::Application.routes.draw do
 
   match "index" => "calendar/index"
 
+  # for this request, params[:id] will be the correct user
+  # figure out which of these routes is superfluous and delete it
+  get "calendar/users/:id/merge_events", {:controller => :users, :action => :merge_events}
+  get "users/:id/merge_events", {:controller => :users, :action => :merge_events}
+
   resources :users do
     member do
       get :following, :followers
+      # get :merge_events
     end
   end
 

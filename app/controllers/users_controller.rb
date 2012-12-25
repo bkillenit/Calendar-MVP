@@ -13,6 +13,13 @@ class UsersController < ApplicationController
     end
   end
 
+  #  work in progress
+  def merge_events # (user)
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def userlist
     @user.find(params[:id])
     @users = User.find_by_follower_id(current_user.id)
