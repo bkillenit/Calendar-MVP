@@ -22,8 +22,8 @@ Calendar::Application.routes.draw do
     end
   end
 
-  resources :users do
-    resources :events
+  resources :users, :only => [:show, :index] do
+    resources :events, :only => [:show, :index]
   end
 
   resources :events
