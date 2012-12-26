@@ -108,12 +108,13 @@ nav a:hover {
    margin-left: 6px;
    padding-left: 7px;
    
-   border:1px solid ;
+   border:1px solid;
    border-radius:3px;
    
 }
 
-#sidepanel #search .search_input:hover {
+#sidepanel #search .search_input:hover,
+#sidepanel #search .search_input:focus {
 	-moz-border-radius:5px; /* Firefox 3.6 and earlier */
    box-shadow: 0px 0px 3px black;
    
@@ -122,15 +123,15 @@ nav a:hover {
 #sidepanel .search_button {
 	position: relative;
 	
-	margin-top: 3px;
-	margin-left: -27px;
+	margin-top: 2px;
+	margin-left: -27.7px;
+    border-radius:3px;
 	
 }
 
 #sidepanel .search_button img {
     width: 27px;
     height: 27px;
-
     
 }
 
