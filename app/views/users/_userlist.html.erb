@@ -5,8 +5,10 @@
 
     <div class="merge-box">
            <p>Merge</p>
-           <div class="merge-icon" id="mergebox<%= user.id %>" >		
-           </div>	
+           <%= link_to "users/#{user.id}/events_merge" do %>
+           		<div class="merge-icon" id="mergebox<%= user.id %>" >		
+          		</div>	
+           <% end %>		 
     </div>
 
     <div class="fix"></div><!-- prevent sliding -->
