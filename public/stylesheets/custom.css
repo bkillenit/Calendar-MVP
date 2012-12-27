@@ -160,20 +160,12 @@ nav a:hover {
 .merge-icon {
     float: right;
     cursor: pointer;
+    border: 1px solid gray;
+    height: 15px;
+    width: 15px;
+
+    margin: 3px 4px 0px 2px;
     
-}
-
-.merge-icon-left {
-    position: relative;
-    top: -6px;
-    left: 5px;
-
-}
-
-.merge-icon-right {
-    position: relative;
-    top: 6px;
-    left: -3px;
 }
 
 .friends, .groups, .search {

@@ -24,10 +24,46 @@ $(document).ready(function(){
 
     $(".merge-box").attr('checked', false);
 
-    $("#new-button").click(function() {
-        //modal render goes in here
-    });
-        
+    //function for toggling merging users onto calendar
+    $('.merge-icon').toggle(
+        function () {
+
+            //changes the backround color of entire div to light yellow and the box to dark blue
+            $(this).parent().parent().css('backgroundColor', "#ffffcc");
+            $(this).css('backgroundColor', "#003366")
+
+            //changes the text to unmerge
+            $(this).parent().find("p").text('Unmerge');
+
+            //gets the event id from the id of the box by removing all characters that arent numbers
+            eventId = $(this).attr('id').replace(/\D/g,'') ;
+            
+            //sets up the source id based on the eventId above and adds the source
+            var source = "/users/" + eventId + "/events";
+            $('#calendar').fullCalendar('addEventSource', {
+                url: source,
+                className: 'merged-event ',
+                editable: false
+            });
+    },
+        function () {
+
+            //changes the backround color of entire div and box to white
+            $(this).parent().parent().css('backgroundColor', "white");
+            $(this).css('backgroundColor', "white")
+
+            //changes the text to merge
+            $(this).parent().find("p").text('Merge');
+
+            //gets the event id from the id of the box by removing all characters that arent numbers
+            eventId = $(this).attr('id').replace(/\D/g,'');
+
+            //sets up the source id based on the eventId above and removes the source
+            var source = "/users/" + eventId + "/events";
+            $('#calendar').fullCalendar('removeEventSource', source);
+    });//end of toggle function
+
+    // functions for controlling the calendar form our own images from outside the fullCalendar function    
     $("#prevYear").click(function() {    
         addYears(date, -1);
         renderView();
@@ -42,8 +78,7 @@ $(document).ready(function(){
         date = new Date();
         renderView();
     });
-
-});     // ready method end
+});// ready method end
 
 function drag_and_drop(time_div) {
     var d = time_div;
@@ -68,7 +103,7 @@ function drag_and_drop(time_div) {
         description: ""
     };
 
-
+    // Ajax request sent to the events/new rails route
     $.ajax({
         type: "POST",
         url: '/events',
@@ -104,84 +139,4 @@ function unconfirmed_event_mouseout(event_div) {
         //$(event_div).tooltip('hide');
         //$(event_div).popover('hide');
     //}
-}
-
-function merge_user(user_id)
-{
-
-    var mergebox = "#mergebox" + user_id;
-
-    //failsafe to check if the box is checked when the function is being called
-
-        //adds the person merging to the merged_ids array variable in javascript
-        merged_ids.push(user_id);
-
-        //changes calendars source and adjust the events loaded with options
-        var source = "/users/" + user_id + "/events";
-        $('#calendar').fullCalendar('addEventSource', {
-            url: source,
-            className: 'merged-event ',
-            editable: false
-        });
-
-        //changes the toggle boxes color to gray and adjust text to Unmerge
-        var divbox = "#" + user_id;
-        $(divbox).css("backgroundColor", '#ffffcc');
-        $(divbox).find("p").text('Unmerge');
-
-        //changes function of checkbox to unmerge
-        var divbox = "#mergebox" + user_id;
-        var function_id = "unmerge_user(" + user_id + ")";
-        $(divbox).attr("onclick", function_id);
-
-        //rerenders calendar with AJAX
-        $('#calendar').fullCalendar('rerenderEvents');
-
-        //fades in shadows
-        fadeClass=".fade-in" + user_id ; 
-        //alert(fadeClass);
-        $('.fade-in7').fadeIn("slow");
-
-
-}
-
-function unmerge_user(user_id)
-{
-    //removes the id of the person merging to merged_ids variable in javascript
-
-    //alert(merged_ids);
-    //alert(unmerge_ids);
-    //alert(index);
-    var index=merged_ids.indexOf(user_id);
-    //alert(index);
-
-    if (merged_ids.length>1) {
-        merged_ids.splice(index, 1);
-        //alert("unmerge array: " +unmerge_ids);
-
-    }
-    else {
-        merged_ids = [];
-
-    }
-
-    //alert("merged_ids: " +merged_ids);
-
-    //removes calendar source calendars source
-    var source = "/users/" + user_id + "/events";
-    $('#calendar').fullCalendar('removeEventSource', source);
-
-    //changes the toggle boxes color to white and adjust text to Merge
-    var divbox = "#" + user_id;
-    $(divbox).css("backgroundColor", "white");
-    $(divbox).find("p").text('Merge');
-
-    //changes function of checkbox back to merge
-    var checkbox = "#mergebox" + user_id;
-    var function_id = "merge_user(" + user_id + ")";
-    $(checkbox).attr("onclick", function_id);
-
-    //rerenders calendar with AJAX
-    $('#calendar').fullCalendar('rerenderEvents');
-
 }
