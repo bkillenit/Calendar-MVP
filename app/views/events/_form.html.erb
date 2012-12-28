@@ -27,6 +27,10 @@
     </div>
   <% end %>
 
+  <% if session[:merged_users] %>
+      <p><%= session[:merged_users] %></p>
+  <% end %>
+
   <div class="field">
     <%= f.hidden_field :user_id, :value => session[:user_id] %>
   </div>  

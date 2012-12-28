@@ -16,12 +16,15 @@ Calendar::Application.routes.draw do
     end
   end
 
-  resources :users do
-    resources :events
+  resources :users, only: [:index, :show] do
+    resources :events, only: [:index, :show]
   end
 
-  resources :events
+  get 'users/:id/merge_events', {:controller => 'users', :action => 'merge_events'} 
 
+  post "relationships/create"
+
+  resources :events
 
   get "calendar/index:users", {:controller => :calendar, :action => :index, :users => :users}
 

@@ -29,11 +29,11 @@ $(document).ready(function(){
         function () {
 
             //changes the backround color of entire div to light yellow and the box to dark blue
-            $(this).parent().parent().parent().css('backgroundColor', "#ffffcc");
+            $(this).parent().parent().css('backgroundColor', "#ffffcc");
             $(this).css('backgroundColor', "#003366")
 
             //changes the text to unmerge
-            $(this).parent().parent().find("p").text('Unmerge');
+            $(this).parent().find("p").text('Unmerge');
 
             //gets the event id from the id of the box by removing all characters that arent numbers
             eventId = $(this).attr('id').replace(/\D/g,'') ;
@@ -49,11 +49,11 @@ $(document).ready(function(){
         function () {
 
             //changes the backround color of entire div and box to white
-            $(this).parent().parent().parent().css('backgroundColor', "white");
+            $(this).parent().parent().css('backgroundColor', "white");
             $(this).css('backgroundColor', "white")
 
             //changes the text to merge
-            $(this).parent().parent().find("p").text('Merge');
+            $(this).parent().find("p").text('Merge');
 
             //gets the event id from the id of the box by removing all characters that arent numbers
             eventId = $(this).attr('id').replace(/\D/g,'');

@@ -13,6 +13,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def merge_events
+    
+    if session[:merged_users] == nil
+      session[:merged_users] = params[:id]
+    else
+      @session = session[:merged_users].split(' ')
+
+      if @session.any? { |s| s.include?(params[:id]) } == true
+        session[:merged_users].slice! params[:id]
+      else  
+        session[:merged_users] = session[:merged_users] + " " + params[:id]
+      end  
+    end  
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def userlist
     @user.find(params[:id])
     @users = User.find_by_follower_id(current_user.id)
