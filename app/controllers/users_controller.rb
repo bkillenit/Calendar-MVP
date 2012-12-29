@@ -16,14 +16,15 @@ class UsersController < ApplicationController
   def merge_events
     
     if session[:merged_users] == nil
-      session[:merged_users] = params[:id]
+      session[:merged_users] = Array.new #establishes it as an array
+      session[:merged_users].push(params[:id])
     else
-      @session = session[:merged_users].split(' ')
 
-      if @session.any? { |s| s.include?(params[:id]) } == true
-        session[:merged_users].slice! params[:id]
+      if session[:merged_users].include? params[:id]
+        logger.info("=====================")
+        session[:merged_users].delete(params[:id])
       else  
-        session[:merged_users] = session[:merged_users] + " " + params[:id]
+        session[:merged_users].push(params[:id]) #appends the id value onto the end of the string
       end  
     end  
 
