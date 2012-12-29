@@ -13,18 +13,21 @@ class UsersController < ApplicationController
     end
   end
 
+#function to add and delete from the sessions array based on user input
   def merge_events
-    
+
+    #checks if the hash is already initialized
     if session[:merged_users] == nil
-      session[:merged_users] = Array.new #establishes it as an array
+      session[:merged_users] = Array.new #establishes session[:merged_users] as an array
       session[:merged_users].push(params[:id])
     else
 
+      #checks if the seesion[:merged_users] array has params[:id] value in it 
+      #and deletes it from the array if it does, or adds it if it doesn't
       if session[:merged_users].include? params[:id]
-        logger.info("=====================")
         session[:merged_users].delete(params[:id])
       else  
-        session[:merged_users].push(params[:id]) #appends the id value onto the end of the string
+        session[:merged_users].push(params[:id]) #pushes the id value onto the end of the array
       end  
     end  
 
