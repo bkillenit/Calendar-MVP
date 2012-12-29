@@ -5,7 +5,7 @@
 
     <div class="merge-box">
            <p>Merge</p>
-           <%= link_to '', "/users/#{user.id}/merge_events", method: 'GET', remote: true, :class => 'merge-icon' %>
+           <%= link_to '', "/users/#{user.id}/merge_events", method: 'GET', remote: true, :class => 'merge-icon', :id => "merge-#{user.id}" %>
     </div>
 
     <div class="fix"></div><!-- prevent sliding -->
