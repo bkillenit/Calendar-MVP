@@ -208,8 +208,15 @@ class EventsController < ApplicationController
     @participant = Participant.find_by_event_id_and_user_id(params[:id], current_user.id)
     @participant.hasResponded = true
     @participant.isAttending = true
-    @participant.save
-    # right now, we don't render a response, but we should rerender the calendar in the respond_to block
-
+    
+    respond_to do |format| 
+      if @participant.save 
+        format.js # renders accept_request.js.erb
+      else 
+        # TODO: this code was copy/pasted from other respond_to blocks 
+        # We should figure out what we actually want to do here.
+        format.js { render :js => @participant.errors, :status => :unprocessable_entity}
+      end
+    end
   end
 end # Controller End
