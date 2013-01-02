@@ -37,33 +37,43 @@ class Event < ActiveRecord::Base
 
   def self.Participating?(id)
 
+    # finds all participant objects of the current user, current_user.id passed as function argument 
     participants = Participant.find_all_by_user_id(id)
     events = Array.new
 
     if participants 
         participants.each do |p|
          event = Event.find(p.event_id)  
+
+          #logic for checking if the event was created by the current user
           if p.isAdmin == false
             event.editable = false
-            #logger.info("========= requested_user: " + e.isAdmin.to_s + "  ============")
-            if p.isConfirmed == false
+            if p.hasResponded == false
               @Admin = Participant.find_by_event_id_and_isAdmin(event.id, true)
               @owner = User.find_by_id(@Admin.user_id)
               event.className = 'unconfirmed-event'
               event.title = "Request for " +  event.title + " from " + @owner.name
 
-            elsif e.isConfirmed == true  
-              event.className = 'confirmed-event'
-              #logger.info("========= Event object: " + @event.to_json + "  ============")  
+            elsif p.hasResponded == true
+              if p.isAttending == true
+                event.className = 'confirmed-event'
+              elsif p.isAttending == false
+                event.className = 'hidden'  
+              end  
             end
+
+          #else for filling event with isAdmin event characteristics  
           else
             event.className = 'user-event'
             event.editable = true
           end 
-            events.push event
+
+          #pushes the event object to array after formatting
+          events.push event
         end
       end
-        #logger.info("========= Events object: " + @events.to_json + "  ============")  
+
+      #returns correctly formatted events array before JSON conversion
       return events 
   end
 end
