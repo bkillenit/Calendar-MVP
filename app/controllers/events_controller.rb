@@ -134,13 +134,13 @@ class EventsController < ApplicationController
  
     @event = Event.create(params[:event].except(:participants))
     current_user.events.push @event
-    @event.participants.create(:user_id => current_user.id, :isConfirmed => true, :isAdmin => true ).save
+    @event.participants.create(:user_id => current_user.id, :hasResponded => false, :isAttending => true ,:isAdmin => true ).save
 
     if params[:event][:participants]
       @p = params[:event][:participants].split(",")
         @p.each do |p|
           @event.participants.create( :event_id => @event.id,
-            :user_id => p, :isConfirmed => false, :isAdmin => false ).save
+            :user_id => p, :isAttending => false, :hasResponded => false ,:isAdmin => false ).save
 
           @user = User.find_by_id(p)
 
