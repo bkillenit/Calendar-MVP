@@ -205,6 +205,11 @@ class EventsController < ApplicationController
   def accept_request
     # we need an event id and user id
     # user id is current_user.id, event_id will be params[:event_id]
-    current_user.Responses.accept(params[:event_id], current_user.id)
+    @participant = Participant.find_by_event_id_and_user_id(params[:id], current_user.id)
+    @participant.hasResponded = true
+    @participant.isAttending = true
+    @participant.save
+    # right now, we don't render a response, but we should rerender the calendar in the respond_to block
+
   end
 end # Controller End

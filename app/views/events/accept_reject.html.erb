@@ -27,5 +27,4 @@
   <%= @event.description %>
 </p>
 
-<%= link_to "Accept", 
-  url_for(:controller => 'events', :action => 'accept_request', :event_id => @event.id), :method => 'PUT', :remote => true %>
+<%= link_to "Accept", accept_request_path(@event.id), :method => 'PUT', :remote => true %>

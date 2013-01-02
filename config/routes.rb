@@ -8,7 +8,7 @@ Calendar::Application.routes.draw do
 
   post "admin/login"
 
-  put "events/:id/accept_request", {:controller => 'events', :action => 'accept_request'}
+  put "events/:id/accept_request" => "events#accept_request", :as => 'accept_request'
 
   match "index" => "calendar/index"
 
