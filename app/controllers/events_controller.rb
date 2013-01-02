@@ -219,4 +219,25 @@ class EventsController < ApplicationController
       end
     end
   end
+
+  def reject_request
+    # This isn't DRY, but we can eventually refactor this into respond_to_request, a method
+    # and route in which we can either accept or reject an event
+    @participant = Participant.find_by_event_id_and_user_id(params[:id], current_user.id)
+
+    # By setting the isAttending to false, the event is given a class of .hide on render of the calendar 
+    # The Particpating? function in the Events model assigns the class attributes for each event in the JSON feed
+    @participant.hasResponded = true
+    @participant.isAttending = false
+    
+    respond_to do |format| 
+      if @participant.save 
+        format.js # renders reject_request.js.erb
+      else 
+        # TODO: this code was copy/pasted from other respond_to blocks 
+        # We should figure out what we actually want to do here.
+        format.js { render :js => @participant.errors, :status => :unprocessable_entity}
+      end
+    end
+  end
 end # Controller End

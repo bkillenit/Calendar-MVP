@@ -58,7 +58,7 @@ class Event < ActiveRecord::Base
               if p.isAttending == true
                 event.className = 'confirmed-event'
               elsif p.isAttending == false
-                event.className = 'hidden'  
+                event.className = 'hide'  
               end  
             end
 

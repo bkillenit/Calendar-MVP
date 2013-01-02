@@ -9,6 +9,7 @@ Calendar::Application.routes.draw do
   post "admin/login"
 
   put "events/:id/accept_request" => "events#accept_request", :as => 'accept_request'
+  put "events/:id/reject_request" => "events#reject_request", :as => 'reject_request'
 
   match "index" => "calendar/index"
 
