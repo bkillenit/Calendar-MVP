@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 
 <p>Accept or Reject<p>
@@ -25,3 +26,6 @@
   <b>Description:</b>
   <%= @event.description %>
 </p>
+
+<%= link_to "Accept", 
+  url_for(:controller => 'events', :action => 'accept_request', :event_id => @event.id), :method => 'PUT', :remote => true %>

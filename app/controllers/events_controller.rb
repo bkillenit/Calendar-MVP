@@ -200,4 +200,11 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-end
+
+  # PUT /events/1/accept_request
+  def accept_request
+    # we need an event id and user id
+    # user id is current_user.id, event_id will be params[:event_id]
+    current_user.Responses.accept(params[:event_id], current_user.id)
+  end
+end # Controller End
