@@ -35,6 +35,15 @@ class Event < ActiveRecord::Base
     Time.at(date_time.to_i).to_formatted_s(:db)
   end
 
+  # This method should find all events that overlap a given date_time
+  # The only question I have is whether it's possible to chain the .find call
+  # onto the .where call. 
+  # TODO: Optimize this SQL query, perhaps using ARel
+  def self.find_conflicts(date_time, merged_users)
+    merged_users << current_user.id
+    Event.where(:user_id => merged_users).find(:all, :conditions => ['starts_at < ? AND ends_at > ?', date_time, date_time])
+  end
+
   def self.Participating?(id)
 
     # finds all participant objects of the current user, current_user.id passed as function argument 
@@ -71,7 +80,7 @@ class Event < ActiveRecord::Base
           #pushes the event object to array after formatting
           events.push event
         end
-      end
+    end
 
       #returns correctly formatted events array before JSON conversion
       return events 
