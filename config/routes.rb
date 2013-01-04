@@ -8,6 +8,9 @@ Calendar::Application.routes.draw do
 
   post "admin/login"
 
+  put "events/:id/accept_request" => "events#accept_request", :as => 'accept_request'
+  put "events/:id/reject_request" => "events#reject_request", :as => 'reject_request'
+
   match "index" => "calendar/index"
 
   resources :users do
@@ -16,12 +19,17 @@ Calendar::Application.routes.draw do
     end
   end
 
-  resources :users do
-    resources :events
+  resources :users, only: [:index, :show] do
+    resources :events, only: [:index, :show]
   end
 
-  resources :events
+  get 'users/:id/merge_events', {:controller => 'users', :action => 'merge_events'} 
 
+  post "relationships/create"
+
+
+
+  resources :events
 
   get "calendar/index:users", {:controller => :calendar, :action => :index, :users => :users}
 

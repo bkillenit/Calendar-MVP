@@ -12,6 +12,7 @@ class EventsController < ApplicationController
     if params[:user_id]
       user = User.find(params[:user_id])
       @events =  user.events
+
       #@same_event = Paricipant.find_all_by_user_id(user.id)
       @events.each do |e|
         e.title = ""
@@ -74,6 +75,10 @@ class EventsController < ApplicationController
     #end
   #end
 
+  def mergeUser
+    params[:merged_user] = self.id
+  end
+
   # GET /events/1
   # GET /events/1.xml
   def show
@@ -129,13 +134,13 @@ class EventsController < ApplicationController
  
     @event = Event.create(params[:event].except(:participants))
     current_user.events.push @event
-    @event.participants.create(:user_id => current_user.id, :isConfirmed => true, :isAdmin => true ).save
+    @event.participants.create(:user_id => current_user.id, :hasResponded => false, :isAttending => true ,:isAdmin => true ).save
 
     if params[:event][:participants]
       @p = params[:event][:participants].split(",")
         @p.each do |p|
           @event.participants.create( :event_id => @event.id,
-            :user_id => p, :isConfirmed => false, :isAdmin => false ).save
+            :user_id => p, :isAttending => false, :hasResponded => false ,:isAdmin => false ).save
 
           @user = User.find_by_id(p)
 
@@ -195,4 +200,44 @@ class EventsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-end
+
+  # PUT /events/1/accept_request
+  def accept_request
+    # we need an event id and user id
+    # user id is current_user.id, event_id will be params[:event_id]
+    @participant = Participant.find_by_event_id_and_user_id(params[:id], current_user.id)
+    @participant.hasResponded = true
+    @participant.isAttending = true
+    
+    respond_to do |format| 
+      if @participant.save 
+        format.js # renders accept_request.js.erb
+      else 
+        # TODO: this code was copy/pasted from other respond_to blocks 
+        # We should figure out what we actually want to do here.
+        format.js { render :js => @participant.errors, :status => :unprocessable_entity}
+      end
+    end
+  end
+
+  def reject_request
+    # This isn't DRY, but we can eventually refactor this into respond_to_request, a method
+    # and route in which we can either accept or reject an event
+    @participant = Participant.find_by_event_id_and_user_id(params[:id], current_user.id)
+
+    # By setting the isAttending to false, the event is given a class of .hide on render of the calendar 
+    # The Particpating? function in the Events model assigns the class attributes for each event in the JSON feed
+    @participant.hasResponded = true
+    @participant.isAttending = false
+    
+    respond_to do |format| 
+      if @participant.save 
+        format.js # renders reject_request.js.erb
+      else 
+        # TODO: this code was copy/pasted from other respond_to blocks 
+        # We should figure out what we actually want to do here.
+        format.js { render :js => @participant.errors, :status => :unprocessable_entity}
+      end
+    end
+  end
+end # Controller End

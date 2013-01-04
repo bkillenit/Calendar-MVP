@@ -1,0 +1,6 @@
+// params id because params to the event controller for the accept action
+$('<%= "#event-#{params[:id]}" %>').removeClass('unconfirmed-event');
+$('<%= "#event-#{params[:id]}" %>').addClass('confirmed-event');
+
+//destroys popover next to the event
+$('<%= "#event-#{params[:id]}" %>').popover('destroy');
