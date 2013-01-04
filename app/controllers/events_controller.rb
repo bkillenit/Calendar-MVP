@@ -74,11 +74,6 @@ class EventsController < ApplicationController
     #end
   #end
 
-  def mergeUser
-    params[:merged_user] = self.id
-
-  end
-
   # GET /events/1
   # GET /events/1.xml
   def show
