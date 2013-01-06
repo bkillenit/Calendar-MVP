@@ -29,8 +29,8 @@ $(document).ready(function() {
                 
                 // function for determing how many rows the mouse is away from the top of the div, which is the start date
                 // function in jQuery extras, want to replce 15 with slot minutes variable to make it dynamic
-                mergedHover(15, event, jsEvent);
-                
+                date = mergedHover(15, event, jsEvent);
+                alert(date);
             }
             else {
             $(this).tooltip({

@@ -73,17 +73,33 @@ function drag_and_drop(time_div) {
 }
 
 function mergedHover(slotMinutes, event, ev) {
-    var date = event.start;
+    var date = new Date(event.start);
 
-    eventOffset = $("#event-" + event.id).offset().top;
-
-    // remove this if you want the offset value in exact pixels
-    mouseOffset = (ev.pageY - eventOffset)/slotMinutes;
-    roundedOffset = Math.floor(mouseOffset)*slotMinutes;
+    // position used to get a constant value for the event offset from the top of the 
+    // fc-agenda-slots table
+    eventOffset = $("#event-" + event.id).position().top;
+    dividerOffset = $(".fc-agenda-divider").offset().top;
     
 
-    date.setMinutes(date.getMinutes() + roundedOffset);
-    alert(date);
+    // remove this if you want the offset value in exact pixels
+    // this is the mouseOffset form the top of the visible table cells
+    mouseOffset = ev.pageY - dividerOffset;
+
+    // eventOffset from the the top of the visible table cells
+    relativeEventOffset = eventOffset - $('#table-scroller').scrollTop();
+
+    mouseOffsetRelativeToEvent = mouseOffset - relativeEventOffset;
+
+    stepRelativeOffset = mouseOffsetRelativeToEvent/slotMinutes;
+    roundedTimeOffset = Math.floor(stepRelativeOffset)*slotMinutes;
+    
+    // sets the date based on the calculated offset
+    adjustedDate = new Date(date.setMinutes(date.getMinutes() + roundedTimeOffset));
+
+    return adjustedDate;
+    console.log("EventOffset: " + eventOffset + ",\n dividerOffset: " + dividerOffset + ",\n mouseOffset: " + mouseOffset + 
+        ",\n relativeEventOffset: " + relativeEventOffset + ",\n mouseOffsetRelativeToEvent: " + mouseOffsetRelativeToEvent + 
+        ",\n stepRelativeOffset: " + stepRelativeOffset + ",\n roundedTimeOffset: " + roundedTimeOffset);
 
 }
 
