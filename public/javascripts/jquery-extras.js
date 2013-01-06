@@ -1,7 +1,3 @@
-//initialize global variables find way to do this with imports and exports
-var merged_ids = [];
-var mousestatus;
-
 // checks if a box is already checked when going back to the home page
 // and runs merge function if necessary
 //wants to move all functions to here that aren't selective upon id and  
@@ -76,28 +72,12 @@ function drag_and_drop(time_div) {
     });   
 }
 
-function event_tooltip(event_div) {
 
-    if ( $(event_div).hasClass("merged-event") == true ) {
-        //insert the code for popping over who is busy at that time here
-        
-    }
-    else {
-      $(event_div).tooltip({
-            title: 'Click event to expand',
-            placement: 'left', 
-            delay: { show: 400, hide: 50 } });
-    }  
-}
 
-function unconfirmed_event_mouseout(event_div) {
-    //var event_id = "#event-" + id;
-    //alert(mousestatus);
-    //if (mousestatus=='clicked') {
-        
-    //}
-    //else {
-        //$(event_div).tooltip('hide');
-        //$(event_div).popover('hide');
-    //}
-}
+
+
+
+
+
+
+

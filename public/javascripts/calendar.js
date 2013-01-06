@@ -23,6 +23,27 @@ $(document).ready(function() {
                 $('#loading').hide();
         },
 
+        //fullcalendars eventMouseover and eventMouseout API function for returning the event, mouse coordinates, and the current view
+        eventMouseover :function(event, jsEvent, view) {
+            if ( $("#event-" + event.id).hasClass("merged-event") == true ) {
+            //insert the code for popping over who is busy at that time here
+        
+            }
+            else {
+            $(this).tooltip({
+                title: 'Click event to expand',
+                placement: 'left', 
+                delay: { show: 400, hide: 50 } });
+            }
+        },
+
+        eventMouseout :function(event, jsEvent, view) {
+            
+        },
+
+        eventRender :function(event, element) {
+            var view = $('#calendar').fullCalendar('getView');
+        },           
         // a future calendar might have many sources.        
         eventSources: [
 

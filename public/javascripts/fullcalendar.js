@@ -17,9 +17,6 @@
  
 (function($, undefined) {
 
-
-
-
 var defaults = {
 
 	// display
@@ -2170,6 +2167,7 @@ function BasicView(element, calendar, viewName) {
 	var renderOverlay = t.renderOverlay;
 	var clearOverlays = t.clearOverlays;
 	var daySelectionMousedown = t.daySelectionMousedown;
+	var daySelectionMouseenter = t.daySelectionMouseenter;
 	var formatDate = calendar.formatDate;
 	
 	
@@ -2402,6 +2400,7 @@ function BasicView(element, calendar, viewName) {
 	function dayBind(days) {
 		days.click(dayClick)
 			.mousedown(daySelectionMousedown);
+
 	}
 	
 	
@@ -2912,6 +2911,7 @@ function AgendaView(element, calendar, viewName) {
 	var reportSelection = t.reportSelection;
 	var unselect = t.unselect;
 	var daySelectionMousedown = t.daySelectionMousedown;
+	var daySelectionMouseenter = t.daySelectionMouseenter;
 	var slotSegHtml = t.slotSegHtml;
 	var formatDate = calendar.formatDate;
 	
@@ -3257,7 +3257,7 @@ function AgendaView(element, calendar, viewName) {
 	
 	
 	
-	/* Slot/Day clicking and binding
+	/* Slot/Day clicking, hovering, and binding
 	-----------------------------------------------------------------------*/
 	
 
@@ -3266,6 +3266,10 @@ function AgendaView(element, calendar, viewName) {
 			.mousedown(daySelectionMousedown);
 	}
 
+	function dayHoverBind(cells) {
+		cells.hover(slotHover)
+			.mouseenter(daySelectionMouseenter);
+	}
 
 	function slotBind(cells) {
 		cells.click(slotClick)
@@ -3277,6 +3281,7 @@ function AgendaView(element, calendar, viewName) {
 		if (!opt('selectable')) { // if selectable, SelectionManager will worry about dayClick
 			var col = Math.min(colCnt-1, Math.floor((ev.pageX - dayTable.offset().left - axisWidth) / colWidth));
 			var date = colDate(col);
+
 			var rowMatch = this.parentNode.className.match(/fc-slot(\d+)/); // TODO: maybe use data
 			if (rowMatch) {
 				var mins = parseInt(rowMatch[1]) * opt('slotMinutes');
@@ -3284,18 +3289,24 @@ function AgendaView(element, calendar, viewName) {
 				date.setHours(hours);
 				date.setMinutes(mins%60 + minMinute);
 				trigger('dayClick', dayBodyCells[col], date, false, ev);
-
-				//sends date to j-query extras
 				
 			}
 			else{
 				trigger('dayClick', dayBodyCells[col], date, true, ev);
+
 			}
-			drag_and_drop(date);
+
+			//sends date to j-query extras
+			alert(date);
+			//drag_and_drop(date);
 		}
 	}
-	
-	
+
+	function conflicts_popover(col, x, y) {
+    	alert(col);
+
+	}
+
 	
 	/* Semi-transparent Overlay Helpers
 	-----------------------------------------------------*/
@@ -3613,6 +3624,42 @@ function AgendaView(element, calendar, viewName) {
 
 	}
 	
+	function conflictSelectionMousehover() {
+		//alert(String(ev));
+		alert("hello");
+
+		if (ev.which == 1 && opt('selectable')) { // ev.which==1 means left mouse button
+			unselect(ev);
+			var dates;
+			hoverListener.start(function(cell, origCell) {
+				clearSelection();
+				if (cell && cell.col == origCell.col && !cellIsAllDay(cell)) {
+					var d1 = cellDate(origCell);
+					var d2 = cellDate(cell);
+
+					dates = [
+						d1,
+						addMinutes(cloneDate(d1), opt('slotMinutes')),
+						d2,
+						addMinutes(cloneDate(d2), opt('slotMinutes'))
+					].sort(cmp);
+					renderSlotSelection(dates[0], dates[3]);
+				}else{
+					dates = null;
+				}
+			}, ev);
+			$(document).one('mouseup', function(ev) {
+				hoverListener.stop();
+				if (dates) {
+					if (+dates[0] == +dates[1]) {
+						reportDayClick(dates[0], false, ev);
+					}
+					reportSelection(dates[0], dates[3], false, ev);
+				}
+			});
+		}
+
+	}
 	
 	function reportDayClick(date, allDay, ev) {
 		trigger('dayClick', dayBodyCells[dayOfWeekCol(date.getDay())], date, allDay, ev);
@@ -3927,11 +3974,14 @@ function AgendaEventRenderer() {
 	
 	
 	function slotSegHtml(event, seg) {
+
 		var html = "<";
 		var url = event.url;
 		var skinCss = getSkinCss(event, opt);
 		var skinCssAttr = (skinCss ? " style='" + skinCss + "'" : '');
 		var classes = ['fc-event', 'fc-event-vert'];
+		//var onmouseover = "'event_tooltip(this)'";
+
 		if (isEventDraggable(event)) {
 			classes.push('fc-event-draggable');
 		}
@@ -3961,6 +4011,10 @@ function AgendaEventRenderer() {
 				z_index = 25;
 
 			}
+			else if (classesString.indexOf("merged-event") >= 0){
+
+				onmouseover = "'conflicts_popover(" + event + ")'";
+			}
 			else {
 				z_index = 1;
 
@@ -3975,7 +4029,6 @@ function AgendaEventRenderer() {
 			html += "div";
 		}
 		html +=
- 		    " onmouseover='event_tooltip(this)'" +
  		    "onclick='event_popover(this," + event.id + ")'" +
 			" id='event-" + event.id + "'" +
 			" class='" + classes.join(' ') + "'" +
