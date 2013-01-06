@@ -3302,11 +3302,6 @@ function AgendaView(element, calendar, viewName) {
 		}
 	}
 
-	function conflicts_popover(col, x, y) {
-    	alert(col);
-
-	}
-
 	
 	/* Semi-transparent Overlay Helpers
 	-----------------------------------------------------*/

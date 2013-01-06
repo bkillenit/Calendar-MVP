@@ -26,8 +26,11 @@ $(document).ready(function() {
         //fullcalendars eventMouseover and eventMouseout API function for returning the event, mouse coordinates, and the current view
         eventMouseover :function(event, jsEvent, view) {
             if ( $("#event-" + event.id).hasClass("merged-event") == true ) {
-            //insert the code for popping over who is busy at that time here
-        
+                
+                // function for determing how many rows the mouse is away from the top of the div, which is the start date
+                // function in jQuery extras, want to replce 15 with slot minutes variable to make it dynamic
+                mergedHover(15, event, jsEvent);
+                
             }
             else {
             $(this).tooltip({

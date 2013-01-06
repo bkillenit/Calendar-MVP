@@ -72,6 +72,20 @@ function drag_and_drop(time_div) {
     });   
 }
 
+function mergedHover(slotMinutes, event, ev) {
+    var date = event.start;
+
+    eventOffset = $("#event-" + event.id).offset().top;
+
+    // remove this if you want the offset value in exact pixels
+    mouseOffset = (ev.pageY - eventOffset)/slotMinutes;
+    roundedOffset = Math.floor(mouseOffset)*slotMinutes;
+    
+
+    date.setMinutes(date.getMinutes() + roundedOffset);
+    alert(date);
+
+}
 
 
 
