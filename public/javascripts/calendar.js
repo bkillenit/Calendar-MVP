@@ -27,21 +27,51 @@ $(document).ready(function() {
         eventMouseover :function(event, jsEvent, view) {
             if ( ($("#event-" + event.id).hasClass("merged-event")) == true ) {
                 
+                // delays the function calls so it doesn't get called unless the user leaves their mouse on the conflict
+                
+
                 // function for determing how many rows the mouse is away from the top of the div, which is the start date
                 // function in jQuery extras, want to replce 15 with slot minutes variable to make it dynamic
                 date = new Date(mergedHover(15, event, jsEvent));
                 //alert(date);
+
+                /* Sends an AJAX request to the show controller with a GET method and correct params 
+                    to get the HTML for the popover content*/ 
+                $.ajax({ //beginning of AJAX request
+                    url: "/events/" + String(event.id),
+                    type: "GET",
+                    data: {type: 'merge-conflict', date: date},
+                    success: function(result){                      
+                        $("#event-" + event.id).popover({
+                            placement: 'left',
+                            html: true,
+                            title: '',
+                            delay: { show: 400, hide: 50 },
+                            content: result
+                        });
+
+                    //renders the popover with the content of the results from the AJAX request
+                    $("#event-" + event.id).popover('show');
+                    
+                    },
+                    error: function(){
+                        alert('Error occured');
+                    }
+                }); //end of AJAX request  
+
             }
             else {
                 $(this).tooltip({
                     title: 'Click event to expand',
                     placement: 'left', 
-                    delay: { show: 400, hide: 50 } });
+                    delay: { show: 400, hide: 50 } 
+                });
             }
         },
 
         eventMouseout :function(event, jsEvent, view) {
-            
+            //destroys the popover
+            $("#event-" + event.id).popover('destroy');
         },
 
         eventRender :function(event, element) {
