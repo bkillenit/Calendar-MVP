@@ -563,13 +563,21 @@ table.fc-border-separate {
     border-top-style: ;
 }
 
-.fc-agenda-slots tr:nth-child(4n+1) td {
+/* alternates the highlighting for the slots in the calendar */
+
+.fc-agenda-slots td div:nth-child(4n+1),
+.fc-agenda-slots td div:nth-child(4n+3) {
+	height: 19px;	
+	
+}
+
+.fc-agenda-slots tr.fc-minor:nth-child(4n+3) td {	
+ 	background-color: #fbfbfb;
 	border-top: 1px solid #e9e9e9;
 
 }
 
-.fc-agenda-slots tr.fc-minor:nth-child(4n-1) td {	
- 	background-color: #fbfbfb;
+.fc-agenda-slots tr:nth-child(4n+1) td {
 	border-top: 1px solid #e9e9e9;
 
 }
@@ -578,6 +586,8 @@ table.fc-border-separate {
 	background-color: #fbfbfb;
 
 }
+
+/* ---------------------------------------------------- */
 	
 .fc-agenda-slots tr.fc-minor th.ui-widget-header {
 	border-top-style: ; /* doesn't work with background in IE6/7 */

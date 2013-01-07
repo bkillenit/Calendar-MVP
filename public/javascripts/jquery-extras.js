@@ -96,7 +96,9 @@ function mergedHover(slotMinutes, event, ev) {
 
     // manually adjust the pixel distance to 15 minute intervals because the height of the slots are 20px
     // and rounding the amount of pixels away from the top using steps is an inconsistent interval with the time interval 
-        
+    // gets the height of the slots and adjust them to interval set by the slotMinutes
+    slotHeight = $('.fc-agenda-slots td div').height();
+
     
     // sets the date based on the calculated offset
     adjustedDate = new Date(roundedSlotDate.setMinutes(roundedSlotDate.getMinutes() + mouseOffsetRelativeToEvent));
