@@ -75,7 +75,7 @@ function drag_and_drop(time_div) {
 function mergedHover(slotMinutes, event, ev) {
 
     // gets the date and rounds it to the nearest 15th minute for failsafe on
-    // errored entries into database 
+    // errored datetime entries into database 
     var date = new Date(event.start);
     roundedSlotDate = new Date(date.setMinutes(Math.round((date.getMinutes()/slotMinutes))*slotMinutes));
 
