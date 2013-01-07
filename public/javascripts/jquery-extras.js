@@ -77,7 +77,7 @@ function mergedHover(slotMinutes, event, ev) {
     // gets the date and rounds it to the nearest 15th minute for failsafe on
     // errored entries into database 
     var date = new Date(event.start);
-    roundedSlotDate = new Date(date.setMinutes(Math.floor((date.getMinutes()/slotMinutes))*slotMinutes));
+    roundedSlotDate = new Date(date.setMinutes(Math.round((date.getMinutes()/slotMinutes))*slotMinutes));
 
     // position used to get a constant value for the event offset from the top of the 
     // fc-agenda-slots table
@@ -86,26 +86,25 @@ function mergedHover(slotMinutes, event, ev) {
     
 
     // remove this if you want the offset value in exact pixels
-    // this is the mouseOffset form the top of the visible table cells
+    // this is the mouseOffset from the top of the visible table cells
     mouseOffset = ev.pageY - dividerOffset;
 
     // eventOffset from the the top of the visible table cells
     relativeEventOffset = eventOffset - $('#table-scroller').scrollTop();
-
     mouseOffsetRelativeToEvent = mouseOffset - relativeEventOffset;
 
     // manually adjust the pixel distance to 15 minute intervals because the height of the slots are 20px
     // and rounding the amount of pixels away from the top using steps is an inconsistent interval with the time interval 
     // gets the height of the slots and adjust them to interval set by the slotMinutes
     slotHeight = $('.fc-agenda-slots td div').height();
-
+    roundedMouseOffsetRelativeToEvent = Math.floor(mouseOffsetRelativeToEvent/slotHeight) * slotMinutes;
     
     // sets the date based on the calculated offset
-    adjustedDate = new Date(roundedSlotDate.setMinutes(roundedSlotDate.getMinutes() + mouseOffsetRelativeToEvent));
+    adjustedDate = new Date(roundedSlotDate.setMinutes(roundedSlotDate.getMinutes() + roundedMouseOffsetRelativeToEvent));
 
-    console.log("EventOffset: " + eventOffset + ",\n dividerOffset: " + dividerOffset + ",\n mouseOffset: " + mouseOffset + 
+    /* console.log("EventOffset: " + eventOffset + ",\n dividerOffset: " + dividerOffset + ",\n mouseOffset: " + mouseOffset + 
         ",\n relativeEventOffset: " + relativeEventOffset + ",\n mouseOffsetRelativeToEvent: " + mouseOffsetRelativeToEvent + 
-        ",\n roundedMinutesOffset: " +  ",\n adjustedDate: " + adjustedDate);
+        ",\n roundedMinutesOffset: " +  ",\n adjustedDate: " + adjustedDate); */
 
     return adjustedDate;
 }
