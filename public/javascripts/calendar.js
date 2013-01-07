@@ -25,18 +25,17 @@ $(document).ready(function() {
 
         //fullcalendars eventMouseover and eventMouseout API function for returning the event, mouse coordinates, and the current view
         eventMouseover :function(event, jsEvent, view) {
-            if ( $("#event-" + event.id).hasClass("merged-event") == true ) {
+            if ( ($("#event-" + event.id).hasClass("merged-event")) == true ) {
                 
                 // function for determing how many rows the mouse is away from the top of the div, which is the start date
                 // function in jQuery extras, want to replce 15 with slot minutes variable to make it dynamic
-                date = mergedHover(15, event, jsEvent);
-                alert(date);
+                date = new Date(mergedHover(15, event, jsEvent));
             }
             else {
-            $(this).tooltip({
-                title: 'Click event to expand',
-                placement: 'left', 
-                delay: { show: 400, hide: 50 } });
+                $(this).tooltip({
+                    title: 'Click event to expand',
+                    placement: 'left', 
+                    delay: { show: 400, hide: 50 } });
             }
         },
 
