@@ -61,7 +61,7 @@ $(document).ready(function() {
 
             }
             else {
-                $(this).tooltip({
+                $("#event-" + event.id).tooltip({
                     title: 'Click event to expand',
                     placement: 'left', 
                     delay: { show: 400, hide: 50 } 
