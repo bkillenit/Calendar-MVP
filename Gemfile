@@ -8,7 +8,10 @@ gem 'rails', '3.2.8'
 
 gem 'nbrew-simple_time_select', '~> 0.2.0'
 
-gem "jsroutes", "~> 0.0.3"
+gem 'jquery-rails'
+gem 'jquery-rest-rails'
+gem 'jquery-ui-rails'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -25,9 +28,6 @@ end
 group :test do
   gem 'capybara', '1.1.2'
 end
-
-
-gem 'validates_timeliness', '~> 3.0'
 
 # Use unicorn as the web server
 # gem 'unicorn'

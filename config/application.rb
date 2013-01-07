@@ -14,7 +14,7 @@ module Calendar
     config.action_view.javascript_expansions[:cdn] = %w(https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js rails)
     
     #configuration for heroku
-    
+    config.assets.enabled = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

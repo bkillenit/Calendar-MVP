@@ -83,7 +83,7 @@ class EventsController < ApplicationController
   # GET /events/1.xml
   def show
     @event = Event.find(params[:id])
-
+    
     if params[:type] 
       
       if params[:type] == 'user'
@@ -95,11 +95,12 @@ class EventsController < ApplicationController
       elsif params[:type] == 'confirmed'
         render 'events/response_details', :locals=>{:event => @event}  
 
-      elsif params[:type] == 'conflict'
-       #put render for conflicts partial here   
-       
-      end
-    end
+      elsif params[:type] == 'merge-conflict' 
+        @date = params[:date]
+        render 'events/conflicts', :locals=>{:event => @event, :date => @date}
+      end #end of the conditional for  rendering the partial based on params[:type]
+
+    end #end of the params type if block
   end
 
   # GET /events/new

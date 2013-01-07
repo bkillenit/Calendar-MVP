@@ -1,7 +1,3 @@
-//initialize global variables find way to do this with imports and exports
-var merged_ids = [];
-var mousestatus;
-
 // checks if a box is already checked when going back to the home page
 // and runs merge function if necessary
 //wants to move all functions to here that aren't selective upon id and  
@@ -76,28 +72,48 @@ function drag_and_drop(time_div) {
     });   
 }
 
-function event_tooltip(event_div) {
+function mergedHover(slotMinutes, event, ev) {
 
-    if ( $(event_div).hasClass("merged-event") == true ) {
-        //insert the code for popping over who is busy at that time here
-        
-    }
-    else {
-      $(event_div).tooltip({
-            title: 'Click event to expand',
-            placement: 'left', 
-            delay: { show: 400, hide: 50 } });
-    }  
+    // gets the date and rounds it to the nearest 15th minute for failsafe on
+    // errored datetime entries into database 
+    var date = new Date(event.start);
+    roundedSlotDate = new Date(date.setMinutes(Math.round((date.getMinutes()/slotMinutes))*slotMinutes));
+
+    // position used to get a constant value for the event offset from the top of the 
+    // fc-agenda-slots table
+    eventOffset = $("#event-" + event.id).position().top;
+    dividerOffset = $(".fc-agenda-divider").offset().top;
+    
+
+    // remove this if you want the offset value in exact pixels
+    // this is the mouseOffset from the top of the visible table cells
+    mouseOffset = ev.pageY - dividerOffset;
+
+    // eventOffset from the the top of the visible table cells
+    relativeEventOffset = eventOffset - $('#table-scroller').scrollTop();
+    mouseOffsetRelativeToEvent = mouseOffset - relativeEventOffset;
+
+    // manually adjust the pixel distance to 15 minute intervals because the height of the slots are 20px
+    // and rounding the amount of pixels away from the top using steps is an inconsistent interval with the time interval 
+    // gets the height of the slots and adjust them to interval set by the slotMinutes
+    slotHeight = $('.fc-agenda-slots td div').height();
+    roundedMouseOffsetRelativeToEvent = Math.floor(mouseOffsetRelativeToEvent/slotHeight) * slotMinutes;
+    
+    // sets the date based on the calculated offset
+    adjustedDate = new Date(roundedSlotDate.setMinutes(roundedSlotDate.getMinutes() + roundedMouseOffsetRelativeToEvent));
+
+    /* console.log("EventOffset: " + eventOffset + ",\n dividerOffset: " + dividerOffset + ",\n mouseOffset: " + mouseOffset + 
+        ",\n relativeEventOffset: " + relativeEventOffset + ",\n mouseOffsetRelativeToEvent: " + mouseOffsetRelativeToEvent + 
+        ",\n roundedMinutesOffset: " +  ",\n adjustedDate: " + adjustedDate); */
+
+    return adjustedDate;
 }
 
-function unconfirmed_event_mouseout(event_div) {
-    //var event_id = "#event-" + id;
-    //alert(mousestatus);
-    //if (mousestatus=='clicked') {
-        
-    //}
-    //else {
-        //$(event_div).tooltip('hide');
-        //$(event_div).popover('hide');
-    //}
-}
+
+
+
+
+
+
+
+
