@@ -137,21 +137,6 @@ class EventsController < ApplicationController
     current_user.events.push @event
     @event.participants.create(:user_id => current_user.id, :hasResponded => false, :isAttending => true ,:isAdmin => true ).save
 
-    if params[:event][:participants]
-      @p = params[:event][:participants].split(",")
-        @p.each do |p|
-          @event.participants.create( :event_id => @event.id,
-            :user_id => p, :isAttending => false, :hasResponded => false ,:isAdmin => false ).save
-
-          @user = User.find_by_id(p)
-
-          if @user.email != nil
-            Notifier.meeting_requested(@current_user,p,@event).deliver
-          end
-        end
-    end
-    
-
     respond_to do |format|
       if @event.save
         format.html { redirect_to(:controller => "calendar", :action => "index", :notice => 'Event was successfully created.') }
