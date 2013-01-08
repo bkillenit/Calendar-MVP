@@ -3980,12 +3980,6 @@ function AgendaEventRenderer() {
 		if (isEventDraggable(event)) {
 			classes.push('fc-event-draggable');
 		}
-		if (seg.isStart) {
-			classes.push('fc-corner-top');
-		}
-		if (seg.isEnd) {
-			classes.push('fc-corner-bottom');
-		}
 		classes = classes.concat(event.className);
 		if (event.source) {
 			classes = classes.concat(event.source.className || []);
@@ -4005,10 +3999,6 @@ function AgendaEventRenderer() {
 			else if (classesString.indexOf("confirmed-event") >= 0 ){
 				z_index = 25;
 
-			}
-			else if (classesString.indexOf("merged-event") >= 0){
-
-				onmouseover = "'conflicts_popover(" + event + ")'";
 			}
 			else {
 				z_index = 1;
