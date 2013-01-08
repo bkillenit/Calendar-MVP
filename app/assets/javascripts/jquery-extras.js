@@ -77,7 +77,6 @@ function mergedHover(slotMinutes, event, ev) {
     // gets the date and rounds it to the nearest 15th minute for failsafe on
     // errored datetime entries into database 
     var date = new Date(event.start);
-    roundedSlotDate = new Date(date.setMinutes(Math.round((date.getMinutes()/slotMinutes))*slotMinutes));
 
     // position used to get a constant value for the event offset from the top of the 
     // fc-agenda-slots table
@@ -97,10 +96,10 @@ function mergedHover(slotMinutes, event, ev) {
     // and rounding the amount of pixels away from the top using steps is an inconsistent interval with the time interval 
     // gets the height of the slots and adjust them to interval set by the slotMinutes
     slotHeight = $('.fc-agenda-slots td div').height();
-    roundedMouseOffsetRelativeToEvent = Math.floor(mouseOffsetRelativeToEvent/slotHeight) * slotMinutes;
+    roundedMouseOffsetRelativeToEvent = Math.round((mouseOffsetRelativeToEvent/slotHeight) * slotMinutes);
     
     // sets the date based on the calculated offset
-    adjustedDate = new Date(roundedSlotDate.setMinutes(roundedSlotDate.getMinutes() + roundedMouseOffsetRelativeToEvent));
+    adjustedDate = new Date(date.setMinutes(date.getMinutes() + roundedMouseOffsetRelativeToEvent));
 
     /* console.log("EventOffset: " + eventOffset + ",\n dividerOffset: " + dividerOffset + ",\n mouseOffset: " + mouseOffset + 
         ",\n relativeEventOffset: " + relativeEventOffset + ",\n mouseOffsetRelativeToEvent: " + mouseOffsetRelativeToEvent + 

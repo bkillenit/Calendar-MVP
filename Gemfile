@@ -9,8 +9,6 @@ gem 'rails', '3.2.8'
 gem 'nbrew-simple_time_select', '~> 0.2.0'
 
 gem 'jquery-rails'
-gem 'jquery-rest-rails'
-gem 'jquery-ui-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

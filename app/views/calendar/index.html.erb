@@ -1,5 +1,5 @@
 <!-- included here instead of external sourcing because the javascript_include_tag appends .js on the end of the erb file -->
-<!-- find better place to put this -->
+<!-- find better place to put this that is rendered from controller on the index method-->
 <script type="text/javascript">
     
     $(document).ready(function(){
@@ -28,7 +28,6 @@
         <% end %>
 
     });// ready method end
-
 </script>
 
 <% if session[:user_id] === nil? %>
