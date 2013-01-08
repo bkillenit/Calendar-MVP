@@ -39,9 +39,10 @@ class Event < ActiveRecord::Base
   # The only question I have is whether it's possible to chain the .find call
   # onto the .where call. 
   # TODO: Optimize this SQL query, perhaps using ARel
-  def self.find_conflicts(date_time, merged_users)
-    merged_users << current_user.id
-    Event.where(:user_id => merged_users).find(:all, :conditions => ['starts_at < ? AND ends_at > ?', date_time, date_time])
+  def find_conflicts(event, date_time, merged_users)
+    merged_users << event.user_id
+    @potentials = Event.where(:user_id => merged_users)
+    # .find(:all, :conditions => ['starts_at < ? AND ends_at > ?', date_time, date_time])
   end
 
   def self.Participating?(id)
