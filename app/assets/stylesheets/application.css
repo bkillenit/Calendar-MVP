@@ -7,7 +7,7 @@
 *= require_self
 *= require reset
 *= require_tree .
-*= require fullcalendar
 *= require bootstrap-custom
+*= require fullcalendar
 *= require custom
 */
