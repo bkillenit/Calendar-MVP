@@ -4,8 +4,10 @@ Blaine:
   name: Blaine
   password: heyyyy
   role: User
+  events: one
 
 Bert:
   name: Bert
   password: whoaaa
   role: User
+  events: two

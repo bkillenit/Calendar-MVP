@@ -97,7 +97,9 @@ class EventsController < ApplicationController
 
       elsif params[:type] == 'merge-conflict' 
         @date = params[:date]
-        render 'events/conflicts', :locals=>{:event => @event, :date => @date}
+        @merged_users = session[:merged_users]
+        # @event.find_conflicts # (@date, session[:merged_users])
+        render 'events/conflicts', :locals=>{:event => @event, :date => @date, :merged_users => @merged_users}
       end #end of the conditional for  rendering the partial based on params[:type]
 
     end #end of the params type if block
