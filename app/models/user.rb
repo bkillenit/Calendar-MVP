@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :password, :role, :followers, :email, :fname, :lname
 
-  has_many :events, :through => participants
+  # this really should be titled something else, like
+  # events_participating or participating_events
+  has_many :participants, :dependent => :destroy 
+  has_many :events, :through => :participants
 
   has_many :relationships, :foreign_key => "follower_id", :dependent => :destroy
   has_many :reverse_relationships, :foreign_key => "followed_id",
