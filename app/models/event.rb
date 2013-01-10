@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
 
   has_many :participants, :dependent => :destroy
   accepts_nested_attributes_for :participants
+  has_many :users, :through => :participants
 
   validates :user_id, :presence => true
   validates :title, :presence => true
