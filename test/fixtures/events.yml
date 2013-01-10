@@ -1,15 +1,25 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  title: Birthday Party
-  starts_at: 2011-06-14 14:00:00
-  ends_at: 2011-04-14 15:30:00
+  title: Meeting with Blaine
+  starts_at: 2013-01-07 14:00:00
+  ends_at: 2013-01-07 15:30:00
   all_day: false
-  description: My Kid's Birthday
+  description: Review fullcalendar CSS
+  participants: Bert, Blaine
 
 two:
-  title: Aniversary
-  starts_at: 2011-06-14 00:00:00
-  ends_at: 2011-06-14 23:59:59
-  all_day: true
-  description: My wedding anniversary
+  title: Gym
+  starts_at: 2013-01-07 14:00:00
+  ends_at: 2013-01-07 15:30:00
+  all_day: false
+  description: Legs, back
+  participants: Blaine
+
+three:
+  title: Investor call
+  starts_at: 2013-01-07 14:00:00
+  ends_at: 2013-01-07 15:30:00
+  all_day: false
+  description: Investor call
+  participants: Blaine
