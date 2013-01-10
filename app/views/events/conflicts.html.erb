@@ -1,7 +1,8 @@
 Conflicts Partial
 
 <%= @parsed_date = Time.parse(@date) %>
+<ul>
 <% @event.find_conflicts(@event, @date, @merged_users).each do |conflict| %>
-  <%= conflict.title %>
+  <li><%= conflict.title %></li>
 <% end %>
-  
+</ul>
