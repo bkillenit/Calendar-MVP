@@ -41,8 +41,7 @@ class Event < ActiveRecord::Base
   # TODO: Optimize this SQL query, perhaps using ARel
   def find_conflicts(event, date_time, merged_users)
     merged_users << event.user_id
-    @potentials = Event.where(:user_id => merged_users)
-    # .find(:all, :conditions => ['starts_at < ? AND ends_at > ?', date_time, date_time])
+    @potentials = Event.where(:user_id => merged_users).find(:all, :conditions => ['starts_at < ? AND ends_at > ?', date_time, date_time])
   end
 
   def self.Participating?(id)
