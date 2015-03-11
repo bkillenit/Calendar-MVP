@@ -1,5 +1,5 @@
 //function for toggling merging users onto calendar
-<% if session[:merged_users].include?(params[:id]) == true %>
+if ( $.inArray( <%= params[:id].to_s %>,<%= session[:merged_users] %>) != -1 ) {
 			
 			//gives jQuery something to select based on params id
 			userDiv = "#merge-" + <%= params[:id] %>;
@@ -18,7 +18,8 @@
                 className: 'merged-event ',
                 editable: false
             });
-<% else %>
+} 
+else {
 
 			//gives jQuery something to select based on params id
 			userDiv = "#merge-" + <%= params[:id] %>;
@@ -33,4 +34,5 @@
             //sets up the source id based on the eventId above and removes the source
             var source = "/users/" + <%= params[:id] %> + "/events";
             $('#calendar').fullCalendar('removeEventSource', source);
-<% end %>
+
+};

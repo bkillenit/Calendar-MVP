@@ -31,6 +31,12 @@ class UsersController < ApplicationController
       end  
     end  
 
+    #less than 1 used to evealuate every situtation of the session var being blank
+    #even if it has nothing in it but failed to be destroyed
+    #if session[:merged_users].length < 1 
+      #session[:merged_users] == nil
+    #end 
+
     respond_to do |format|
       format.js
     end

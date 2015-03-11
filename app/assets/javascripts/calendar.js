@@ -119,10 +119,13 @@ $(document).ready(function() {
 
 function updateEvent(the_event) {
     $.update(
+      var d = new Date();
+      var timeZoneHourDelta = d.getTimezoneOffset()/60;
+
       "/events/" + the_event.id,
       { event: { title: the_event.title,
-                 starts_at: "" + the_event.start,
-                 ends_at: "" + the_event.end,
+                 starts_at: "" + (the_event.start - timeZoneHourDelta),
+                 ends_at: "" + (the_event.end - timeZoneHourDelta),
                  description: the_event.description
                }
       },

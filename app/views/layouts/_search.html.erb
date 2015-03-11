@@ -1,3 +1,5 @@
+<p><%= session[:merged_users].to_s %></p>
+
 <%= form_tag('/calendar/index', :method => 'get') do %>
     <%= text_field_tag :search, params[:search], :placeholder => 'Search by email or username' ,
             :class => 'search_input' , :remote => true %>
