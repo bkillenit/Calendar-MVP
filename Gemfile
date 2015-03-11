@@ -4,7 +4,7 @@ ruby '1.9.3'
 
 gem 'validates_timeliness', '~> 3.0'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.8'
 
 gem 'nbrew-simple_time_select', '~> 0.2.0'
 
