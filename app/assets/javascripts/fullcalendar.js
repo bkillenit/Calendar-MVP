@@ -4250,7 +4250,7 @@ function AgendaEventRenderer() {
 					var d = new Date();
     				var timeZoneMinuteDelta = d.getTimezoneOffset();   
 
-					eventDrop(this, event, dayDelta, allDay ? 0 : (minuteDelta - timeZoneMinuteDelta), allDay, ev, ui);
+					eventDrop(this, event, dayDelta, allDay ? 0 : minuteDelta, allDay, ev, ui);
 				}else{
 					// either no change or out-of-bounds (draggable has already reverted)
 					resetElement();
