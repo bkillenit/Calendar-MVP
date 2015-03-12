@@ -1,7 +1,6 @@
+require 'time'
+
 class EventsController < ApplicationController
-
-
-
   def index
     # full_calendar will hit the index method with query parameters
     # 'start' and 'end' in order to filter the results for the
@@ -160,10 +159,14 @@ class EventsController < ApplicationController
   # PUT /events/1.js
   # when we drag an event on the calendar (from day to day on the month view, or stretching
   # it on the week or day view), this method will be called to update the values.
-  # viv la REST!
   def update
     @event = Event.find(params[:id])
     
+    puts Time.parse(params[:event][:starts_at])
+    puts Time.parse(params[:event][:ends_at])
+
+    Time.parse("12:00")
+
     respond_to do |format|
       if @event.update_attributes(params[:event])
         format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
