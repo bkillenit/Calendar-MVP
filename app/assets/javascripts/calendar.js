@@ -117,10 +117,7 @@ $(document).ready(function() {
 	});
 });
 
-function updateEvent(the_event) {
-    // var d = new Date();
-    // var timeZoneHourDelta = d.getTimezoneOffset();
-
+function updateEvent(the_event) { 
     $.update(
       "/events/" + the_event.id,
       { event: { title: the_event.title,

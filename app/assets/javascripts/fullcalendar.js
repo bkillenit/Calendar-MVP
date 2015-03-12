@@ -4154,11 +4154,14 @@ function AgendaEventRenderer() {
 				}else{
 					// changed!
 					var minuteDelta = 0;
+					var d = new Date();
+    				var timeZoneHourDelta = d.getTimezoneOffset(); 
+
 					if (!allDay) {
 						minuteDelta = Math.round((eventElement.offset().top - getBodyContent().offset().top) / slotHeight)
 							* opt('slotMinutes')
 							+ minMinute
-							- (event.start.getHours() * 60 + event.start.getMinutes());
+							- (event.start.getHours() * 60 + event.start.getMinutes()) - timeZoneHourDelta * 60;
 					}
 					eventDrop(this, event, dayDelta, minuteDelta, allDay, ev, ui);
 				}
@@ -4244,7 +4247,10 @@ function AgendaEventRenderer() {
 				trigger('eventDragStop', eventElement, event, ev, ui);
 				if (cell && (dayDelta || minuteDelta || allDay)) {
 					// changed!
-					eventDrop(this, event, dayDelta, allDay ? 0 : minuteDelta, allDay, ev, ui);
+					var d = new Date();
+    				var timeZoneHourDelta = d.getTimezoneOffset();   
+
+					eventDrop(this, event, dayDelta, allDay ? 0 : (minuteDelta + timeZoneHourDelta), allDay, ev, ui);
 				}else{
 					// either no change or out-of-bounds (draggable has already reverted)
 					resetElement();
