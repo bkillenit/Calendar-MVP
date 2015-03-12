@@ -4248,9 +4248,9 @@ function AgendaEventRenderer() {
 				if (cell && (dayDelta || minuteDelta || allDay)) {
 					// changed!
 					var d = new Date();
-    				var timeZoneHourDelta = d.getTimezoneOffset();   
+    				var timeZoneMinuteDelta = d.getTimezoneOffset();   
 
-					eventDrop(this, event, dayDelta, allDay ? 0 : (minuteDelta + timeZoneHourDelta), allDay, ev, ui);
+					eventDrop(this, event, dayDelta, allDay ? 0 : (minuteDelta - timeZoneMinuteDelta), allDay, ev, ui);
 				}else{
 					// either no change or out-of-bounds (draggable has already reverted)
 					resetElement();
