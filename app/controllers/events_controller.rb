@@ -168,12 +168,9 @@ class EventsController < ApplicationController
 
     if start_time.gmt_offset/(3600) != time_zone_offset
       params[:event][:starts_at] = Time.at(start_time.to_i - time_zone_offset * 3600)
-      puts start_time
     end
     if end_time.gmt_offset/(3600) != time_zone_offset
-      # end_time.gmt_offset = (-1 * params[:event][:time_zone_offset].to_i)
-      params[:event][:ends_at] = ime.at(end_time.to_i - time_zone_offset * 3600)
-      puts end_time
+      params[:event][:ends_at] = Time.at(end_time.to_i - time_zone_offset * 3600)
     end
 
     respond_to do |format|
