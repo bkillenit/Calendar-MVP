@@ -167,11 +167,11 @@ class EventsController < ApplicationController
 
     puts '*********'
     if start_time.gmt_offset/(3600) == 0
-      start_time.gmt_offset = (-1 * params[:event][:time_zone_offset]) 
+      start_time.gmt_offset = (-1 * params[:event][:time_zone_offset].to_i) 
       puts start_time
     end
     if end_time.gmt_offset/(3600) == 0
-      end_time.gmt_offset = (-1 * params[:event][:time_zone_offset])
+      end_time.gmt_offset = (-1 * params[:event][:time_zone_offset].to_i)
       puts end_time
     end
     puts '*********'
