@@ -23,3 +23,4 @@ Please follow the steps below:
   * the friends' events will show on the calendar as blocks of shadows, indicating that they are busy during that time range
   * events that overlap will create a darker shadow, indicating the degree of the group's busyness over that time range
 4. Navigate the calendar to view open and busy times
+   
