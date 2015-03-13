@@ -165,6 +165,11 @@ class EventsController < ApplicationController
     start_time = Time.parse(params[:event][:starts_at])
     end_time = Time.parse(params[:event][:ends_at])
 
+    puts '*********'
+    puts start_time
+    puts end_time
+    puts '*********'
+
     start_time.gmt_offset = (-1 * params[:event][:time_zone_offset]) if (start_time.utc? and start_time.gmt_offset/(3600) == 0)
     end_time.gmt_offset = (-1 * params[:event][:time_zone_offset]) if (end_time.utc? and end_time.gmt_offset/(3600) == 0)
 
