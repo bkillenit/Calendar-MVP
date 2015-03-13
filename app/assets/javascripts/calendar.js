@@ -126,7 +126,7 @@ function updateEvent(the_event) {
       { event: { title: the_event.title,
                  starts_at: "" + the_event.start,
                  ends_at: "" + the_event.end,
-                 timeZoneOffset: "" + timeZoneHourDelta,
+                 time_zone_offset: "" + timeZoneHourDelta,
                  description: the_event.description
                }
       },

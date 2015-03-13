@@ -162,10 +162,14 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     
-    puts Time.parse(params[:event][:starts_at])
-    puts Time.parse(params[:event][:ends_at])
+    start_time = Time.parse(params[:event][:starts_at])
+    end_time = Time.parse(params[:event][:ends_at])
 
-    Time.parse("12:00")
+    start_time.gmt_offset = (-1 * params[:event][:time_zone_offset]) if (start_time.utc? and start_time.gmt_offset/(3600) == 0)
+    end_time.gmt_offset = (-1 * params[:event][:time_zone_offset]) if (end_time.utc? and end_time.gmt_offset/(3600) == 0)
+
+    params[:event][:starts_at] = start_time
+    params[:event][:ends_at] = end_time
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
