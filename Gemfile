@@ -14,8 +14,6 @@ gem 'activesupport'
 
 gem 'jquery-rails'
 
-gem 'fullcalendar-rails', '~> 1.5'
-
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
