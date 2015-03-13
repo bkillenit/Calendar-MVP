@@ -2,11 +2,15 @@ source 'http://rubygems.org'
 
 ruby '2.1.5'
 
-gem 'validates_timeliness', '~> 3.0'
+gem 'validates_timeliness'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.13'
 
-gem 'nbrew-simple_time_select', '~> 0.2.0'
+gem 'nbrew-simple_time_select'
+
+gem 'sprockets'
+
+gem 'activesupport'
 
 gem 'jquery-rails'
 
