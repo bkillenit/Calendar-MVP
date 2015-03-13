@@ -15,6 +15,7 @@ https://github.com/bokmann/fullcalendar_assets
 I have set up 1 test account and 2 accounts that are friends to that account so you can test the calendar merge functionality of the application.
 
 Please follow the steps below:
+
 1. Go to https://checkitmvp.herokuapp.com/
 2. Login with credentials
   * user: test 
@@ -22,5 +23,4 @@ Please follow the steps below:
 3. Click on the merge button for both of the friends displayed in the left side column
   * the friends' events will show on the calendar as blocks of shadows, indicating that they are busy during that time range
   * events that overlap will create a darker shadow, indicating the degree of the group's busyness over that time range
-4. Navigate the calendar to view open and busy times
-   
+4. Navigate the calendar to view open and busy times   
