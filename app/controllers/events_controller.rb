@@ -164,20 +164,17 @@ class EventsController < ApplicationController
     
     start_time = Time.parse(params[:event][:starts_at])
     end_time = Time.parse(params[:event][:ends_at])
+    time_zone_offset = -1 * params[:event][:time_zone_offset].to_i
 
-    puts '*********'
-    if start_time.gmt_offset/(3600) == 0
-      start_time.gmt_offset = (-1 * params[:event][:time_zone_offset].to_i) 
+    if start_time.gmt_offset/(3600) != time_zone_offset
+      params[:event][:starts_at] = Time.at(start_time.to_i - time_zone_offset * 3600)
       puts start_time
     end
-    if end_time.gmt_offset/(3600) == 0
-      end_time.gmt_offset = (-1 * params[:event][:time_zone_offset].to_i)
+    if end_time.gmt_offset/(3600) != time_zone_offset
+      # end_time.gmt_offset = (-1 * params[:event][:time_zone_offset].to_i)
+      params[:event][:ends_at] = ime.at(end_time.to_i - time_zone_offset * 3600)
       puts end_time
     end
-    puts '*********'
-
-    params[:event][:starts_at] = start_time
-    params[:event][:ends_at] = end_time
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
